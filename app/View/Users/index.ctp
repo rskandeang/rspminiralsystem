@@ -31,28 +31,44 @@
 			<thead> 
 				<tr> 
 				<th class="table-header">No</th>
-                    <th class="table-header">First Name</th>
-                    <th class="table-header">Last Name</th>
-                    <th class="table-header">User Name</th>
-                    <th class="table-header">Gender</th>
-                    <th class="table-header">Phone</th>
-                    <th class="table-header">Email</th>
+                    <!-- <th class="table-header">First Name</th>
+                    <th class="table-header">Last Name</th> -->
+                    <th class="table-header" style="text-align: center;">User Name</th>
+                    <th class="table-header" style="text-align: center;">Gender</th>
+                    <th class="table-header" style="text-align: center;">Created</th>
+                    <th class="table-header" style="text-align: center;">Last update</th>
+                    <th class="table-header" style="text-align: center;">Phone</th>
+                    <th class="table-header" style="text-align: center;">Email</th>
+                    <th class="table-header" style="text-align: center;">Status</th>
+                    <th class="table-header" style="text-align: center;">Action</th>
 				</tr>
 			</thead>
-				<?php 
-					foreach($users as $user){
-						?>
-						<tr> 
-							<td><?php echo $user['User']['u_id']?></td>
-							<td><?php echo $user['User']['firstname']?></td>
-              <td><?php echo $user['User']['lastname']?></td>
-							<td><?php echo $user['User']['username']?></td>
-							<td><?php echo $user['User']['gender']?></td>
-							<td><?php echo $user['User']['phone']?></td>
-							<td><?php echo $user['User']['email']?></td>
-				<?php
-					}
-				?>
+      <?php $count=0; ?>
+        <?php foreach($users as $user): ?>                
+        <?php $count ++;?>
+        <?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
+        <?php endif; ?>
+            <td><?php echo $this->Form->checkbox('User.id'.$user['User']['id']); ?></td>
+            <td style="text-align: center;"><?php echo $user['User']['username'];?></td>
+            <td style="text-align: center;"><?php echo $user['User']['gender'];?></td>
+            <td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
+            <td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['modified']); ?></td>
+            <td style="text-align: center;"><?php echo $user['User']['phone']; ?></td>
+            <td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
+            <td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
+            <td >
+            <?php echo $this->Html->link(    "Edit",   array('action'=>'edit', $user['User']['id']) ); ?> | 
+            <?php
+                if( $user['User']['status'] != 0){ 
+                    echo $this->Html->link(    "Delete", array('action'=>'delete', $user['User']['id']));}else{
+                    echo $this->Html->link(    "Re-Activate", array('action'=>'activate', $user['User']['id']));
+                    }
+            ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+
+				
 			</tbody>
 		</table>
             </div>

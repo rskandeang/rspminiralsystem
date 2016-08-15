@@ -24,6 +24,44 @@ class UsersController extends AppController {
 		$this->Session->destroy();
 		$this->redirect($this->Auth->logout());
 	}
+	public function delete($id = null) {
+         
+        if (!$id) {
+            $this->Session->setFlash('Please provide a user id');
+            $this->redirect(array('action'=>'index'));
+        }
+         
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            $this->Session->setFlash('Invalid user id provided');
+            $this->redirect(array('action'=>'index'));
+        }
+        if ($this->User->saveField('status', 0)) {
+            $this->Session->setFlash(__('User deleted'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('User was not deleted'));
+        $this->redirect(array('action' => 'index'));
+    }
+     public function activate($id = null) {
+         
+        if (!$id) {
+            $this->Session->setFlash('Please provide a user id');
+            $this->redirect(array('action'=>'index'));
+        }
+         
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            $this->Session->setFlash('Invalid user id provided');
+            $this->redirect(array('action'=>'index'));
+        }
+        if ($this->User->saveField('status', 1)) {
+            $this->Session->setFlash(__('User re-activated'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('User was not re-activated'));
+        $this->redirect(array('action' => 'index'));
+    }
 	function add(){
 		if($this->request->is('post')){
 			$this->User->create();	
@@ -44,7 +82,7 @@ class UsersController extends AppController {
 								$this->request->data['User']['image'] = $file['name'];
 							}
 					}
-					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['Student']['password']);
+					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 					if($this->User->save($this->request->data)){
 						return $this->redirect('index');
 					}else {
