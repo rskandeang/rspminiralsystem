@@ -68,7 +68,7 @@
             </td>
         </tr>
         <?php endforeach; ?>
-
+ <?php unset($user); ?>
 
 			</tbody>
 		</table>
