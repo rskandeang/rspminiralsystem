@@ -37,19 +37,21 @@
                     <th class="table-header">Gender</th>
                     <th class="table-header">Phone</th>
                     <th class="table-header">Email</th>
+					<th class="table-header">Action</th>
 				</tr>
 			</thead>
 				<?php 
 					foreach($users as $user){
 						?>
 						<tr> 
-							<td><?php echo $user['User']['u_id']?></td>
+							<td><?php echo $user['User']['id']?></td>
 							<td><?php echo $user['User']['firstname']?></td>
-              <td><?php echo $user['User']['lastname']?></td>
+							<td><?php echo $user['User']['lastname']?></td>
 							<td><?php echo $user['User']['username']?></td>
 							<td><?php echo $user['User']['gender']?></td>
 							<td><?php echo $user['User']['phone']?></td>
 							<td><?php echo $user['User']['email']?></td>
+							<td><?php echo $this->Html->link('edit',['controller'=>'Users','action'=>'edit',$user['User']['id']]);?></td>
 				<?php
 					}
 				?>

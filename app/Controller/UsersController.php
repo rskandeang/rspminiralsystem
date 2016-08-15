@@ -44,7 +44,7 @@ class UsersController extends AppController {
 								$this->request->data['User']['image'] = $file['name'];
 							}
 					}
-					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['Student']['password']);
+					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 					if($this->User->save($this->request->data)){
 						return $this->redirect('index');
 					}else {
@@ -53,6 +53,18 @@ class UsersController extends AppController {
 					$this->User->save($this->data);
 				}
 		}
+	}
+	function edit($id){
+		//echo $id;exit();
+		$data = $this->User->findById($id);
+		if($this->request->is(array('post','put'))){
+			$this->User->id = $id;
+			if($this->User->save($this->request->data)){
+				$this->Session->setFlash('edited');
+				$this->redirect('index');
+			}
+		}
+		$this->request->data = $data;
 	}
 	
 }   
