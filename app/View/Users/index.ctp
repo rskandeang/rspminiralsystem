@@ -31,6 +31,7 @@
 			<thead> 
 				<tr> 
 				<th class="table-header">No</th>
+
                     <!-- <th class="table-header">First Name</th>
                     <th class="table-header">Last Name</th> -->
                     <th class="table-header" style="text-align: center;">User Name</th>
@@ -68,7 +69,7 @@
         </tr>
         <?php endforeach; ?>
 
-				
+
 			</tbody>
 		</table>
             </div>

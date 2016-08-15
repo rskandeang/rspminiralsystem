@@ -92,5 +92,17 @@ class UsersController extends AppController {
 				}
 		}
 	}
+	function edit($id){
+		//echo $id;exit();
+		$data = $this->User->findById($id);
+		if($this->request->is(array('post','put'))){
+			$this->User->id = $id;
+			if($this->User->save($this->request->data)){
+				$this->Session->setFlash('edited');
+				$this->redirect('index');
+			}
+		}
+		$this->request->data = $data;
+	}
 	
 }   
