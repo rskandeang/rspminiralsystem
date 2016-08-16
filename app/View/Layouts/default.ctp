@@ -29,16 +29,23 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
 
 		echo $this->Html->css(array(
 			'style',
+			'bootstrap.min',
 			'bootstrap',
 			'font-awesome',
 			'font-awesome.min'));
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
+		echo $this->Html->script(array(
+			'bootstrap.min',
+			'jquery.min',
+			'bootstrap'
+			));
+
 	?>
 </head>
 <body>
@@ -47,7 +54,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			
 		</div>
 		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>

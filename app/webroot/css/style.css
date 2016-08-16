@@ -1,3 +1,4 @@
+
 *
 {
 	margin:0px;
@@ -237,4 +238,12 @@ a:hover
 #my-logologin
 {
 	padding-top: 24px;
+
+.nav > li > a > img {
+    max-width: none;
+    border-radius: 50%;
+}
+.border {
+    border-bottom: 4px solid green;
+
 }
