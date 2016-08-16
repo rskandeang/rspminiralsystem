@@ -1,0 +1,7 @@
+.nav > li > a > img {
+    max-width: none;
+    border-radius: 50%;
+}
+.border {
+    border-bottom: 4px solid green;
+}
