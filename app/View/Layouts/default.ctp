@@ -31,8 +31,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css(array(
-			'cake.generic',
-			'bootstrap.min',
+			'style',
 			'bootstrap',
 			'font-awesome',
 			'font-awesome.min'));
