@@ -52,7 +52,7 @@
                     <th class="table-header" style="text-align: center;">Last update</th>
                     <th class="table-header" style="text-align: center;">Phone</th>
                     <th class="table-header" style="text-align: center;">Email</th>
-                    <th class="table-header" style="text-align: center;">Status</th>
+                    <!--<th class="table-header" style="text-align: center;">Status</th>-->
                     <th class="table-header" style="text-align: center;">Action</th>
 				</tr>
 			</thead>
@@ -68,7 +68,7 @@
             <td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['modified']); ?></td>
             <td style="text-align: center;"><?php echo $user['User']['phone']; ?></td>
             <td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
-            <td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
+            <!--<td style="text-align: center;"><?php //echo $user['User']['status']; ?></td>-->
             <td >
             <?php echo $this->Html->link(    "Edit",   array('action'=>'edit', $user['User']['id']) ); ?> | 
             <?php
