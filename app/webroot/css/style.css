@@ -247,3 +247,9 @@ a:hover
     border-bottom: 4px solid green;
 
 }
+
+/*form signup*/
+
+body { padding-top:30px; }
+.form-control { margin-bottom: 10px; }
+

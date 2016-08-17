@@ -43,6 +43,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->script(array(
 			'bootstrap.min',
 			'jquery.min',
+			'uploadimage',
 			'bootstrap'
 			));
 

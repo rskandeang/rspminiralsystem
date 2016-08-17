@@ -94,13 +94,48 @@ class UsersController extends AppController {
 	}
 	function edit($id){
 		//echo $id;exit();
-		$data = $this->User->findById($id);
-		if($this->request->is(array('post','put'))){
-			$this->User->id = $id;
-			if($this->User->save($this->request->data)){
-				$this->Session->setFlash('edited');
-				$this->redirect('index');
-			}
+		// $data = $this->User->findById($id);
+		// if($this->request->is(array('post','put'))){
+		// 	$this->User->id = $id;
+		// 	if($this->User->save($this->request->data)){
+		// 		$this->Session->setFlash('edited');
+		// 		$this->redirect('index');
+		// 	}
+		// }
+		// $this->request->data = $data;
+			//$data = $this->User->findById($id);
+
+		$data = $this->User->find('first',array(
+			'conditions'=>array('id'=>$id)));
+			$f = $data['User']['image'];
+			@unlink(WWW_ROOT.'img/'.$f);
+			if($this->request->is(array('post','put'))){
+				$this->User->id = $id;
+				if(!empty($this->data))
+					{
+						//Check if image has been uploaded
+						if(!empty($this->request->data['User']['image']['name']))
+						{
+							$file = $this->request->data['User']['image'];
+							$ext = substr(strtolower(strrchr($file['name'], '.')), 1); 
+							$arr_ext = array('jpg', 'jpeg', 'gif','png');
+								
+								if(in_array($ext, $arr_ext))
+								{
+									//do the actual uploading of the file. First arg is the tmp name, second arg is 
+									//where we are putting it
+									move_uploaded_file($file['tmp_name'], WWW_ROOT.'img/'.$file['name']);
+									//prepare the filename for database entry
+									$this->request->data['User']['image'] = $file['name'];
+								}
+						}
+					
+						$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
+						if($this->User->save($this->request->data)){
+							$this->Session->setFlash('edited');
+							$this->redirect('index');
+						}
+					}
 		}
 		$this->request->data = $data;
 	}

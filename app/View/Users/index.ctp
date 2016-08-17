@@ -18,12 +18,12 @@
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#"><span>
-                  <?php echo $this->Html->link( "Logout",array('controller'=>'Users','action'=>'logout'),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock ') );?></span></a></li>
+                  <?php echo $this->Html->link( " Logout",array('controller'=>'Users','action'=>'logout'),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
                     <li><a href="#">Page 1-2</a></li>
                     <li><a href="#">Page 1-3</a></li> 
                   </ul>
                 </li>
-              <li ><?php echo $this->Html->link( "Sign Up",array('controller'=>'Users','action'=>'add'),array('style'=>'color:green','class'=>'glyphicon glyphicon-edit') );?></li>
+              <li ><?php echo $this->Html->link( "SignUp",array('controller'=>'Users','action'=>'add'),array('style'=>'color:green','class'=>'glyphicon glyphicon-edit') );?></li>
               
             </ul>
         </div>
@@ -53,6 +53,7 @@
                     <th class="table-header" style="text-align: center;">Phone</th>
                     <th class="table-header" style="text-align: center;">Email</th>
                     <th class="table-header" style="text-align: center;">Status</th>
+                    <th class="table-header" style="text-align: center;">Image</th>
                     <th class="table-header" style="text-align: center;">Action</th>
 				</tr>
 			</thead>
@@ -69,13 +70,18 @@
             <td style="text-align: center;"><?php echo $user['User']['phone']; ?></td>
             <td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
             <td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
+            <td style="text-align: center;"><?php echo $this->Html->image($user['User']['image'], array('alt' => 'story image','style'=>'width:25px;')); ?></td>
             <td >
-            <?php echo $this->Html->link(    "Edit",   array('action'=>'edit', $user['User']['id']) ); ?> | 
+
+            <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
+                    array('action'=>'edit', $user['User']['id']),array('escape' => false,'style'=>'color:green')); ?>
+             | 
             <?php
                 if( $user['User']['status'] != 0){ 
-                    echo $this->Html->link(    "Delete", array('action'=>'delete', $user['User']['id']));}else{
-                    echo $this->Html->link(    "Re-Activate", array('action'=>'activate', $user['User']['id']));
-                    }
+                     echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'style'=>'color:red'));}
+                else {
+                    echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action'=>'activate', $user['User']['id']),array('escape' => false,'style'=>'color:#2E86C1'));
+                }
             ?>
             </td>
         </tr>
