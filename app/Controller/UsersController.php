@@ -1,14 +1,32 @@
 <?php
 class UsersController extends AppController {
-
+	public $helpers = array(
+			  'Js' => array('Jquery'),
+			  'Paginator',
+			  'Html',
+			  'Form');
+	public $components = array(
+			  'Paginator',
+			  'RequestHandler');
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login'); 
+        $this->Auth->allow('login','add','index','edit'); 
     }
 	function index(){
-		$users = $this->User->find('all');
-		$this->set('users',$users);
-	}  
+		$keyword = $this->request->query('Search');
+		$this->paginate = array(
+				'limit' => 10,
+						'OR' => array(
+								array('User.id LIKE' => '%' . $keyword . '%'),
+								array('User.username LIKE' => '%' . $keyword . '%'),
+								array('User.gender LIKE' => '%' . $keyword . '%'),
+								array('User.phone LIKE' => '%' . $keyword . '%'),
+								array('User.email LIKE' => '%' . $keyword . '%'),
+								));
+		
+		//$users = $this->User->find('all');
+		$this->set('users',$this->paginate());
+	}
 	function login(){
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {

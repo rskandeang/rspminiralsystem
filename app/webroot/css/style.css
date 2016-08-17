@@ -252,4 +252,12 @@ a:hover
 
 body { padding-top:30px; }
 .form-control { margin-bottom: 10px; }
-
+/*pagination*/
+.badge-success {
+  background-color: #468847;
+}
+.badge:hover {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}

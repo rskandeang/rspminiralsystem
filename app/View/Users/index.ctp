@@ -42,19 +42,28 @@
              <table class="col-md-12"cellpadding="0" cellspacing="0">
 			<thead> 
 				<tr> 
-				<th class="table-header">No</th>
-
-                    <!-- <th class="table-header">First Name</th>
-                    <th class="table-header">Last Name</th> -->
-                    <th class="table-header" style="text-align: center;">User Name</th>
-                    <th class="table-header" style="text-align: center;">Gender</th>
-                    <th class="table-header" style="text-align: center;">Created</th>
-                    <th class="table-header" style="text-align: center;">Last update</th>
-                    <th class="table-header" style="text-align: center;">Phone</th>
-                    <th class="table-header" style="text-align: center;">Email</th>
-                    <th class="table-header" style="text-align: center;">Status</th>
-                    <th class="table-header" style="text-align: center;">Image</th>
-                    <th class="table-header" style="text-align: center;">Action</th>
+				<!-- <th class="table-header">No</th> -->
+            <!-- <th class="table-header">First Name</th>
+            <th class="table-header">Last Name</th> -->
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('id', 'No'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('username', 'User Name'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('gender', 'Gender'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('created', 'Created'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('modified', 'Last Update'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('phone', 'Phone'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('email', 'Email'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('status', 'Status'); ?></th>
+            <th class="table-header" style="text-align: center;">Image</th>
+            <th class="table-header" style="text-align: center;">Action</th>
+            <!-- <th class="table-header" style="text-align: center;">User Name</th>
+            <th class="table-header" style="text-align: center;">Gender</th>
+            <th class="table-header" style="text-align: center;">Created</th>
+            <th class="table-header" style="text-align: center;">Last update</th>
+            <th class="table-header" style="text-align: center;">Phone</th>
+            <th class="table-header" style="text-align: center;">Email</th>
+            <th class="table-header" style="text-align: center;">Status</th>
+            <th class="table-header" style="text-align: center;">Image</th>
+            <th class="table-header" style="text-align: center;">Action</th> -->
 				</tr>
 			</thead>
       <?php $count=0; ?>
@@ -96,7 +105,7 @@
   </div>
 </div>
 
-
+<?php echo $this->element('pagination'); ?>  
 <footer class="container-fluid text-center success well">
     ក្រុមហ៊ុន រស្មីពេជ្រកណ្ដៀង
 </footer>
