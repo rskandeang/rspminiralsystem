@@ -25,6 +25,13 @@ class User extends AppModel {
 	            'message' => 'Username between 1 and 24 chars'
 	        )
 	    ),
+	    'username'=>array(
+
+            'That username has already been taken'=>array(
+                'rule'=>'isUnique',
+                'message'=>'That username has already been taken.'
+           		 )
+            ),
 
 		'phone' => array(
 		    'numeric' => array(
@@ -36,11 +43,18 @@ class User extends AppModel {
 	            'message' => 'phone number between 1 and 24 chars'
 	        )
 		),
-        'password' => array(
-            'rule' => array('minLength', '8'),
-            'message' => 'Minimum 8 characters long'
+        'password'=>array(
+            'Not empty'=>array(
+                'rule'=>'notEmpty',
+                'message'=>'Please enter your password'
+            	)
+            ),
+        'email'=>array(
+            'Valid email'=>array(
+                'rule'=>array('email'),
+                'message'=>'Please enter a valid email address'
+            )
         ),
-        'email' => 'email'
 
     );
 }

@@ -1,3 +1,4 @@
+<?php echo $this->element('header'); ?> 
 <div class="container" style="margin-top:30px">
 	<div class="col-md-10 col-md-offset-1">
 		<div class="panel panel-default">
@@ -54,3 +55,4 @@
 		</div>
 	</div>
 </div>
+<?php echo $this->element('footer'); ?> 

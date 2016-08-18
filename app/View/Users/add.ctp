@@ -58,7 +58,7 @@
 <!-- <footer class="container-fluid text-center success well">
     ក្រុមហ៊ុន រស្មីពេជ្រកណ្ដៀង
 </footer> -->
-
+<?php echo $this->element('header'); ?> 
 <div class="container" style="margin-top:30px">
 	<div class="col-md-10 col-md-offset-1">
 		<div class="panel panel-default">
@@ -116,3 +116,4 @@
 		</div>
 	</div>
 </div>
+<?php echo $this->element('footer'); ?> 
