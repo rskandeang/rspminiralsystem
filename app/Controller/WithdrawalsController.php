@@ -1,5 +1,5 @@
 <?php
-class PurchasesController extends AppController {
+class WithdrawalsController extends AppController {
 	public $helpers = array(
 			  'Js' => array('Jquery'),
 			  'Paginator',
@@ -24,19 +24,15 @@ class PurchasesController extends AppController {
 								));
 		
 		//$users = $this->User->find('all');
-		$this->set('purchases',$this->paginate());
+		$this->set('withdrawals',$this->paginate());
 	}
-}   
-
-	
-
 // 	public function index(){
 // 			// $this->set('purchases',$this->Purchase->find('all'));
-// 	$sumAmount = $this->Purchase->find('all');
+// 	$withdrawals = $this->Withdrawal->find('all');
 
-//     $this->set('purchases',$sumAmount);
+//     $this->set('withdrawals',$withdrawals);
 
    
 // }
 
- 
+}   
