@@ -38,6 +38,7 @@
            <tr> 
             <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('id', 'No'); ?></th>
             <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('customer_id', 'Customer'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('date_purchase', 'Date Purchase'); ?></th>
             <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('amounts', 'Amounts'); ?></th>
             <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('t_price', 'Total Prices'); ?></th>
         </tr>
@@ -50,6 +51,7 @@
         <?php endif; ?>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['id']; ?></td>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['customer_id']; ?></td>
+            <td style="text-align: center;"><?php echo $purchase['Purchase']['date_purchase']; ?></td>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['amounts']; ?></td>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['t_price'];?></td>
         </tr>
@@ -66,6 +68,7 @@
                 </tr> -->
                 <?php endforeach; ?>
          
+             <td style="text-align: center;"></td>
              <td style="text-align: center;"></td>
              <td style="text-align: center;"></td>
                  <td style="text-align: center; "><p style="margin-top:10px;padding:10px 25px; color:green" class="btn btn-default"><?php echo $total; ?></p></td>

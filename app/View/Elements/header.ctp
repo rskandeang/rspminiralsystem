@@ -8,7 +8,7 @@
           </div>
             <ul class="nav navbar-nav ">
               <li ><?php echo $this->Html->image('logo.png', array('alt' => 'logo', 'border' => '0','width'=>'150','height'=>'60')); ?></li >
-                <li ><?php echo $this->Html->link( "Customer List",array('controller'=>'Purchases','action'=>'index'),array('style'=>'color:green') );?></li>
+                <li ><?php echo $this->Html->link( "Total Purchases",array('controller'=>'Purchases','action'=>'index'),array('style'=>'color:green') );?></li>
                 <li ><?php echo $this->Html->link( "Withdrawal",array('controller'=>'Withdrawals','action'=>'index'),array('style'=>'color:green') );?></li>
                  <li ><?php echo $this->Html->link( "Money",array('controller'=>'Moneys','action'=>'index'),array('style'=>'color:green') );?></li>
             </ul>

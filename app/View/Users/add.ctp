@@ -97,6 +97,8 @@
 							<?php echo $this->Form->input('phone', array(
 										'class' => 'form-control','placeholder'=>'Phone','label' => false));?>
 						</div>
+
+						 
 						<div class="form-group">
 							<?php echo $this->Form->input('email', array(
 											'class' => 'form-control','placeholder'=>'Email','label' => false));?>
