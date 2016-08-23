@@ -26,7 +26,7 @@
 <div class="container-fluid">
   <div class="row ">
      <div class="col-md-12">
-    <div class="col-md-3"><p class="btn btn-default"><?php echo $this->Html->link( "<< User list",array('controller'=>'Users','action'=>'index'),array('style'=>'color:green') );?></p></div>
+      <div class="col-md-3" style="margin-top:30px"><p style="margin-left: 94px;" class="btn btn-default"><?php echo $this->Html->link( "<< User list",array('controller'=>'Users','action'=>'index'),array('style'=>'color:green') );?></p></div>
       <div class="col-md-6"><h1 class="text-center">Total Purchase </h1></div>
       <div class="col-md-3"></div>
     </div>

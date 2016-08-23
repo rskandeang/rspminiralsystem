@@ -11,6 +11,7 @@
                 <li ><?php echo $this->Html->link( "Total Purchases",array('controller'=>'Purchases','action'=>'index'),array('style'=>'color:green') );?></li>
                 <li ><?php echo $this->Html->link( "Withdrawal",array('controller'=>'Withdrawals','action'=>'index'),array('style'=>'color:green') );?></li>
                  <li ><?php echo $this->Html->link( "Money",array('controller'=>'Moneys','action'=>'index'),array('style'=>'color:green') );?></li>
+                 <li ><?php echo $this->Html->link( "Customer list",array('controller'=>'Costomers','action'=>'index'),array('style'=>'color:green') );?></li>
             </ul>
 
 
