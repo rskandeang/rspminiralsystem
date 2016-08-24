@@ -21,17 +21,25 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<?php echo $this->Form->input('username', array(
+						<div class="row">
+			                <div class="col-xs-12 col-sm-6 col-md-6">
+			    				<div class="form-group">
+									<?php echo $this->Form->input('username', array(
 										'class' => 'form-control','placeholder'=>'User Name','label' => false ));?>
-						</div>
-						<!-- <div class="form-group">
-							<?php echo $this->Form->input('password', array(
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div class="form-group">
+									<?php echo $this->Form->input('password', array(
 										'class' => 'form-control','placeholder'=>'Password','label' => false));?>
-						</div> -->
+								</div>
+							</div>
+						</div>
+						
+						 
 						<div class="form-group">
-							<?php echo $this->Form->input('dob', array(
-										'class' => 'form-control','placeholder'=>'Day of birth','label' => false));?>
+										<?php echo $this->Form->input('dob', array('class'=>'form-control', 
+											'placeholder'=>'Day of birth','label' => false));?>
 						</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('gender', array(
@@ -56,7 +64,7 @@
 						<!-- <div class="form-group">
 							<?php echo $this->Form->input('image', array(
 											'type' => 'file'));?>
-						</div> -->                    
+						</div> -->                   
 						  <button type="submit" class="btn btn-success form-control">submit</button>
 						  <!-- <span class="pull-right" <?php echo $this->Form->submit('Submit')?></span> -->
 											<?php echo $this->Form->end();?>

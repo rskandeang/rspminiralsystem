@@ -6,7 +6,16 @@
      </div>
      <div class="col-md-2" style="margin-top:30px;"> <button class="btn btn-default" style="margin-left: -36px;"><?php echo $this->Html->link( "Add Customer",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:green') );?></button></div>
     <div class="col-md-12 ">
-        <div class="col-md-1"></div>
+         <div class="col-md-2 well">
+           
+            <button class="btn btn-default" style="margin-left: 30px;"><?php echo $this->Html->link( "Add Customer",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:green') );?></button>
+
+            <?php echo $this->Form->create('Costomer', array('type' => 'get')); ?>
+            <?php echo $this->Form->input('Search',array('class'=>'form-control','placeholder'=>'Search...','label'=>false,'style'=>'margin-top:20px;')); ?>
+            <?php echo $this->Form->submit('Search',array('class'=>'form-control','style'=>'width:100%;margin-top:20px;')); ?>
+            <?php echo $this->Form->end(); ?>
+        
+        </div>
         <div class="col-md-10 well">
              <table class="col-md-12"cellpadding="0" cellspacing="0">
 			<thead> 
@@ -57,7 +66,7 @@
 			</tbody>
 		</table>
             </div>
-             <div class="col-md-1"></div>
+             <!-- <div class="col-md-1"></div> -->
     </div>
   </div>
 </div>

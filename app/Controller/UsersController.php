@@ -16,32 +16,32 @@ class UsersController extends AppController {
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
 				'limit' => 10,
+				'conditions' => array(
+
 						'OR' => array(
 								array('User.id LIKE' => '%' . $keyword . '%'),
 								array('User.username LIKE' => '%' . $keyword . '%'),
 								array('User.gender LIKE' => '%' . $keyword . '%'),
 								array('User.phone LIKE' => '%' . $keyword . '%'),
 								array('User.email LIKE' => '%' . $keyword . '%'),
-								));
+								)
+						
+							)
+						);
+
 		
 		//$users = $this->User->find('all');
 		$this->set('users',$this->paginate());
+		// var_dump($keyword);exit();
+
 	}
-		// function login(){
-	// 	if ($this->request->is('post')) {
-	// 		 $user = $this->Auth->identify();
-	// 		if ($user) {
- //                $this->Auth->setUser($user);
- //                return $this->redirect($this->Auth->redirectUrl());
- //            }
- //            $this->Flash->error(__('Invalid username or password, try again'));
- //        }
-	// 	}  
+
 	function login(){
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
 				$this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
-				$this->redirect('index');
+				$this->redirect( array('controller' => 'Costomers', 'action' => 'index'));
+				// $this->redirect('index');
 			} else {
 				$this->Session->setFlash(__('Invalid username or password'));
 			}

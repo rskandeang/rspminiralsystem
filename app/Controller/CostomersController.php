@@ -1,33 +1,48 @@
 <?php
 class CostomersController extends AppController {
-	public function initialize()
-		{
-    parent::initialize();
-    $this->loadComponent('Auth', [
-	        'loginAction' => [
-	            'controller' => 'Costomers',
-	            'action' => 'login'
-	        ],
-	        'authenticate' => [
-	            'Form' => [
-	                'fields' => ['username'=>'username','password'=>'password']
-	                
-	            ]
-	        ],
-	        'storage' => 'Session'
-	    ]);
+public $helpers = array(
+			  'Js' => array('Jquery'),
+			  'Paginator',
+			  'Html',
+			  'Form');
+	public $components = array(
+			  'Paginator',
+			  'RequestHandler');
+	function index(){
+		$keyword = $this->request->query('Search');
+		$this->paginate = array(
+				'limit' => 10,
+				'conditions' => array(
+						'OR' => array(
+								array('Costomer.id LIKE' => '%' . $keyword . '%'),
+								array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
+								array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
+								array('Costomer.username LIKE' => '%' . $keyword . '%'),
+								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
+								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
+								array('Costomer.email LIKE' => '%' . $keyword . '%'),
+								)
+						
+							)
+						);
+
+		
+		//$users = $this->User->find('all');
+		$this->set('costomers',$this->paginate());
+		// var_dump($keyword);exit();
+
 	}
 
     public function beforeFilter() {
 	    parent::beforeFilter();
-	    $this->Auth->allow('add', 'logout');
+	    $this->Auth->allow('add', 'logout','login');
 	}
 
-	function index(){
+	// function index(){
 
-		$costomers = $this->Costomer->find('all');
-		$this->set('costomers',$costomers);
-	}
+	// 	$costomers = $this->Costomer->find('all');
+	// 	$this->set('costomers',$costomers);
+	// }
 
 	// public function login() {
 	//     if ($this->request->is('post')) {

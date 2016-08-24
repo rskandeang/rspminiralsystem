@@ -4,39 +4,45 @@
     <h1 class="text-center">All list of User</h1>
     </div>
     <div class="col-md-12 ">
-        <div class="col-md-1"></div>
+        <div class="col-md-2 well">
+           
+            <span class="btn btn-default"><?php echo $this->Html->link( "Create NewUser",array('controller'=>'Users','action'=>'add'),array('style'=>'color:green') );?></span>
+
+            <?php echo $this->Form->create('User', array('type' => 'get')); ?>
+            <?php echo $this->Form->input('Search',array('class'=>'form-control','placeholder'=>'Search...','label'=>false,'style'=>'margin-top:20px;')); ?>
+            <?php echo $this->Form->submit('Search',array('class'=>'form-control','style'=>'width:100%;margin-top:20px;')); ?>
+            <?php echo $this->Form->end(); ?>
+        
+        </div>
         <div class="col-md-10 well">
              <table class="col-md-12"cellpadding="0" cellspacing="0">
 			<thead> 
 				<tr> 
-				<!-- <th class="table-header">No</th> -->
-            <!-- <th class="table-header">First Name</th>
-            <th class="table-header">Last Name</th> -->
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('id', 'No'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('username', 'User Name'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('gender', 'Gender'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('created', 'Created'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('modified', 'Last Update'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('phone', 'Phone'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('email', 'Email'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('status', 'Status'); ?></th>
-            <th class="table-header" style="text-align: center;">Image</th>
-            <th class="table-header" style="text-align: center;">Action</th>
-            <!-- <th class="table-header" style="text-align: center;">User Name</th>
-            <th class="table-header" style="text-align: center;">Gender</th>
-            <th class="table-header" style="text-align: center;">Created</th>
-            <th class="table-header" style="text-align: center;">Last update</th>
-            <th class="table-header" style="text-align: center;">Phone</th>
-            <th class="table-header" style="text-align: center;">Email</th>
-            <th class="table-header" style="text-align: center;">Status</th>
-            <th class="table-header" style="text-align: center;">Image</th>
-            <th class="table-header" style="text-align: center;">Action</th> -->
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('id', 'No'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('username', 'User Name'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('gender', 'Gender'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('created', 'Created'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('modified', 'Last Update'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('phone', 'Phone'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('email', 'Email'); ?></th>
+            <th class="table-header" style="text-align:center;">
+                <?php echo $this->Paginator->sort('status', 'Status'); ?></th>
+            <th class="table-header" style="text-align:center;">Image</th>
+            <th class="table-header" style="text-align:center;">Action</th>
+    
 				</tr>
 			</thead>
       <?php $id=0; ?>
         <?php foreach($users as $user): ?>                
         <?php $id ++;?>
-            <!-- <td><?php echo $this->Form->checkbox('User.id'.$user['User']['id']); ?></td> -->
+          
             <td><?php echo $id; ?></td>
             <td style="text-align: center;"><?php echo $user['User']['username'];?></td>
             <td style="text-align: center;"><?php echo $user['User']['gender'];?></td>
@@ -66,7 +72,7 @@
 			</tbody>
 		</table>
             </div>
-             <div class="col-md-1"></div>
+            
     </div>
   </div>
 </div>
