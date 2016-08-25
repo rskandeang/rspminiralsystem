@@ -38,6 +38,10 @@
 							'class' => 'form-control'));?>
 						<?php echo $this->Form->input('gender', array(
 							'class' => 'form-control'));?>
+						<?php echo $this->Form->input('first', array(
+                                  'type'=>'checkbox', 
+                                  'format' => array('before', 'input', 'between', 'label', 'after', 'error' ) 
+		) ); ?>
 						<?php echo $this->Form->input('code', array(
 							'class' => 'form-control'));?>
 						<?php echo $this->Form->input('phone', array(

@@ -45,25 +45,21 @@
 				<th class="table-header">No</th>
 
                     <th class="table-header" style="text-align: center;">Name</th>
-                    <th class="table-header" style="text-align: center;">Gender</th>
-                    <th class="table-header" style="text-align: center;">Phone</th>
-                    <th class="table-header" style="text-align: center;">Email</th>
+                   
 				</tr>
 			</thead>
       <?php $count=0; ?>
-        <?php foreach($costomers as $costomer): ?>                
+        <?php foreach($tests as $test): ?>                
         <?php $count ++;?>
         <?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
         <?php endif; ?>
-            <td><?php echo $this->Form->checkbox('Costomer.id'.$costomer['Costomer']['id']); ?></td>
-            <td style="text-align: center;"><?php echo $costomer['Costomer']['name'];?></td>
-            <td style="text-align: center;"><?php echo $costomer['Costomer']['gender'];?></td>
-            <td style="text-align: center;"><?php echo $costomer['Costomer']['phone']; ?></td>
-            <td style="text-align: center;"><?php echo $costomer['Costomer']['email']; ?></td>
+            <td><?php echo $this->Form->checkbox('Test.id'.$test['Test']['id']); ?></td>
+            <td style="text-align: center;"><?php echo $test['Test']['name'];?></td>
+           
         </tr>
 		<tr>
             <td>
-                <?php echo $this->Html->link('view',array('controller'=>'costomers','action'=>'view',$costomer['Costomer']['id']),array('escape'=>false)); ?>   </td>
+                <?php echo $this->Html->link('view',array('controller'=>'tests','action'=>'view',$test['Test']['id']),array('escape'=>false)); ?>   </td>
 			<td>
         </tr>
         <?php endforeach; ?>
