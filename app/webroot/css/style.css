@@ -8,7 +8,6 @@
 body{
 	background:#222526;
 	position:relative;
-	padding:20px;
 	font-family:verdana;
 } 
 
@@ -261,4 +260,6 @@ body { padding-top:30px; }
   text-decoration: none;
   cursor: pointer;
 }
+
+/*icon*/
 

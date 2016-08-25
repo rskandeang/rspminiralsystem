@@ -18,6 +18,10 @@
 			.label {
 			  background-color:#ABB2B9;
 			}
+			.btn-default{
+				margin-top: 10px;
+				margin-right: 2px;
+			}
 	</style>
 </head>
 <body style="text-align:center;" >

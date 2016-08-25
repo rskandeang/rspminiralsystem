@@ -25,22 +25,26 @@
 <?php echo $this->element('header'); ?> 
 <div class="container-fluid">
   <div class="row ">
-     <div class="col-md-12">
+    <div class="col-md-12">
+        <div style="background-color:#32800A; color:#fff;" class="col-md-2"> <h4 class="text-center">Total purchase</h4></div>
+    </div>
+     <!-- <div class="col-md-12">
       <div class="col-md-3" style="margin-top:30px"><p style="margin-left: 94px;" class="btn btn-default"><?php echo $this->Html->link( "<< User list",array('controller'=>'Users','action'=>'index'),array('style'=>'color:green') );?></p></div>
       <div class="col-md-6"><h1 class="text-center">Total Purchase </h1></div>
       <div class="col-md-3"></div>
-    </div>
+    </div> -->
     <div class="col-md-12 ">
         <div class="col-md-1"></div>
-        <div class="col-md-10 well">
-             <table class="col-md-12"cellpadding="0" cellspacing="0">
-      <thead> 
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+             <table class="col-md-12 table table-hover table-striped" cellpadding="0" cellspacing="0">
+      <thead style="background-color:#32800A;"> 
            <tr> 
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('id', 'No'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('customer_id', 'Customer'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('date_purchase', 'Date Purchase'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('amounts', 'Amounts'); ?></th>
-            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('t_price', 'Total Prices'); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#fff;')); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('customer_id', 'Customer',array('style'=>'color:#fff;')); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('date_purchase', 'Date Purchase',array('style'=>'color:#fff;')); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('amounts', 'Amounts',array('style'=>'color:#fff;')); ?></th>
+            <th class="table-header" style="text-align: center;"><?php echo $this->Paginator->sort('t_price', 'Total Prices',array('style'=>'color:#fff;')); ?></th>
         </tr>
       </thead>
       <tbody>
@@ -49,7 +53,7 @@
         <?php $count ++;?>
         <?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
         <?php endif; ?>
-            <td style="text-align: center;"><?php echo $purchase['Purchase']['id']; ?></td>
+            <td scope="row" style="text-align: center;"><?php echo $purchase['Purchase']['id']; ?></td>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['customer_id']; ?></td>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['date_purchase']; ?></td>
             <td style="text-align: center;"><?php echo $purchase['Purchase']['amounts']; ?></td>
@@ -79,7 +83,6 @@
       </tbody>
     </table>
             </div>
-             <div class="col-md-1"></div>
     </div>
   </div>
 </div>
