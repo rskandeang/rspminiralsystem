@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row ">
     <div class="col-md-12">
       <nav class="navbar navbar-default success row">
@@ -22,8 +22,8 @@
       </nav>
     </div>
   </div>
-</div>
-<div class="container-fluid">
+</div> -->
+<!-- <div class="container-fluid">
   <div class="row">
   	<div class="col-sm-12">
 		<div class="col-sm-3"></div>
@@ -48,14 +48,16 @@
 								'class' => 'form-control'));?>
 							
 				</fieldset>
-					<span class="pull-right<?php echo $this->Form->submit('Submit')?></span>
+					<span class="pull-right" <?php echo $this->Form->submit('Submit')?></span>
 					<?php echo $this->Form->end();?>
 		  	</div>
   			<div class="col-sm-3"></div>
   		</div>
 	</div>
-</div>
-<footer class="container-fluid text-center success well">
+</div> -->
+<!-- <footer class="container-fluid text-center success well">
     ក្រុមហ៊ុន រស្មីពេជ្រកណ្ដៀង
-</footer>
-	
+</footer> -->
+<?php echo $this->element('header'); ?> 
+<?php echo $this->element('add_new_user') ?>
+<?php echo $this->element('footer'); ?> 

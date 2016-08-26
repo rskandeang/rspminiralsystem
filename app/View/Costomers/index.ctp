@@ -1,4 +1,3 @@
-
 <div  class="container-fluid ">
   <div class="row  ">
     <div class="col-md-12 ">
@@ -80,3 +79,7 @@
 <footer class="container-fluid text-center success well">
     ក្រុមហ៊ុន រស្មីពេជ្រកណ្ដៀង
 </footer>
+<?php //echo $this->element('header'); ?> 
+<?php //echo $this->element('customer'); ?> 
+<?php //echo $this->element('pagination'); ?>
+<?php //echo $this->element('footer'); ?> 

@@ -22,6 +22,7 @@
  */
 App::uses('Controller', 'Controller');
 
+
 /**
  * Application Controller
  *
@@ -32,6 +33,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	
 
 	// added the debug toolkit
 	// sessions support
@@ -53,6 +55,7 @@ class AppController extends Controller {
 	// only allow the login controllers only
 	public function beforeFilter() {
         $this->Auth->allow('login');
+       
     }
 	
 	// public function isAuthorized($user) {
@@ -60,5 +63,23 @@ class AppController extends Controller {
 		
 	// 	return true;
 	// }
+	public function initialize()
+		{
+	    parent::initialize();
+	    $this->loadComponent('Flash');
+	    $this->loadComponent('Auth', [
+		        'loginAction' => [
+		            'controller' => 'Costomers',
+		            'action' => 'login'
+		        ],
+		        'authenticate' => [
+		            'Form' => [
+		                'fields' => ['username'=>'username','password'=>'password']
+		                
+		            ]
+		        ],
+		        'storage' => 'Session'
+		    ]);
+		}
 	
 }

@@ -8,7 +8,6 @@
 body{
 	background:#222526;
 	position:relative;
-	padding:20px;
 	font-family:verdana;
 } 
 
@@ -247,3 +246,20 @@ a:hover
     border-bottom: 4px solid green;
 
 }
+
+/*form signup*/
+
+body { padding-top:30px; }
+.form-control { margin-bottom: 10px; }
+/*pagination*/
+.badge-success {
+  background-color: #468847;
+}
+.badge:hover {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*icon*/
+
