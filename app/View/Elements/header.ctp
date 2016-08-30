@@ -13,17 +13,31 @@
                  <li ><?php echo $this->Html->link( "Customer list",array('controller'=>'Costomers','action'=>'index'),array('style'=>'color:#fff') );?></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li ><?php echo $this->Html->link( '<li style="color:#fff;font-size:30px;margin-top:15px;margin-left:10px;" class="fa fa-university" aria-hidden="true"></li>',array('controller'=>'Withdrawals','action'=>'index'),array('escape' => false));?></li>
+              <li ><?php echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-shopping-cart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));?></li>
+              <!-- <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-university" aria-hidden="true"></span></li>',array('controller'=>'Withdrawals','action'=>'index'),array('escape' => 0));?></li>
 
-              <li ><?php echo $this->Html->link( '<li style="color:#fff;font-size:30px;margin-top:15px;margin-left:10px;"  class="fa fa-usd" aria-hidden="true"></li>',array('controller'=>'Moneys','action'=>'index'),array('escape' => false),array('style'=>'color:#fff;'));?></li>
+              <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;"  ><span style="color:#fff" class="fa fa-usd" aria-hidden="true"></span></li>',array('controller'=>'Moneys','action'=>'index'),array('escape' => 0));?></li>
               
-              <li><?php echo $this->Html->link( '<li style="color:#fff;font-size:30px;margin-top:15px;margin-left:10px;" class="fa fa-credit-card-alt" aria-hidden="true"></li>',array('controller'=>'Purchases','action'=>'index'),array('escape' => false),array('style'=>'color:#fff') );?></li>
+              <li><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-credit-card-alt" aria-hidden="true"></span></li>',array('controller'=>'Purchases','action'=>'index'),array('escape' => 0));?></li> -->
 
-              <li><?php echo $this->Html->link('<li style="color:#fff;font-size:30px;margin-top:15px;margin-left:10px;"  class="fa fa-users" aria-hidden="true"></li>',array('controller'=>'Costomers','action'=>'index'),array('escape' => false,'style'=>'color:#fff'),array('style'=>'color:#fff;font-size:30px;margin-top:15px;margin-left:10px;'));?></li>
+              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff" class="fa fa-users" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'index'),array('escape' => 0));?></li>
 
+              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff;" class="fa fa-user-secret" aria-hidden="true"></span></li>',array('controller'=>'Users','action'=>'index'),array('escape' => 0));?></li>
+                <!-- <ul class="dropdown-menu user-dropdown">
+                     <li><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
+                     <li><a href="#"><span class="fa fa-calendar"></span> My Calendar</a></li>
+                     <li role="separator" class="divider"></li>
+                     <li class="more">
+                      <ul>
+                        <li><a href=""><span class="fa fa-cogs"></span></a></li>
+                        <li><a href=""><span class="fa fa-lock"></span></a></li>
+                        <li><a href=""><span class="fa fa-power-off "></span></a></li>
+                      </ul>
+                    </li>
+                  </ul> -->
                 <li style="border-radius:50%" class="dropdown">
   
-                  <a  class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->Html->image($this->Session->read('Auth.User.image'),array('width'=>'60','style'=>'display: inline-block;width: 50px;height: 50px;border-radius: 50%;background-repeat: no-repeat;background-position: center center;background-size: cover;  ')); ?> <!-- <?php print $this->Session->read('Auth.User.username'); ?> -->
+                  <a  class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->Html->image($this->Session->read('Auth.User.image'),array('width'=>'60','style'=>'display: inline-block;width: 50px;height: 50px;border-radius: 50%;background-repeat: no-repeat;background-position: center center;background-size: cover;border: 4px solid #108E5F !important;  ')); ?> <!-- <?php print $this->Session->read('Auth.User.username'); ?> -->
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="#"><span>

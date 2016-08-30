@@ -23,7 +23,21 @@
 	}
 	
 ?>
+<?php
+	// sum purchase
+	$sum = 0;
+	foreach($purchase as $purchases){
+		$price = $purchases['Purchase']['price'];
+		$amounts = $purchases['Purchase']['amounts'];
+		//echo 'purchase: '.$sum_pur = $price * $amounts;
+		$sum_pur = $price * $amounts;
+		$sum += $sum_pur;
+	}
+
+	echo 'Total purchase:'.$sum.'$<br />';
+?>
 <?php 
+	// sum purchase
 	$sum = 0;
 	foreach($purchase as $purchases){
 		echo $purchases['Purchase']['pur_date'].'<br />';
@@ -39,10 +53,11 @@
 	echo 'Total purchase:'.$sum.'$<br />';
 ?>
 <?php 
-	
+	// total benifet
 	echo 'Beni: '.$sum_beni.'<br />';
 ?>
-<?php 
+<?php
+	// draw money
 	$sum_draw = 0;
 	foreach($withdrawal as $withdrawals){
 		$draw_money = $withdrawals['Withdrawal']['money'];
@@ -51,10 +66,13 @@
 	}
 	echo 'Draw money: '.$sum_draw.'$ <br />';
 	
-	//
+	// money
 	$balance = $sum_beni - $sum_draw;
 	echo 'balance: '.$balance.'$';
 ?>
-
-
-<?php unset($customer); ?>
+<?php echo $this->element('header') ?>
+<?php echo $this->element('customer_detail_header') ?>
+<?php echo $this->element('menu_sidebar_right') ?>
+<?php echo $this->element('customer_detail') ?>
+<?php echo $this->element('customer_detail_footer') ?>
+<?php echo $this->element('footer') ?>

@@ -25,20 +25,30 @@
 				<tr> 
         <th class="table-header" style="text-align:center;">
             <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#fff;')); ?></th>
+				<!--
                     <th class="table-header" style="text-align: center;">
                       <?php echo $this->Paginator->sort('firstname', 'First Name',array('style'=>'color:#fff;')); ?></th>
+					  
                     <th class="table-header" style="text-align: center;">
                       <?php echo $this->Paginator->sort('lastname', 'Last Name',array('style'=>'color:#fff;')); ?></th>
+					  
                       <th class="table-header" style="text-align: center;">
                       <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#fff;')); ?></th>
+					--> 
+					<th class="table-header" style="text-align: center;">
+                      <?php echo $this->Paginator->sort('name', 'Name',array('style'=>'color:#fff;')); ?></th>
                     <th class="table-header" style="text-align: center;">
                       <?php echo $this->Paginator->sort('Gender', 'Gender',array('style'=>'color:#fff;')); ?></th>
+					  
                     <th class="table-header" style="text-align: center;">
                       <?php echo $this->Paginator->sort('phone', 'Phone',array('style'=>'color:#fff;')); ?></th>
                     <th class="table-header" style="text-align: center;">
+					
                       <?php echo $this->Paginator->sort('email', 'Email',array('style'=>'color:#fff;')); ?></th>
                     <th class="table-header" style="text-align: center;">
-                      <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#fff;')); ?></th>
+					
+                    <!--  <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#fff;')); ?></th>
+					-->
                     <th class="table-header" style="text-align: center;">Action</th>
 				</tr>
       </thead>
@@ -50,18 +60,29 @@
         
        
             <td scope="row"><?php echo $id; ?></td>
+		<!--	
             <td style="text-align: center;"><?php echo $costomer['Costomer']['firstname'];?></td>
+			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['lastname'];?></td>
-            <td style="text-align: center;"><?php echo $costomer['Costomer']['username'];?></td>
+			
+            <td style="text-align: center;"><?php echo $costomer['Costomer']['username'];?></td> -->
+			
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['name'];?></td>
+			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['gender'];?></td>
+			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['phone']; ?></td>
+			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['email']; ?></td>
-            <td style="text-align: center;"><?php echo $costomer['Costomer']['status']; ?></td>
+			
+        <!--    <td style="text-align: center;"><?php echo $costomer['Costomer']['status']; ?></td> -->
 
             <td >
 
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
                     array('action'=>'edit', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:green')); ?>
+             | <?php echo $this->Html->link('<i class="fa fa-external-link" aria-hidden="true"></i>', 
+                    array('action'=>'view', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:green')); ?>
              | 
             <?php
                 if( $costomer['Costomer']['status'] != 0){ 

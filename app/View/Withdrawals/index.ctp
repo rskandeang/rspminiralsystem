@@ -23,7 +23,7 @@
       </thead>
       <tbody>
           <?php $count=0; ?>
-            <?php foreach($withdrawals as $withdrawal): ?>                   
+            <?php foreach($withdrawals as $withdrawal): ?>     
             <?php $count ++;?>
             <?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
             <?php endif; ?>

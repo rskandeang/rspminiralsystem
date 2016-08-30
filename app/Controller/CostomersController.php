@@ -25,12 +25,9 @@ class CostomersController extends AppController {
 						
 							)
 						);
-
-		
 		//$users = $this->User->find('all');
 		$this->set('costomers',$this->paginate());
 		// var_dump($keyword);exit();
-
 	}
 
     public function beforeFilter() {
@@ -341,7 +338,7 @@ class CostomersController extends AppController {
 
 		}
 	}
-		public function delete($id = null) {
+	public function delete($id = null) {
          
         if (!$id) {
             $this->Session->setFlash('Please provide a customer id');
@@ -353,14 +350,17 @@ class CostomersController extends AppController {
             $this->Session->setFlash('Invalid customer id provided');
             $this->redirect(array('action'=>'index'));
         }
+
         if ($this->Costomer->saveField('status', 0)) {
             $this->Session->setFlash(__('Customer deleted'));
             $this->redirect(array('action' => 'index'));
         }
+
         $this->Session->setFlash(__('Customer was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
-     public function activate($id = null) {
+
+    public function activate($id = null) {
          
         if (!$id) {
             $this->Session->setFlash('Please provide a Customer id');
@@ -372,14 +372,17 @@ class CostomersController extends AppController {
             $this->Session->setFlash('Invalid Customer id provided');
             $this->redirect(array('action'=>'index'));
         }
+
         if ($this->Costomer->saveField('status', 1)) {
             $this->Session->setFlash(__('Customer re-activated'));
             $this->redirect(array('action' => 'index'));
         }
+
         $this->Session->setFlash(__('Customer was not re-activated'));
         $this->redirect(array('action' => 'index'));
     }
-		public function edit($id){
+	
+	public function edit($id){
 			$data = $this->Costomer->find('first',array(
 			'conditions'=>array('id'=>$id)));
 			// $data = $this->Costomer->findById($id);
@@ -393,7 +396,7 @@ class CostomersController extends AppController {
 
 			$this->request->data =$data;
 	}
-	
+
 	function view($id){
 		$this->loadModel('One');
 		$this->loadModel('Two');
@@ -500,7 +503,7 @@ class CostomersController extends AppController {
 				}
 				
 			}		
-			$sum_beni = $sum+$sum+$sum .'$';
+			$sum_beni = $sum+$sum+$sum;
 			
 		// Draw_money
 			$sum_draw = 0;
@@ -564,8 +567,135 @@ class CostomersController extends AppController {
 		$this->set('four', $four);	
 		$this->set('purchase', $cus_pur);	
 		$this->set('withdrawal', $drawal);	
+		$this->set('id', $id);	
 		
 		
 	}	
+
+	public function link(){
+         $this->loadModel('Purchase');
+         $findpurchase = $this->Purchase->find('all',array(
+                        'order' => 'Purchase.id ASC'
+                        ));
+          $this->set('purchases', $findpurchase);
+         // var_dump($findpurchase);exit();
+
+        $this->loadModel('Money');
+        $findmoney = $this->Money->find('all',array(
+                        'order' => 'Money.id ASC'
+                        ));
+         $this->set('monies', $findmoney);
+         // var_dump($findmoney);exit();
+
+        $this->loadModel('Withdrawal');
+        $findwithdrawal = $this->Withdrawal->find('all', array(
+                        'order' => 'Withdrawal.id ASC'
+                        ));
+        
+     	 $this->set('withdrawals', $findwithdrawal);
+
+        /***********************************************************
+
+        $this->loadModel('Purchase');
+        $this->loadModel('Money');
+        $this->loadModel('Withdrawal');
+        $findCus =$this->Costomer->find('all',array(
+                            'order'=>'costomer.id'));
+        $arr = array();
+                foreach( $findCus as $customer){
+                    $customer_id = $customer['Costomer']['id'];
+
+                    $findmoney = $this->Money->find('first',array(
+                        'conditions' => array(
+                            'Money.customer_id' => $customer_id ),
+                        'order' => 'Money.customer_id'
+                        ));
+
+                      	foreach ($findmoney as $money) {
+                         	$current_money = $money['curent_moneys'];
+                  		 }
+                    
+                    $findwithdrawal = $this->Withdrawal->find('first', array(
+                        'conditions' => array(
+                            'Withdrawal.customer_id' =>  $customer_id),
+                        'order' => 'Withdrawal.customer_id DESC'
+                        ));
+                    // var_dump($findwithdrawal);exit();
+
+                    
+                    	 foreach($findwithdrawal as $withdrawal){
+                       	 	$costomer_withdrawal = $withdrawal['withdrawal'];
+                    	 }
+
+                    $findpurchase = $this->Purchase->find('first',array(
+                    	'conditions' => array(
+                            'Purchase.customer_id' =>  $customer_id),
+                    	'SUM(Purchase.amounts) AS totalAmount',
+                        'order' => 'Purchase.customer_id DESC',
+                        'group' => 'Purchase.id'
+                        ));
+                    // var_dump($findpurchase);exit();
+                     
+
+
+                    	foreach($findpurchase as $purchase){
+	                        $allpurchase = $purchase['amounts'];
+	                        $all_t_prices = $purchase['t_price'];
+	                        // var_dump($all_t_prices);exit();
+	                        $data = array(
+	                            'id' => $customer['Costomer']['id'],
+	                            'firstname' => $customer['Costomer']['firstname'],
+	                            'lastname' => $customer['Costomer']['lastname'],
+	                            'username' => $customer['Costomer']['username'],
+	                            'amounts' => $allpurchase,
+	                            't_price' => $$all_t_prices,
+	                            'withdrawal' => $costomer_withdrawal,
+	                            'curent_moneys'=> $current_money
+	                        );
+                   		}
+                  **************************************************************/
+
+
+                     // array_push($arr, $data);
+                    /***********************************************************
+         			// $this->set('purchases', $findpurchase);
+            		// $this->set('withdrawals', $findwithdrawal);
+                    // $this->set('moneys', $findmoney);
+                    // var_dump($this->set('moneys', $findmoney));exit();
+					**************************************************************/
+                 // }
+
+     // $this->set('costomers', $this->Costomer->find('all'));
+
+     //            $findPur = $this->Purchase->find('all');
+     //            $Pur_id = $findPur['Purchase']['id'];
+     //            $findmoney = $this->Money->find('all',array(
+     //                    'conditions' => array(
+     //                        'monies.costomer_id' => $Pur_id),
+     //                    'order' => 'monies.costomer_id'
+     //                    ));
+                    
+     //            $findWithdrawl = $this->Withdrawal->find('all', array(
+     //                    'conditions' => array(
+     //                        'Withdrawal.costomer_id' => $Pur_id),
+     //                    'order' => 'Withdrawal.costomer_id DESC'
+     //                    ));
+
+     //            $this->set('purchases', $findPur);
+     //            $this->set('monies', $findmoney);
+     //            $this->set('withdrawals', $findWithdrawl);
+
+
+
+    // $this->set('customers', $arr);
+
+    }
+     public function detail(){
+
+        }
+        public function customer_dashboard() {
+
+	}  
+
 }
 

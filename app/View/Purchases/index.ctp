@@ -63,7 +63,7 @@
  
       <?php $total = 0; ?>
               <?php $total_price_for_all_product = 0; ?>
-              <?php foreach($purchases as $purchase): ?>                
+              <?php foreach($purchases as $purchase): ?>  
               <!--   <tr>
                   <td style="text-align: center;"><?php echo $purchase['Purchase']['id']; ?></td>
                   <td style="text-align: center;"><?php echo $purchase['Purchase']['customer_id']; ?></td>
