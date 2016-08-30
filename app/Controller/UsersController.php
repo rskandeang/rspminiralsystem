@@ -133,6 +133,8 @@ class UsersController extends AppController {
 		$this->request->data = $data;
 			//$data = $this->User->findById($id);
 
+		//// edit with photo of the user
+
 	// 	$data = $this->User->find('first',array(
 	// 		'conditions'=>array('id'=>$id)));
 	// 		$f = $data['User']['image'];

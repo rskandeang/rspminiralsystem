@@ -62,6 +62,8 @@
 
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
                     array('action'=>'edit', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:green')); ?>
+             | <?php echo $this->Html->link('<i class="fa fa-external-link" aria-hidden="true"></i>', 
+                    array('action'=>'detail', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:green')); ?>
              | 
             <?php
                 if( $costomer['Costomer']['status'] != 0){ 
