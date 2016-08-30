@@ -507,15 +507,6 @@ class CostomersController extends AppController {
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
-			//pr($drawal);
-			/*foreach($drawal as $drawals){
-				$draw_money = $drawals['Withdrawal']['money'];
-				$sum_draw += $draw_money;
-				$balance = $sum_beni - $sum_draw;
-				
-			}*/
-			
-			//pr($balance);exit;
 		
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
