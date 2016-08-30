@@ -33,7 +33,7 @@
               </ul>
                <li>
                 <a href="#">
-                  <i class="fa fa-users fa-lg"></i><span> <?php echo $this->Html->link( 'Users',array('controller'=>'Costomers','action'=>'customer_dashboard'),array('escape' => 0));?></span> 
+                  <i class="fa fa-users fa-lg"></i><span> <?php echo $this->Html->link( 'Referal List',array('controller'=>'Costomers','action'=>'customer_dashboard'),array('escape' => 0));?></span> 
                 </a>
               </li>
           </ul>
