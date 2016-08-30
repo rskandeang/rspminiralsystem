@@ -1,33 +1,60 @@
  <?php echo $this->Session->flash(); ?>
-<p>Name: </p> <?php echo $customers['Costomer']['name']?>
-<p>Refer: </p> <?php echo $customers['Costomer']['code']?>
-<p>Resporn: </p>
+	<?php echo 'Name: '.$customers['Costomer']['name'].'<br />'?>
+	<?php echo 'Refer: '.$customers['Costomer']['code'].'<br />'?>
 <?php 
-	$st = 5;
-	$nd = 3;
-	$rd = 2;
+	echo 'Your code: '.$cus_code;
 ?>
+<p>Resporn: </p>
+
 <?php 
 	foreach($two as $twos){
 		echo $twos['Two']['code'].'<br/>';
 	}
-	$total_st = count($two) * $st;
+	
 ?>
 <?php 
 	foreach($three as $threes){
 		echo $threes['Three']['code'].'<br>';
-	}
-	$total_nd = count($three) * $nd;
+	}	
 ?>
 <?php 
 	foreach($four as $fours){
 		echo $fours['Four']['code'].'<br>';
 	}
-	$total_rd = count($four) * $rd;	
+	
 ?>
-<p>Total benefit from all referals: </p>
 <?php 
-	echo $total_pr = $total_st + $total_nd + $total_rd. ' %';
+	$sum = 0;
+	foreach($purchase as $purchases){
+		echo $purchases['Purchase']['pur_date'].'<br />';
+		echo $purchases['Purchase']['amounts'].'<br />';
+		echo $purchases['Purchase']['price'].'<br />';
+		$price = $purchases['Purchase']['price'];
+		$amounts = $purchases['Purchase']['amounts'];
+		//echo 'purchase: '.$sum_pur = $price * $amounts;
+		$sum_pur = $price * $amounts;
+		$sum += $sum_pur;
+	}
+
+	echo 'Total purchase:'.$sum.'$<br />';
 ?>
+<?php 
+	
+	echo 'Beni: '.$sum_beni.'<br />';
+?>
+<?php 
+	$sum_draw = 0;
+	foreach($withdrawal as $withdrawals){
+		$draw_money = $withdrawals['Withdrawal']['money'];
+		
+		$sum_draw += $draw_money;
+	}
+	echo 'Draw money: '.$sum_draw.'$ <br />';
+	
+	//
+	$balance = $sum_beni - $sum_draw;
+	echo 'balance: '.$balance.'$';
+?>
+
 
 <?php unset($customer); ?>
