@@ -41,6 +41,11 @@
                   <i class="fa fa-list fa-lg"></i><span> <?php echo $this->Html->link( 'Purchases',array('controller'=>'Costomers','action'=>'purchase'),array('escape' => 0));?></span> 
                 </a>
               </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-cogs  fa-lg"></i><span> <?php echo $this->Html->link( 'Setting',array('controller'=>'Costomers','action'=>'setting'),array('escape' => 0));?></span> 
+                </a>
+              </li>
           </ul>
          </div>
       </div>

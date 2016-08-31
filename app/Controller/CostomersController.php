@@ -337,6 +337,12 @@ public $helpers = array(
 	public function purchase() {
 
 	}
+	public function setting() {
+
+	}
+	public function own_update() {
+
+	}
 
 }
 
