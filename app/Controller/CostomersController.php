@@ -334,5 +334,9 @@ public $helpers = array(
         public function customer_dashboard() {
 
 	}  
+	public function purchase() {
+
+	}
+
 }
 
