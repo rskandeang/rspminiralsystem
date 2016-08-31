@@ -14,7 +14,7 @@
 			  
 			 <li  data-toggle="collapse" data-target="#products" class="collapsed active">
                 <a href="#">
-					<i class="fa fa-gift fa-lg" ></i> <span> <?php echo $this->Html->link( 'List Purchase',array('controller'=>'Costomers','action'=>'view_purchase',$id),array('escape' => false));?></span>
+					<i class="fa fa-gift fa-lg" ></i> <span> <?php echo $this->Html->link( 'List Purchase',array('controller'=>'Costomers','action'=>'view',$id),array('escape' => false));?></span>
 				</a>
               </li>
 			  
@@ -33,11 +33,7 @@
               <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
               </li>  
-              <ul class="sub-menu collapse" id="service">
-                <li>New Service 1</li>
-                <li>New Service 2</li>
-                <li>New Service 3</li>
-              </ul>
+              
                <li>
                 <a href="#">
                   <i class="fa fa-users fa-lg"></i><span> <?php echo $this->Html->link( 'Referal List',array('controller'=>'Costomers','action'=>'customer_dashboard'),array('escape' => 0));?></span> 

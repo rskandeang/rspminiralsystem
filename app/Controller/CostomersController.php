@@ -571,6 +571,9 @@ class CostomersController extends AppController {
 		
 		
 	}	
+	public function view_pur(){
+		
+	}
 
 	public function link(){
          $this->loadModel('Purchase');
