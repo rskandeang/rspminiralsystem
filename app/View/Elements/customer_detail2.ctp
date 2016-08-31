@@ -48,8 +48,8 @@
                               layoutOptions: {
                                   circular: {
                                       borderColor: "#FF7900",
-                                      width: 17,
-                                      borderWidth: 3,
+                                      width: 10,
+                                      borderWidth: 1,
                                       color: "#1E98E4",
                                       backgroundColor: "transparent"
                                   }
@@ -122,8 +122,8 @@
                               layoutOptions: {
                                   circular: {
                                       borderColor: "#FF7900",
-                                      width: 17,
-                                      borderWidth: 3,
+                                      width: 10,
+                                      borderWidth: 1,
                                       color: "#1E98E4",
                                       backgroundColor: "transparent"
                                   }
@@ -196,8 +196,8 @@
                               layoutOptions: {
                                   circular: {
                                       borderColor: "#FF7900",
-                                      width: 17,
-                                      borderWidth: 3,
+                                      width: 10,
+                                      borderWidth: 1,
                                       color: "#1E98E4",
                                       backgroundColor: "transparent"
                                   }
@@ -269,8 +269,8 @@
                               layoutOptions: {
                                   circular: {
                                       borderColor: "#FF7900",
-                                      width: 17,
-                                      borderWidth: 3,
+                                      width: 10,
+                                      borderWidth: 1,
                                       color: "#1E98E4",
                                       backgroundColor: "transparent"
                                   }
