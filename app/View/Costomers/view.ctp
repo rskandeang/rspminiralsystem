@@ -84,5 +84,7 @@
 <?php echo $this->element('customer_detail_header') ?>
 <?php echo $this->element('menu_sidebar_right') ?>
 <?php echo $this->element('customer_detail') ?>
+<?php echo $this->element('purchese') ?>
+<?php echo $this->element('refer') ?>
 <?php echo $this->element('customer_detail_footer') ?>
 <?php echo $this->element('footer') ?>

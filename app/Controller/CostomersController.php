@@ -411,8 +411,15 @@ class CostomersController extends AppController {
 		$st = 0.05;
 		$nd = 0.03;
 		$rd = 0.02;
-		$sum = 0;
-			
+		
+		$sum_one = 0;
+		$sum_two = 0;
+		$sum_three = 0;
+		
+		$count_one = 0;
+		$count_two = 0;
+		$count_three = 0;
+		
 		$one = $this->One->find('all',array(
 			'conditions' => array(
 			'One.costomer_id' => $id)));
@@ -446,10 +453,10 @@ class CostomersController extends AppController {
 					
 					$beni = ($price * $amounts) * $st.'$';
 					
-					//pr($purchase);
-					//pr($price);
-					//pr($amounts); 
-					$sum += $beni;
+					$sum_one += $beni;
+					 
+					$count = count($purchases);
+					$count_one += $count;
 				}
 			
 			}
@@ -474,9 +481,11 @@ class CostomersController extends AppController {
 					
 					$beni = ($price * $amounts) * $nd.'$';
 					
-					$sum += $beni;
+					$sum_two += $beni;
 					
-					
+					$count = count($purchases);
+					$count_two += $count;
+					$count_two;
 				}
 				
 			}
@@ -499,12 +508,14 @@ class CostomersController extends AppController {
 					
 					$beni = ($price * $amounts) * $rd.'$';
 					
-					$sum += $beni;
+					$sum_three += $beni;
+					
+					$count = count($purchases);
+					$count_three += $count;
 				}
 				
 			}		
-			$sum_beni = $sum+$sum+$sum;
-			
+			$sum_beni = $sum_one + $sum_two + $sum_three;
 		// Draw_money
 			$sum_draw = 0;
 			$drawal = $this->Withdrawal->find('all',array(
@@ -568,6 +579,12 @@ class CostomersController extends AppController {
 		$this->set('purchase', $cus_pur);	
 		$this->set('withdrawal', $drawal);	
 		$this->set('id', $id);	
+		$this->set('sum_one', $sum_one);	
+		$this->set('sum_two', $sum_two);	
+		$this->set('sum_three', $sum_three);	
+		$this->set('count_one', $count_one);	
+		$this->set('count_two', $count_two);	
+		$this->set('count_three', $count_three);	
 		
 		
 	}	
@@ -693,7 +710,17 @@ class CostomersController extends AppController {
     // $this->set('customers', $arr);
 
     }
-    
+     public function detail(){
+
+        }
+        public function customer_dashboard() {
+
+	}  
+
+	public function purchase() {
+
+	}
+
 
 }
 
