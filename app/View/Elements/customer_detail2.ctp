@@ -94,7 +94,7 @@
                           var progress = $("#progress5").shieldProgressBar({
                               min: 0,
                               max: 100,
-                              value: 10,
+                              value: 5,
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
@@ -155,7 +155,7 @@
                           var progress = $("#progress3").shieldProgressBar({
                               min: 0,
                               max: 100,
-                              value: 10,
+                              value: 3,
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
@@ -216,7 +216,7 @@
                           var progress = $("#progress2").shieldProgressBar({
                               min: 0,
                               max: 100,
-                              value: 10,
+                              value: 2,
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
