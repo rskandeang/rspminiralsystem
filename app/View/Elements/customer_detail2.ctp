@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="panel box-v1">
           <div class="col-md-3">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div style="background:#E0EEF2;color:#FF5733;" class="panel-heading bg-white border-none">
                 <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                  <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                  <br>
@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="col-md-3 ">
-              <div style="background:#E0EEF2; " class="panel-heading bg-white border-none">
+              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                 <div style="border-left:1px solid #fff;" class="col-md-12 col-sm-6 col-xs-6 text-center padding-0"> <br>
                   <h4  class="text-center">KongSamAng</h4>
                 </div>
@@ -47,7 +47,7 @@
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
-                                      borderColor: "#FF7900",
+                                      borderColor: "#FF5733",
                                       width: 10,
                                       borderWidth: 1,
                                       color: "#1E98E4",
@@ -75,7 +75,7 @@
         <!-- second box -->
         <div class="panel box-v1">
           <div class="col-md-3">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div style="background:#E0EEF2;color:#28B463;" class="panel-heading bg-white border-none">
                 <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                  <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                  <br>
@@ -121,7 +121,7 @@
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
-                                      borderColor: "#FF7900",
+                                      borderColor: "#28B463",
                                       width: 10,
                                       borderWidth: 1,
                                       color: "#1E98E4",
@@ -150,7 +150,7 @@
            <!-- second box -->
         <div class="panel box-v1">
           <div class="col-md-3">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div style="background:#E0EEF2;color:#F7DC6F;" class="panel-heading bg-white border-none">
                 <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                  <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                  <br>
@@ -195,7 +195,7 @@
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
-                                      borderColor: "#FF7900",
+                                      borderColor: "#F7DC6F",
                                       width: 10,
                                       borderWidth: 1,
                                       color: "#1E98E4",
@@ -223,7 +223,7 @@
            <!-- second box -->
         <div class="panel box-v1">
           <div class="col-md-3">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div style="background:#E0EEF2;color:#3498DB;" class="panel-heading bg-white border-none">
                 <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                  <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                  <br>
@@ -268,10 +268,10 @@
                               layout: "circular",
                               layoutOptions: {
                                   circular: {
-                                      borderColor: "#FF7900",
+                                      borderColor: "#3498DB",
                                       width: 10,
                                       borderWidth: 1,
-                                      color: "#1E98E4",
+                                      color: "#fff",
                                       backgroundColor: "transparent"
                                   }
                               },
