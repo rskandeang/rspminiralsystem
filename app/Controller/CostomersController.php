@@ -693,12 +693,7 @@ class CostomersController extends AppController {
     // $this->set('customers', $arr);
 
     }
-     public function detail(){
-
-        }
-        public function customer_dashboard() {
-
-	}  
+    
 
 }
 
