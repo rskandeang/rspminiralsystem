@@ -11,6 +11,14 @@
                 <i class="fa fa-dashboard fa-lg"></i> <span> <?php echo $this->Html->link( 'Dashboard',array('controller'=>'Costomers','action'=>'view',$id),array('escape' => false));?></span>
                 </a>
               </li>
+			  
+			 <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                <a href="#">
+					<i class="fa fa-gift fa-lg" ></i> <span> <?php echo $this->Html->link( 'List Purchase',array('controller'=>'Costomers','action'=>'view_purchase',$id),array('escape' => false));?></span>
+				</a>
+              </li>
+			  
+			  <!--
               <li  data-toggle="collapse" data-target="#products" class="collapsed active">
                 <a href="#"><i class="fa fa-gift fa-lg" ></i> UI Elements <span class="arrow"></span></a>
               </li>
@@ -20,7 +28,7 @@
                   <li><a href="#">Tabs & Accordions</a></li>
              
               </ul>
-
+				-->
 
               <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>

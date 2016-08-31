@@ -7,21 +7,31 @@
 <p>Resporn: </p>
 
 <?php 
+	$count = 0;
 	foreach($two as $twos){
-		echo $twos['Two']['code'].'<br/>';
+		$code_two = $twos['Two']['code'].'<br/>';
+		$count_two = count($code_two);
+		$count += $count_two;
 	}
-	
+	echo $count.'<br/>';
 ?>
 <?php 
+	$count = 0;
 	foreach($three as $threes){
-		echo $threes['Three']['code'].'<br>';
+		$code_three = $threes['Three']['code'];
+		$count_three = count($code_three);
+		$count += $count_three;
 	}	
+	echo $count.'<br/>';
 ?>
 <?php 
+	$count = 0;
 	foreach($four as $fours){
-		echo $fours['Four']['code'].'<br>';
+		$code_four = $fours['Four']['code'];
+		$count_four = count($code_four);
+		$count += $count_four;
 	}
-	
+	echo $count.'<br/>';
 ?>
 <?php
 	// sum purchase
