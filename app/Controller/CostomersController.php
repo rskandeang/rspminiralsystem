@@ -1098,6 +1098,12 @@ class CostomersController extends AppController {
 	public function purchase() {
 
 	}
+	public function setting() {
+
+	}
+	public function own_update() {
+
+	}
 
 
 }
