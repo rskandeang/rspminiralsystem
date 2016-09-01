@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row ">
     <div class="col-md-12">
-        <div style="background-color:#32800A; color:#fff;" class="col-md-2"> <h4 class="text-center">List for all customers</h4></div>
+        <div style="background-color:#1d933F; color:#fff;" class="col-md-2"> <h4 class="text-center">List for all customers</h4></div>
     </div>
      <!-- <div class="col-md-2" style="margin-top:30px"><p style="margin-left: 109px;" class="btn btn-default"><?php echo $this->Html->link( "<< User list",array('controller'=>'Users','action'=>'index'),array('style'=>'color:green') );?></p></div>
      <div class="col-md-8">
@@ -9,7 +9,7 @@
      </div>
      <div class="col-md-2" style="margin-top:30px;"> <button class="btn btn-default" style="margin-left: -36px;"><?php echo $this->Html->link( "Add Customer",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:green') );?></button></div> -->
     <div class="col-md-12 ">
-         <div style="background-color:#32800A;" class="col-md-2 well">
+         <div style="background-color:#1d933F;" class="col-md-2 well">
            
             <button class="btn btn-default" style="width:100%;" ><?php echo $this->Html->link( "Add Customer",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:green') );?></button>
 
@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-10 ">
              <table class="col-md-12 table table-hover table-striped"cellpadding="0" cellspacing="0">
-			<thead style="background-color:#32800A;color:#fff;"> 
+			<thead style="background-color:#1d933F;color:#fff;"> 
 				<tr> 
         <th class="table-header" style="text-align:center;">
             <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#fff;')); ?></th>

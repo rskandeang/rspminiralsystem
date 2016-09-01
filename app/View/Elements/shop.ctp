@@ -84,7 +84,7 @@
                                       </div>
                                       <div class="panel-body text-center">
                                         <table class="col-md-12 table table-hover table-striped" cellpadding="0" cellspacing="0">
-      <thead style="background-color:#32800A;"> 
+      <thead style="background-color:#1d933F;"> 
        <!--  <tr> 
             <th class="table-header" style="text-align: center;color:white">No</th>
             <th class="table-header" style="text-align: center;color:white"></th>

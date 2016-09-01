@@ -2,27 +2,28 @@
   <div  class="row">
     <div  class="col-md-12 ">
       <nav class="navbar navbar-default  row">
-        <div style="background-color:#32800A;" class="container-fluid border">
+        <div style="background-color:#fff; height:66px;" > 
+        <div style="background-color:#1d933F;" class="container-fluid border">
           <div class="navbar-header">
           </div>
             <ul class="nav navbar-nav ">
-              <li ><?php echo $this->Html->image('logo.png', array('alt' => 'logo', 'border' => '0','width'=>'150','height'=>'60')); ?></li >
+              <li ><?php echo $this->Html->image('logo.png', array('alt' => 'logo', 'border' => '0','width'=>'130','height'=>'45','style'=>"margin-top:5px;margin-left:80px")); ?></li >
                 <!-- <li ><?php echo $this->Html->link( "Total Purchases",array('controller'=>'Purchases','action'=>'index'),array('style'=>'color:#fff') );?></li>
                 <li ><?php echo $this->Html->link( "Withdrawal",array('controller'=>'Withdrawals','action'=>'index'),array('style'=>'color:#fff') );?></li>
                  <li ><?php echo $this->Html->link( "Money",array('controller'=>'Moneys','action'=>'index'),array('style'=>'color:#fff') );?></li>
                  <li ><?php echo $this->Html->link( "Customer list",array('controller'=>'Costomers','action'=>'index'),array('style'=>'color:#fff') );?></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li ><?php echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-shopping-cart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));?></li>
+              <li ><?php echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));?></li>
               <!-- <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-university" aria-hidden="true"></span></li>',array('controller'=>'Withdrawals','action'=>'index'),array('escape' => 0));?></li>
 
               <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;"  ><span style="color:#fff" class="fa fa-usd" aria-hidden="true"></span></li>',array('controller'=>'Moneys','action'=>'index'),array('escape' => 0));?></li>
               
               <li><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-credit-card-alt" aria-hidden="true"></span></li>',array('controller'=>'Purchases','action'=>'index'),array('escape' => 0));?></li> -->
 
-              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff" class="fa fa-users" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'index'),array('escape' => 0));?></li>
+              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff" class="fa fa-user-plus" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'index'),array('escape' => 0));?></li>
 
-              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff;" class="fa fa-user-secret" aria-hidden="true"></span></li>',array('controller'=>'Users','action'=>'index'),array('escape' => 0));?></li>
+              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff;" class="fa fa-bar-chart" aria-hidden="true"></span></li>',array('controller'=>'Users','action'=>'index'),array('escape' => 0));?></li>
                 <!-- <ul class="dropdown-menu user-dropdown">
                      <li><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
                      <li><a href="#"><span class="fa fa-calendar"></span> My Calendar</a></li>
@@ -54,7 +55,9 @@
               
             </ul>
         </div>
+        </div>
       </nav>
+      <hr style="margin-top:-19px;">
     </div>
   </div>
 </div>

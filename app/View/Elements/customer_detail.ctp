@@ -48,7 +48,18 @@
             
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>Amount order of a month</p>
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group col-md-8">
+                  <div class="input-group-addon">$</div>
+                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                  <div class="input-group-addon">.00</div>
+                </div>
+                <div class="col-md-4 pull-right"> <button type="submit" class="btn btn-primary"> Transfer cash</button></div>
+              </div>
+             
+            </form>
             <hr/>
           </div>
         </div>

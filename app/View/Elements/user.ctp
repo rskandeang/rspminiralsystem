@@ -2,10 +2,10 @@
 <div class="container-fluid">
   <div class="row ">
      <div class="col-md-12">
-        <div style="background-color:#32800A; color:#fff;" class="col-md-2"> <h4 class="text-center">List for all users</h4></div>
+        <div style="background-color:#1d933F; color:#fff;" class="col-md-2"> <h4 class="text-center">List for all users</h4></div>
     </div>
     <div class="col-md-12 ">
-        <div style="background-color:#32800A;" class="col-md-2 well">
+        <div style="background-color:#1d933F;" class="col-md-2 well">
            
             <span class="btn btn-default" id="btn-default" style="width:100%;"><?php echo $this->Html->link( "Create NewUser",array('controller'=>'Users','action'=>'add'),array('style'=>'color:green;') );?></span>
 
@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-10 ">
              <table class="col-md-12 table table table-hover table-striped"cellpadding="0" cellspacing="0">
-			<thead style="background-color:#32800A;color:#fff;"> 
+			<thead style="background-color:#1d933F;color:#fff;"> 
 				<tr> 
             <th class="table-header" style="text-align:center;">
                 <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#fff;')); ?></th>
