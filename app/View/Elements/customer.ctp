@@ -43,10 +43,7 @@
                     <th class="table-header" style="text-align: center;">
 					
                       <?php echo $this->Paginator->sort('email', 'Email',array('style'=>'color:#fff;')); ?></th>
-                    <th class="table-header" style="text-align: center;">
 					
-                    <!--  <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#fff;')); ?></th>
-					-->
                     <th class="table-header" style="text-align: center;">Action</th>
 				</tr>
       </thead>

@@ -105,7 +105,6 @@ class CostomersController extends AppController {
 							$re_code = $find_refers['Two']['refer'];
 						}	
 
-			$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
 			if($this->Costomer->save($this->request->data)){
 				$id = $findId['Costomer']['id'];
 				$code = $this->request->data['Costomer']['code'];		
