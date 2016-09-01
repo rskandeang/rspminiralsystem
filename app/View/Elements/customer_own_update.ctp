@@ -9,27 +9,8 @@
         </div>
         <div class="panel-body">
           <div class="table-responsive">
-            <div class="col-lg-4 col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                              <span><?php echo $this->Html->image('profile.png', array('alt' => 'profile', 'border' => '0','width'=>'225','height'=>'260')); ?></span>
-                                <h5 class="text-center"><strong>Customer Name</strong></h5>
-                                <h5 class="text-center"><strong>Customer Id</strong></h5>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <!-- <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span> -->
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-            <div class="col-md-8">
+          
+            <div class="col-md-12">
               <h4>Login information</h4>
               <hr style="margin-top:10px;margin-bottom:10px;" >
           <br>
