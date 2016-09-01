@@ -99,58 +99,61 @@ class CostomersController extends AppController {
 					else if(strpos($code, 'st') !== false){
 						
 						$find_refer = $this->Two->find('all',array(
-																'conditions' => array('Two.code' => $code)));
+						'conditions' => array(
+						'Two.code' => $code
+						)));
 						
 						foreach($find_refer as $find_refers){
 							$re_code = $find_refers['Two']['refer'];
 						}	
 
-			if($this->Costomer->save($this->request->data)){
-				$id = $findId['Costomer']['id'];
-				$code = $this->request->data['Costomer']['code'];		
-					 if(strpos($code, 'st') !== false){
+						if($this->Costomer->save($this->request->data)){
+							$id = $findId['Costomer']['id'];
+							$code = $this->request->data['Costomer']['code'];		
+								 if(strpos($code, 'st') !== false){
 
-						$this->Three->create();
-						$own_id = date('YmdHis', strtotime("$date $time"));
-						$this->Three->set(array(
-						'code' =>  'nd'.$own_id,
+									$this->Three->create();
+									$own_id = date('YmdHis', strtotime("$date $time"));
+									$this->Three->set(array(
+									'code' =>  'nd'.$own_id,
+									'costomer_id' => $id,
+									'refer' => $re_code));
+									$this->Three->save($refer = $this->request->data);
 
-						'costomer_id' => $id,
-						'refer' => $re_code));
-						$this->Three->save($refer = $this->request->data);
-
-						$this->Session->setFlash(__('Three table.'));
-						$three = $this->Three->find('first', array(
-													'order' => array('Three.code' => 'asc')));
-						$str2 = substr($code, 2);
-						$is_exist = $this->One->find('count',array(
-														'conditions' => array(
-														'One.code' => $str2
-														)));
-						$cos_id = $this->Two->find('all',array(
-							'conditions' => array(
-							'Two.code' => $code)));
-							foreach($cos_id as $cos_ids){
-								$cos_idst = $cos_ids['Two']['costomer_id'];
-								//pr($cos_idst);
-							}
-						//pr($cos_idst);exit;	 
-						 if($is_exist == 0){
-							 
-							$this->One->set(array(
-								'code' =>  $str2,
-								'costomer_id' => $cos_idst));
-							$this->One->save($this->request->data);
-						 }
-						$this->Two->set(array(
-						'code' =>  'st'.$own_id,
-						'refer' => $str2,
-						'costomer_id' => $id));
-						$this->Two->save($this->request->data);
-						//pr($test);exit;
-					}
+									$this->Session->setFlash(__('Three table.'));
+									$three = $this->Three->find('first', array(
+																'order' => array(
+																'Three.code' => 'asc'
+																)));
+										$str2 = substr($code, 2);
+										$is_exist = $this->One->find('count',array(
+																		'conditions' => array(
+																		'One.code' => $str2
+																		)));
+									$cos_id = $this->Two->find('all',array(
+										'conditions' => array(
+										'Two.code' => $code)));
+										foreach($cos_id as $cos_ids){
+											$cos_idst = $cos_ids['Two']['costomer_id'];
+											//pr($cos_idst);
+										}
+									//pr($cos_idst);exit;	 
+									if($is_exist == 0){
+										 
+										$this->One->set(array(
+											'code' =>  $str2,
+											'costomer_id' => $cos_idst));
+										$this->One->save($this->request->data);
+									}
+									$this->Two->set(array(
+									'code' =>  'st'.$own_id,
+									'refer' => $str2,
+									'costomer_id' => $id));
+									$this->Two->save($this->request->data);
+									//pr($test);exit;
+								}
 					
-						$this->Two->saveField('code','st'.$own_id); 
+							$this->Two->saveField('code','st'.$own_id); 
 						}
 					else if(strpos($code, 'nd') !== false){
 					
@@ -327,7 +330,14 @@ class CostomersController extends AppController {
 								'costomer_id' => $id,
 								'refer' => $code));
 								$this->Two->save($this->request->data);
-								
+								/*
+								$is_exist = $this->One->find('count',array(
+														'conditions' => array(
+														'One.code' => $own_id)));
+								if($is_exist == 0){
+									$this->One->saveField('code', $own_id);
+								}
+								*/
 								$this->Session->setFlash(__('tow table.'));
 								
 								
