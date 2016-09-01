@@ -36,9 +36,9 @@
                       <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#fff;')); ?></th>
 					--> 
 					<th class="table-header" style="text-align: center;">
-                      <?php echo $this->Paginator->sort('name', 'Name',array('style'=>'color:#fff;')); ?></th>
+                      <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#fff;')); ?></th>
                     <th class="table-header" style="text-align: center;">
-                      <?php echo $this->Paginator->sort('Gender', 'Gender',array('style'=>'color:#fff;')); ?></th>
+                      <?php echo $this->Paginator->sort('gender', 'Gender',array('style'=>'color:#fff;')); ?></th>
 					  
                     <th class="table-header" style="text-align: center;">
                       <?php echo $this->Paginator->sort('phone', 'Phone',array('style'=>'color:#fff;')); ?></th>
@@ -47,8 +47,8 @@
                       <?php echo $this->Paginator->sort('email', 'Email',array('style'=>'color:#fff;')); ?></th>
                     <th class="table-header" style="text-align: center;">
 					
-                    <!--  <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#fff;')); ?></th>
-					-->
+                    <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#fff;')); ?></th>
+				
                     <th class="table-header" style="text-align: center;">Action</th>
 				</tr>
       </thead>
@@ -67,7 +67,7 @@
 			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['username'];?></td> -->
 			
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['name'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['username'];?></td>
 			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['gender'];?></td>
 			
@@ -75,7 +75,7 @@
 			
             <td style="text-align: center;"><?php echo $costomer['Costomer']['email']; ?></td>
 			
-        <!--    <td style="text-align: center;"><?php echo $costomer['Costomer']['status']; ?></td> -->
+           <td style="text-align: center;"><?php echo $costomer['Costomer']['status']; ?></td> 
 
             <td >
 
