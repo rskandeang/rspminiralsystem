@@ -86,5 +86,6 @@
 <?php echo $this->element('customer_detail') ?>
 <?php echo $this->element('purchese') ?>
 <?php echo $this->element('refer') ?>
+<?php echo $this->element('setting_cus') ?>
 <?php echo $this->element('customer_detail_footer') ?>
 <?php echo $this->element('footer') ?>

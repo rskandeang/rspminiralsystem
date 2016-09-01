@@ -880,7 +880,199 @@ class CostomersController extends AppController {
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);
 	}
+	
+	public function view_setting() {
+		$this->loadModel('One');
+		$this->loadModel('Two');
+		$this->loadModel('Three');
+		$this->loadModel('Four');
+		$this->loadModel('Costomer');
+		$this->loadModel('Purchase');
+		$this->loadModel('Money');
+		$this->loadModel('Withdrawal');
+		
+		
+		$st = 0.05;
+		$nd = 0.03;
+		$rd = 0.02;
+		
+		$sum_one = 0;
+		$sum_two = 0;
+		$sum_three = 0;
+		
+		$count_one = 0;
+		$count_two = 0;
+		$count_three = 0;
+		
+		$one = $this->One->find('all',array(
+			'conditions' => array(
+			'One.costomer_id' => $id)));
+			
+			foreach($one as $ones){
+				$re_two = $ones['One']['code'];
+				$id = $ones['One']['costomer_id'];
 
+			}
+			
+		$cus_pur = $this->Purchase->find('all',array(
+			'conditions' => array(
+			'Purchase.customer_id' => $id)));	
+
+		$two = $this->Two->find('all',array(
+			'conditions' => array(
+			'Two.refer' => $re_two)));
+			
+			foreach($two as $twos){
+				$cus_id = $twos['Two']['costomer_id'];
+				//pr($cus_id);
+			
+				$purchase = $this->Purchase->find('all',array(
+				'conditions' => array(
+				'Purchase.customer_id' => $cus_id)));
+				
+				
+			foreach($purchase as $purchases){
+					$price = $purchases['Purchase']['price'];
+					$amounts = $purchases['Purchase']['amounts'];
+					
+					$beni = ($price * $amounts) * $st.'$';
+					
+					$sum_one += $beni;
+					 
+					$count = count($purchases);
+					$count_one += $count;
+				}
+			
+			}
+		//pr($purchase);exit;
+
+		$three = $this->Three->find('all',array(
+			'conditions' => array(
+			'Three.refer' => $re_two)));
+			
+			foreach($three as $threes){
+				$cus_id = $threes['Three']['costomer_id'];
+				//pr($cus_id);
+			
+				$purchase = $this->Purchase->find('all',array(
+				'conditions' => array(
+				'Purchase.customer_id' => $cus_id)));
+				
+				
+				foreach($purchase as $purchases){
+					$price = $purchases['Purchase']['price'];
+					$amounts = $purchases['Purchase']['amounts'];
+					
+					$beni = ($price * $amounts) * $nd.'$';
+					
+					$sum_two += $beni;
+					
+					$count = count($purchases);
+					$count_two += $count;
+					$count_two;
+				}
+				
+			}
+		$four = $this->Four->find('all',array(
+			'conditions' => array(
+			'Four.refer' => $re_two)));
+			
+			foreach($four as $fours){
+				$cus_id = $fours['Four']['costomer_id'];
+				//pr($cus_id);
+			
+				$purchase = $this->Purchase->find('all',array(
+				'conditions' => array(
+				'Purchase.customer_id' => $cus_id)));
+				
+				
+				foreach($purchase as $purchases){
+					$price = $purchases['Purchase']['price'];
+					$amounts = $purchases['Purchase']['amounts'];
+					
+					$beni = ($price * $amounts) * $rd.'$';
+					
+					$sum_three += $beni;
+					
+					$count = count($purchases);
+					$count_three += $count;
+				}
+				
+			}		
+			$sum_beni = $sum_one + $sum_two + $sum_three;
+		// Draw_money
+			$sum_draw = 0;
+			$drawal = $this->Withdrawal->find('all',array(
+			'conditions' => array(
+			'Withdrawal.customer_id' => $id)));
+		
+		$findCustomer = $this->Costomer->findById($id);
+		// get code customer_id
+		
+		foreach($findCustomer as $findCustomers){
+			$refer = $findCustomer['Costomer']['code'];
+			if($refer == null){
+				$code_one = $this->One->find('all', array(
+				'conditions' => array(
+				'costomer_id' => $id)));
+				foreach($code_one as $code_ones){
+					$cus_code = $code_ones['One']['code'];
+				}
+			}
+			else if($refer == (strpos($refer, 'st') !== false)){
+				$code_three = $this->Three->find('all', array(
+				'conditions' => array(
+				'costomer_id' => $id)));
+				foreach($code_three as $code_threes){
+					$cus_code = $code_threes['Three']['code'];
+					
+				}
+			}
+			else if($refer == (strpos($refer, 'nd') !== false)){
+				$code_four = $this->Four->find('all', array(
+				'conditions' => array(
+				'costomer_id' => $id)));
+				foreach($code_four as $code_fours){
+					$cus_code = $code_fours['Four']['code'];
+				}
+			}
+			else if($refer == (strpos($refer, 'rd') !== false)){
+				$code_four = $this->Four->find('all', array(
+				'conditions' => array(
+				'costomer_id' => $id)));
+				foreach($code_four as $code_fours){
+					$cus_code = $code_fours['Four']['code'];
+				}
+			}
+			else{
+				$code_two = $this->Two->find('all', array(
+				'conditions' => array(
+				'costomer_id' => $id)));
+				foreach($code_two as $code_twos){
+					$cus_code = $code_twos['Two']['code'];
+				}
+			}
+		}
+
+		$this->set('customers', $findCustomer);	
+		$this->set('sum_beni', $sum_beni);	
+		$this->set('cus_code', $cus_code);	
+		$this->set('two', $two);	
+		$this->set('three', $three);	
+		$this->set('four', $four);	
+		$this->set('purchase', $cus_pur);	
+		$this->set('withdrawal', $drawal);	
+		$this->set('id', $id);	
+		$this->set('sum_one', $sum_one);	
+		$this->set('sum_two', $sum_two);	
+		$this->set('sum_three', $sum_three);	
+		$this->set('count_one', $count_one);	
+		$this->set('count_two', $count_two);	
+		$this->set('count_three', $count_three);	
+		
+		
+	}
+	
 	public function link(){
          $this->loadModel('Purchase');
          $findpurchase = $this->Purchase->find('all',array(
@@ -999,19 +1191,7 @@ class CostomersController extends AppController {
     // $this->set('customers', $arr);
 
     }
-     public function detail(){
-
-        }
-        public function customer_dashboard() {
-
-	}  
-
-	public function purchase() {
-
-	}
-	public function setting() {
-
-	}
+	
 	public function own_update() {
 
 	}
