@@ -37,25 +37,11 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
-                  <?php echo $this->Form->input('username', array(
+                  <?php echo $this->Form->input('user_name', array(
                     'class' => 'form-control','placeholder'=>'login name','label' => false ));?>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="form-group text-right">
-                             <?php echo $this->Form->label('Password');?>
-              </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-8">
-                <div class="form-group">
-                  <?php echo $this->Form->input('password', array(
-                    'class' => 'form-control','placeholder'=>'password','label' => false ));?>
-                </div>
-              </div>
-            </div>
-           
             
           <h4>Personal information</h4>
           <hr style="margin-top:10px;margin-bottom:10px;" >
@@ -69,7 +55,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
-                  <?php echo $this->Form->input('firstname', array(
+                  <?php echo $this->Form->input('first_name', array(
                     'class' => 'form-control','placeholder'=>'last name','label' => false ));?>
                 </div>
               </div>
@@ -82,12 +68,25 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
-                  <?php echo $this->Form->input('lastname', array(
+                  <?php echo $this->Form->input('last_name', array(
                     'class' => 'form-control','placeholder'=>'last name','label' => false ));?>
                 </div>
               </div>
             </div>
             <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="form-group text-right">
+                             <?php echo $this->Form->label('Gender');?>
+              </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="form-group">
+                  <?php echo $this->Form->input('gender', array(
+                    'class' => 'form-control','placeholder'=>'login name','label' => false ));?>
+                </div>
+              </div>
+            </div>
+			<div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
                              <?php echo $this->Form->label('Date of birth');?>
@@ -97,19 +96,6 @@
                 <div class="form-group">
                   <?php echo $this->Form->input('dob', array(
                     'class' => 'form-control','placeholder'=>'login name','label' => false ));?>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-                      <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="form-group text-right">
-                             <?php echo $this->Form->label('Comments');?>
-              </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-8">
-                <div class="form-group">
-                  <?php echo $this->Form->input('code', array(
-                    'class' => 'form-control','type'=>'textarea','label' => false ));?>
                 </div>
               </div>
             </div>
@@ -125,10 +111,3 @@
    </div>
   </div>
 </div>
-
-
-                        
-                                 
-
-
-

@@ -15,9 +15,9 @@ class CostomersController extends AppController {
 				'conditions' => array(
 						'OR' => array(
 								array('Costomer.id LIKE' => '%' . $keyword . '%'),
-								//array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
-								//array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
-								//array('Costomer.username LIKE' => '%' . $keyword . '%'),
+								array('Costomer.first_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.last_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.user_name LIKE' => '%' . $keyword . '%'),
 								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
 								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
 								array('Costomer.email LIKE' => '%' . $keyword . '%'),
@@ -881,7 +881,7 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);
 	}
 	
-	public function view_setting() {
+	function view_setting($id) {
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
@@ -1071,7 +1071,7 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);	
 		
 		
-	}
+	}	
 	
 	public function link(){
          $this->loadModel('Purchase');
@@ -1192,8 +1192,20 @@ class CostomersController extends AppController {
 
     }
 	
-	public function own_update() {
-
+	public function own_update($id) {
+		$data = $this->Costomer->find('first',array(
+			'conditions'=>array('id'=>$id)));
+			if($this->request->is(array('post','put'))){
+				$this->Costomer->id=$id;
+				if($this->Costomer->save($this->request->data)){
+					$this->Session->setFlash('You have been update');
+				    $this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view_setting',$id));
+				}
+			}
+			$this->set('id', $id);
+			$this->request->data =$data;
 	}
 
 
