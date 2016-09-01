@@ -716,54 +716,10 @@ class CostomersController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
-		foreach($findCustomer as $findCustomers){
-			$refer = $findCustomer['Costomer']['code'];
-			if($refer == null){
-				$code_one = $this->One->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_one as $code_ones){
-					$cus_code = $code_ones['One']['code'];
-				}
-			}
-			else if($refer == (strpos($refer, 'st') !== false)){
-				$code_three = $this->Three->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_three as $code_threes){
-					$cus_code = $code_threes['Three']['code'];
-					
-				}
-			}
-			else if($refer == (strpos($refer, 'nd') !== false)){
-				$code_four = $this->Four->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_four as $code_fours){
-					$cus_code = $code_fours['Four']['code'];
-				}
-			}
-			else if($refer == (strpos($refer, 'rd') !== false)){
-				$code_four = $this->Four->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_four as $code_fours){
-					$cus_code = $code_fours['Four']['code'];
-				}
-			}
-			else{
-				$code_two = $this->Two->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_two as $code_twos){
-					$cus_code = $code_twos['Two']['code'];
-				}
-			}
-		}
+		
 
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
-		$this->set('cus_code', $cus_code);	
 		$this->set('two', $two);	
 		$this->set('three', $three);	
 		$this->set('four', $four);	
@@ -908,54 +864,9 @@ class CostomersController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
-		foreach($findCustomer as $findCustomers){
-			$refer = $findCustomer['Costomer']['code'];
-			if($refer == null){
-				$code_one = $this->One->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_one as $code_ones){
-					$cus_code = $code_ones['One']['code'];
-				}
-			}
-			else if($refer == (strpos($refer, 'st') !== false)){
-				$code_three = $this->Three->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_three as $code_threes){
-					$cus_code = $code_threes['Three']['code'];
-					
-				}
-			}
-			else if($refer == (strpos($refer, 'nd') !== false)){
-				$code_four = $this->Four->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_four as $code_fours){
-					$cus_code = $code_fours['Four']['code'];
-				}
-			}
-			else if($refer == (strpos($refer, 'rd') !== false)){
-				$code_four = $this->Four->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_four as $code_fours){
-					$cus_code = $code_fours['Four']['code'];
-				}
-			}
-			else{
-				$code_two = $this->Two->find('all', array(
-				'conditions' => array(
-				'costomer_id' => $id)));
-				foreach($code_two as $code_twos){
-					$cus_code = $code_twos['Two']['code'];
-				}
-			}
-		}
 
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
-		$this->set('cus_code', $cus_code);	
 		$this->set('two', $two);	
 		$this->set('three', $three);	
 		$this->set('four', $four);	
