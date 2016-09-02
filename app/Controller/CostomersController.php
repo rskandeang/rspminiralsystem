@@ -91,7 +91,9 @@ class CostomersController extends AppController {
 						$this->One->save($refer = $this->request->data);
 					
 						$this->Session->setFlash(__('One table.'));
-		
+						$this->redirect(array(
+						'controller'=>'Costomers',
+						'action'=>'index'));	
 					}		
 					else if(strpos($code, 'st') !== false){
 						
