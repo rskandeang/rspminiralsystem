@@ -3,7 +3,7 @@
   <div class="row ">
      <div class="col-md-2">
         
-        <div style="" class="col-md-12"><h4 class="text-center">List for all users</h4></div>
+        <div style="" class="col-md-12"><h4 class="text-center">List for all customers</h4></div>
     </div>
     <div class="col-md-12 ">
         <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">
@@ -22,7 +22,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Users List</strong>
+                    <h1 class="panel-title "><strong class="pull-left"> Customers List</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body">
