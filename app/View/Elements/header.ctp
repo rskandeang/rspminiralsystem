@@ -91,7 +91,7 @@
                 
                 <li style="border-radius:50%" class="dropdown">
   
-                  <a  class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->Html->image($this->Session->read('Auth.User.image'),array('width'=>'60','style'=>'display: inline-block;width: 50px;height: 50px;border-radius: 50%;background-repeat: no-repeat;background-position: center center;background-size: cover;border: 4px solid #108E5F !important;  ')); ?> <!-- <?php print $this->Session->read('Auth.User.username'); ?> -->
+                  <a  class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->Html->image($this->Session->read('Auth.User.image'),array('width'=>'60','style'=>'display: inline-block;width: 50px;height: 50px;border-radius: 50%;background-repeat: no-repeat;background-position: center center;background-size: cover;border: 2px solid #DDDDDD !important;  ')); ?> <!-- <?php print $this->Session->read('Auth.User.username'); ?> -->
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="#"><span>

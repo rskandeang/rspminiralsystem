@@ -1,9 +1,9 @@
 
 <div class="container-fluid">
   <div class="row ">
-     <div class="col-md-12">
-        <div></div>
-        <div style="" class="col-md-2"> <h4 class="text-center">List for all users</h4></div>
+     <div class="col-md-2">
+        
+        <div style="" class="col-md-12"><h4 class="text-center">List for all users</h4></div>
     </div>
     <div class="col-md-12 ">
         <div style="background-color:#E7E7E7;padding:6px" class="col-md-2 panel-body">
@@ -27,25 +27,25 @@
                 </div>
                 <div class="panel-body">
                   <div class="table-responsive">
-                    <table class="col-md-12 table table-bordered table-hover table-striped" cellpadding="0" cellspacing="0">
-                      <thead style="background-color:#1d933F;color:#fff;" > 
+                    <table class="col-md-12 table table-bordered table-hover table-striped " cellpadding="0" cellspacing="0">
+                      <thead style="background-color:#f5f5f5;" > 
                         <tr> 
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('gender', 'Gender',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('gender', 'Gender',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('created', 'Created',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('created', 'Created',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('modified', 'Last Update',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('modified', 'Last Update',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('phone', 'Phone',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('phone', 'Phone',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('email', 'Email',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('email', 'Email',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#fff;')); ?></th>
+                                <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#000;')); ?></th>
                             <!-- <th class="table-header" style="text-align:center;">Image</th> -->
                             <th class="table-header" style="text-align:center;">Action</th>
                     
