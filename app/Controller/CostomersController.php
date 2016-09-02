@@ -15,9 +15,9 @@ class CostomersController extends AppController {
 				'conditions' => array(
 						'OR' => array(
 								array('Costomer.id LIKE' => '%' . $keyword . '%'),
-								//array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
-								//array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
-								//array('Costomer.username LIKE' => '%' . $keyword . '%'),
+								array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
+								array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
+								array('Costomer.username LIKE' => '%' . $keyword . '%'),
 								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
 								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
 								array('Costomer.email LIKE' => '%' . $keyword . '%'),
@@ -66,16 +66,13 @@ class CostomersController extends AppController {
 		$this->Session->destroy();
 		$this->redirect($this->Auth->logout());
 	}
-
 	function add(){
-
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
 		$this->loadModel('Four');
 		if($this->request->is('post')){
 			$this->Costomer->create();
-
 			if($this->Costomer->save($this->request->data)){
 				
 				$findId=$this->Costomer->find('first',array(
@@ -94,7 +91,9 @@ class CostomersController extends AppController {
 						$this->One->save($refer = $this->request->data);
 					
 						$this->Session->setFlash(__('One table.'));
-		
+						$this->redirect(array(
+						'controller'=>'Costomers',
+						'action'=>'index'));	
 					}		
 					else if(strpos($code, 'st') !== false){
 						
@@ -104,26 +103,19 @@ class CostomersController extends AppController {
 						foreach($find_refer as $find_refers){
 							$re_code = $find_refers['Two']['refer'];
 						}	
-
-			$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
-			if($this->Costomer->save($this->request->data)){
-				$id = $findId['Costomer']['id'];
-				$code = $this->request->data['Costomer']['code'];		
-					 if(strpos($code, 'st') !== false){
-
 						$this->Three->create();
 						$own_id = date('YmdHis', strtotime("$date $time"));
 						$this->Three->set(array(
 						'code' =>  'nd'.$own_id,
-
 						'costomer_id' => $id,
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
-
+						
 						$this->Session->setFlash(__('Three table.'));
 						$three = $this->Three->find('first', array(
 													'order' => array('Three.code' => 'asc')));
 						$str2 = substr($code, 2);
+						
 						$is_exist = $this->One->find('count',array(
 														'conditions' => array(
 														'One.code' => $str2
@@ -143,16 +135,20 @@ class CostomersController extends AppController {
 								'costomer_id' => $cos_idst));
 							$this->One->save($this->request->data);
 						 }
+				
 						$this->Two->set(array(
 						'code' =>  'st'.$own_id,
 						'refer' => $str2,
 						'costomer_id' => $id));
 						$this->Two->save($this->request->data);
 						//pr($test);exit;
+						$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+						//pr($testsent);exit;
+								$this->One->save($this->request->data);
 					}
-					
-						$this->Two->saveField('code','st'.$own_id); 
-						}
+						
 					else if(strpos($code, 'nd') !== false){
 					
 						$find_refer = $this->Three->find('all',array(
@@ -173,7 +169,6 @@ class CostomersController extends AppController {
 							
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
-							$this->Four->save($this->request->data);	
 							$this->Session->setFlash(__('Four table.'));				
 							$str2 = substr($code, 2);
 							$addstr = 'st'.$str2;
@@ -220,7 +215,11 @@ class CostomersController extends AppController {
 							$this->Three->save($this->request->data);
 							
 							//$this->Three->saveField('code','nd'.$own_id);
-							
+							$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+						//pr($testsent);exit;
+								$this->One->save($this->request->data);
 					}
 					else if(strpos($code, 'rd') !== false){
 						$find_refer = $this->Four->find('all',array(
@@ -268,7 +267,7 @@ class CostomersController extends AppController {
 									$this->One->set(array(
 									'code' =>  $str2,
 									'costomer_id' => $cos_idst));
-							$this->One->save($this->request->data);
+									$this->One->save($this->request->data);
 									// $this->One->saveField('code', $str2);
 								 }
 								
@@ -293,51 +292,39 @@ class CostomersController extends AppController {
 									'costomer_id' => $id));
 								$this->Three->save($this->request->data);
 								//$this->Three->saveField('code','nd'.$own_id);
-							
+								$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+								//pr($testsent);exit;
+								$this->One->save($this->request->data);
 							}
 					}
 				
-							$this->Two->saveField('code','st'.$own_id_rd);							
-							$this->Three->saveField('code','nd'.$own_id_rd);
-						}
-					else if(strpos($code, 'rd') !== false){
-							//$str2 = substr($code, 2);
-							$this->Four->create();
-							$own_id_rd = date('YmdHis', strtotime("$date $time"));
-							$this->Four->set(array(
-							'code' =>  'rd'.$own_id_rd,
-							'costomer_id' => $id));
-							$this->Four->save($this->request->data);	
-							$this->Session->setFlash(__('Four1 table.'));
-							$str2 = substr($code, 2);
-							$is_exist = $this->One->find('count',array(
-														'conditions' => array(
-														'One.code' => $str2)));
-							 if($is_exist == 0){
-								 $this->One->saveField('code', $str2);
-							 }
-							$this->Two->saveField('code','st'.$own_id_rd);	
-							$this->Three->saveField('code','nd'.$own_id_rd);
-						}
 					else{
+							
 							$this->Two->create();
 								$own_id = date('YmdHis', strtotime("$date $time"));
-								$own_id_rd = date('Ymd');
 								$this->Two->set(array(
 								'code' => 'st'.$own_id,
 								'costomer_id' => $id,
 								'refer' => $code));
 								$this->Two->save($this->request->data);
 								
+								$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+								//pr($testsent);exit;
+								$this->One->save($this->request->data);
 								$this->Session->setFlash(__('tow table.'));
 								
 								
 						}
-					$this->redirect('index');
+				
 			}
-
 		}
+		
 	}
+	
 	public function delete($id = null) {
          
         if (!$id) {
@@ -881,7 +868,7 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);
 	}
 	
-	public function view_setting() {
+	function view_setting($id) {
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
@@ -1071,7 +1058,7 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);	
 		
 		
-	}
+	}	
 	
 	public function link(){
          $this->loadModel('Purchase');
@@ -1222,8 +1209,20 @@ class CostomersController extends AppController {
 
     }
 	
-	public function own_update() {
-
+	public function own_update($id) {
+		$data = $this->Costomer->find('first',array(
+			'conditions'=>array('id'=>$id)));
+			if($this->request->is(array('post','put'))){
+				$this->Costomer->id=$id;
+				if($this->Costomer->save($this->request->data)){
+					$this->Session->setFlash('You have been update');
+				    $this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view_setting',$id));
+				}
+			}
+			$this->set('id', $id);
+			$this->request->data =$data;
 	}
 
 
