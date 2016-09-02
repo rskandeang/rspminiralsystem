@@ -1,7 +1,7 @@
 <div class="col-md-9">
     <div class="col-md-12">
         <div class="panel box-v1">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div  class="panel-heading bg-white border-none">
                 <div class="row">
 
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
@@ -11,7 +11,7 @@
 
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
 					
                     <h4  class="text-center">
 						<?php 
@@ -19,11 +19,11 @@
 					</h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                    <h4  class="text-center">125 $</h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
              
                           <!-- Steps Circular Progress - START -->
                           
@@ -65,7 +65,7 @@
 
         <!-- second box -->
          <div class="panel box-v1">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div  class="panel-heading bg-white border-none">
                 <div class="row">
 
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
@@ -75,7 +75,7 @@
 
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                     <h4  class="text-center">
 						<?php 
 							$count = 0;
@@ -89,13 +89,13 @@
 					</h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                    <h4  class="text-center">
 						<?php echo '$ '.$sum_one;?>
 				   </h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
              
                           <!-- Steps Circular Progress - START -->
                           
@@ -138,7 +138,7 @@
 
            <!-- second box -->
         <div class="panel box-v1">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div  class="panel-heading bg-white border-none">
                 <div class="row">
 
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
@@ -148,7 +148,7 @@
 
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                     <h4  class="text-center">
 						<?php 
 							$count = 0;
@@ -162,13 +162,13 @@
 					</h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                    <h4  class="text-center">
 						<?php echo '$ '.$sum_two;?>
 				   </h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
              
                           <!-- Steps Circular Progress - START -->
                           
@@ -211,7 +211,7 @@
 
            <!-- second box -->
         <div class="panel box-v1">
-              <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
+              <div  class="panel-heading bg-white border-none">
                 <div class="row">
 
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
@@ -221,7 +221,7 @@
 
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                     <h4  class="text-center">
 						<?php 
 							$count = 0;
@@ -235,13 +235,13 @@
 					</h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                    <h4  class="text-center">
 						<?php echo '$ '.$sum_three;?>
 				   </h4>
                  </div>
 
-                 <div style="border-left:1px solid #fff;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
+                 <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
              
                           <!-- Steps Circular Progress - START -->
                           

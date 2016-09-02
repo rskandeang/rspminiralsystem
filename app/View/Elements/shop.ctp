@@ -19,7 +19,7 @@
                                                     <?php foreach($purchases as $purchase): ?>  
                                                      <tr>
                                                         <td><?php $total += $purchase['Purchase']['amounts']; ?></td>
-                                                        <td><?php $total_price += $purchase['Purchase']['t_price']; ?></td>
+                                                        <td><?php $total_price += $purchase['Purchase']['amounts']*$purchase['Purchase']['price']; ?></td>
                                                       </tr> 
                                                       <?php endforeach; ?>
                                                
@@ -84,7 +84,7 @@
                                       </div>
                                       <div class="panel-body text-center">
                                         <table class="col-md-12 table table-hover table-striped" cellpadding="0" cellspacing="0">
-      <thead style="background-color:#32800A;"> 
+      <thead style="background-color:#1d933F;"> 
        <!--  <tr> 
             <th class="table-header" style="text-align: center;color:white">No</th>
             <th class="table-header" style="text-align: center;color:white"></th>
@@ -97,7 +97,7 @@
             <?php foreach($withdrawals as $withdrawal): ?>  
 
             <tr>  
-                <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['Withdrawal']['id']; ?>) Customer name: <?php echo $withdrawal['Withdrawal']['cus_name'];?> have been withdrawal the amounts:<?php echo $withdrawal['Withdrawal']['withdrawal'];?> of money.</td>
+                <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['draw_id']; ?>) Customer name: <strong><?php echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?></strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['draw_date'];?> .</td>
                
             </tr>
             <?php endforeach; ?>

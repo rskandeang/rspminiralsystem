@@ -1063,24 +1063,54 @@ class CostomersController extends AppController {
 	public function link(){
          $this->loadModel('Purchase');
          $findpurchase = $this->Purchase->find('all',array(
-                        'order' => 'Purchase.id ASC'
+                        'order' => 'Purchase.pur_id ASC'
                         ));
           $this->set('purchases', $findpurchase);
          // var_dump($findpurchase);exit();
 
         $this->loadModel('Money');
         $findmoney = $this->Money->find('all',array(
-                        'order' => 'Money.id ASC'
+                        'order' => 'Money.money_id ASC'
                         ));
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
 
         $this->loadModel('Withdrawal');
-        $findwithdrawal = $this->Withdrawal->find('all', array(
-                        'order' => 'Withdrawal.id ASC'
+
+       //  $findwithdrawal = $this->Withdrawal->find('all', array(
+       //                  'order' => 'Withdrawal.draw_id ASC'
+       //                  ));
+     	 // $this->set('withdrawals', $findwithdrawal);
+
+
+		 $findCus =$this->Costomer->find('all',array(
+                            'order'=>'costomer.id'));
+        $arr = array();
+                foreach( $findCus as $customer){
+                    $customer_id = $customer['Costomer']['id'];
+                    $findwithdrawal = $this->Withdrawal->find('first', array(
+                        'conditions' => array(
+                            'Withdrawal.customer_id' =>  $customer_id),
+                        'order' => 'Withdrawal.customer_id DESC'
                         ));
-        
-     	 $this->set('withdrawals', $findwithdrawal);
+                     foreach($findwithdrawal as $withdrawal){
+                       	 	$date_withdraw = $withdrawal['draw_date'];
+                       	 	$m_withdrawl = $withdrawal['money'];
+                       	 	$Id = $withdrawal['draw_id'];
+                       	 	 $data = array(
+	                            'id' => $customer['Costomer']['id'],
+	                            'firstname' => $customer['Costomer']['firstname'],
+	                            'lastname' => $customer['Costomer']['lastname'],
+	                            'draw_date'=> $date_withdraw,
+	                            'money'=> $m_withdrawl,
+	                            'draw_id' => $Id,
+	                        );
+                    	 }
+        array_push($arr, $data);
+    }
+    // var_dump($data);exit();
+    $this->set('withdrawals', $arr);
+                    // var_dump($findwithdrawal);exit();
 
         /***********************************************************
 
