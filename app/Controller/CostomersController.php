@@ -66,16 +66,13 @@ class CostomersController extends AppController {
 		$this->Session->destroy();
 		$this->redirect($this->Auth->logout());
 	}
-
 	function add(){
-
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
 		$this->loadModel('Four');
 		if($this->request->is('post')){
 			$this->Costomer->create();
-
 			if($this->Costomer->save($this->request->data)){
 				
 				$findId=$this->Costomer->find('first',array(
@@ -99,62 +96,57 @@ class CostomersController extends AppController {
 					else if(strpos($code, 'st') !== false){
 						
 						$find_refer = $this->Two->find('all',array(
-						'conditions' => array(
-						'Two.code' => $code
-						)));
+																'conditions' => array('Two.code' => $code)));
 						
 						foreach($find_refer as $find_refers){
 							$re_code = $find_refers['Two']['refer'];
 						}	
-
-						if($this->Costomer->save($this->request->data)){
-							$id = $findId['Costomer']['id'];
-							$code = $this->request->data['Costomer']['code'];		
-								 if(strpos($code, 'st') !== false){
-
-									$this->Three->create();
-									$own_id = date('YmdHis', strtotime("$date $time"));
-									$this->Three->set(array(
-									'code' =>  'nd'.$own_id,
-									'costomer_id' => $id,
-									'refer' => $re_code));
-									$this->Three->save($refer = $this->request->data);
-
-									$this->Session->setFlash(__('Three table.'));
-									$three = $this->Three->find('first', array(
-																'order' => array(
-																'Three.code' => 'asc'
-																)));
-										$str2 = substr($code, 2);
-										$is_exist = $this->One->find('count',array(
-																		'conditions' => array(
-																		'One.code' => $str2
-																		)));
-									$cos_id = $this->Two->find('all',array(
-										'conditions' => array(
-										'Two.code' => $code)));
-										foreach($cos_id as $cos_ids){
-											$cos_idst = $cos_ids['Two']['costomer_id'];
-											//pr($cos_idst);
-										}
-									//pr($cos_idst);exit;	 
-									if($is_exist == 0){
-										 
-										$this->One->set(array(
-											'code' =>  $str2,
-											'costomer_id' => $cos_idst));
-										$this->One->save($this->request->data);
-									}
-									$this->Two->set(array(
-									'code' =>  'st'.$own_id,
-									'refer' => $str2,
-									'costomer_id' => $id));
-									$this->Two->save($this->request->data);
-									//pr($test);exit;
-								}
-					
-							$this->Two->saveField('code','st'.$own_id); 
-						}
+						$this->Three->create();
+						$own_id = date('YmdHis', strtotime("$date $time"));
+						$this->Three->set(array(
+						'code' =>  'nd'.$own_id,
+						'costomer_id' => $id,
+						'refer' => $re_code));
+						$this->Three->save($refer = $this->request->data);
+						
+						$this->Session->setFlash(__('Three table.'));
+						$three = $this->Three->find('first', array(
+													'order' => array('Three.code' => 'asc')));
+						$str2 = substr($code, 2);
+						
+						$is_exist = $this->One->find('count',array(
+														'conditions' => array(
+														'One.code' => $str2
+														)));
+						$cos_id = $this->Two->find('all',array(
+							'conditions' => array(
+							'Two.code' => $code)));
+							foreach($cos_id as $cos_ids){
+								$cos_idst = $cos_ids['Two']['costomer_id'];
+								//pr($cos_idst);
+							}
+						//pr($cos_idst);exit;	 
+						 if($is_exist == 0){
+							 
+							$this->One->set(array(
+								'code' =>  $str2,
+								'costomer_id' => $cos_idst));
+							$this->One->save($this->request->data);
+						 }
+				
+						$this->Two->set(array(
+						'code' =>  'st'.$own_id,
+						'refer' => $str2,
+						'costomer_id' => $id));
+						$this->Two->save($this->request->data);
+						//pr($test);exit;
+						$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+						//pr($testsent);exit;
+								$this->One->save($this->request->data);
+					}
+						
 					else if(strpos($code, 'nd') !== false){
 					
 						$find_refer = $this->Three->find('all',array(
@@ -175,7 +167,6 @@ class CostomersController extends AppController {
 							
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
-							$this->Four->save($this->request->data);	
 							$this->Session->setFlash(__('Four table.'));				
 							$str2 = substr($code, 2);
 							$addstr = 'st'.$str2;
@@ -222,7 +213,11 @@ class CostomersController extends AppController {
 							$this->Three->save($this->request->data);
 							
 							//$this->Three->saveField('code','nd'.$own_id);
-							
+							$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+						//pr($testsent);exit;
+								$this->One->save($this->request->data);
 					}
 					else if(strpos($code, 'rd') !== false){
 						$find_refer = $this->Four->find('all',array(
@@ -270,7 +265,7 @@ class CostomersController extends AppController {
 									$this->One->set(array(
 									'code' =>  $str2,
 									'costomer_id' => $cos_idst));
-							$this->One->save($this->request->data);
+									$this->One->save($this->request->data);
 									// $this->One->saveField('code', $str2);
 								 }
 								
@@ -295,59 +290,39 @@ class CostomersController extends AppController {
 									'costomer_id' => $id));
 								$this->Three->save($this->request->data);
 								//$this->Three->saveField('code','nd'.$own_id);
-							
+								$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+								//pr($testsent);exit;
+								$this->One->save($this->request->data);
 							}
 					}
 				
-							$this->Two->saveField('code','st'.$own_id_rd);							
-							$this->Three->saveField('code','nd'.$own_id_rd);
-						}
-					else if(strpos($code, 'rd') !== false){
-							//$str2 = substr($code, 2);
-							$this->Four->create();
-							$own_id_rd = date('YmdHis', strtotime("$date $time"));
-							$this->Four->set(array(
-							'code' =>  'rd'.$own_id_rd,
-							'costomer_id' => $id));
-							$this->Four->save($this->request->data);	
-							$this->Session->setFlash(__('Four1 table.'));
-							$str2 = substr($code, 2);
-							$is_exist = $this->One->find('count',array(
-														'conditions' => array(
-														'One.code' => $str2)));
-							 if($is_exist == 0){
-								 $this->One->saveField('code', $str2);
-							 }
-							$this->Two->saveField('code','st'.$own_id_rd);	
-							$this->Three->saveField('code','nd'.$own_id_rd);
-						}
 					else{
+							
 							$this->Two->create();
 								$own_id = date('YmdHis', strtotime("$date $time"));
-								$own_id_rd = date('Ymd');
 								$this->Two->set(array(
 								'code' => 'st'.$own_id,
 								'costomer_id' => $id,
 								'refer' => $code));
 								$this->Two->save($this->request->data);
-								/*
-								$is_exist = $this->One->find('count',array(
-														'conditions' => array(
-														'One.code' => $own_id)));
-								if($is_exist == 0){
-									$this->One->saveField('code', $own_id);
-								}
-								*/
-				
+								
+								$testsent = $this->One->set(array(
+								'code' =>  $own_id,
+								'costomer_id' => $id));
+								//pr($testsent);exit;
+								$this->One->save($this->request->data);
 								$this->Session->setFlash(__('tow table.'));
 								
 								
 						}
-					$this->redirect('index');
+				
 			}
-
 		}
+		
 	}
+	
 	public function delete($id = null) {
          
         if (!$id) {
