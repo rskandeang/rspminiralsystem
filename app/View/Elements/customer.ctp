@@ -1,9 +1,8 @@
 
 <div class="container-fluid">
   <div class="row ">
-     <div class="col-md-2">
-        
-        <div style="" class="col-md-12"><h4 class="text-center">List for all customers</h4></div>
+     <div class="col-md-12">
+        <div  class="col-md-2"><h4 class="text-center">List for all customers</h4></div>
     </div>
     <div class="col-md-12 ">
         <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">

@@ -74,16 +74,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="panel box-v1">
-                                      <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-12 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 style="margin-bottom:25px;" class="text-center">All list of withdrawals</h4>
-                                        </div>
-                                        
-                                      </div>
-                                      <div class="panel-body text-center">
-                                        <table class="col-md-12 table table-hover table-striped" cellpadding="0" cellspacing="0">
+<div class="col-md-12">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div style="background:#B9770E;" class="panel-heading">
+        <h1 class="panel-title "><strong class="pull-left"> Customers withdrawal List</strong>
+        <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
+      </div>
+        <div style="background:#D68910;" class="panel-body">
+          <div class="table-responsive">
+            <div style="padding-left:100px;padding-right:100px;" class="panel-body">
+
+      <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
       <thead style="background-color:#1d933F;"> 
        <!--  <tr> 
             <th class="table-header" style="text-align: center;color:white">No</th>
@@ -96,23 +98,28 @@
       <tbody >
             <?php foreach($withdrawals as $withdrawal): ?>  
 
-            <tr>  
-                <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['draw_id']; ?>) Customer name: <strong><?php echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?></strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['draw_date'];?> .</td>
+            <tr >  
+                <td   scope="row" style="text-align: right;">Customer ID( <?php echo $withdrawal['draw_id']; ?> )
+                </td>
+                <td style="text-align: left;"> 
+                  Customer name:&nbsp;&nbsp;&nbsp; <strong><?php echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?></strong> &nbsp; have been withdrawal the amounts: &nbsp;&nbsp;&nbsp;" <?php echo $withdrawal['money'];?>$ "&nbsp;&nbsp;&nbsp; on &nbsp;&nbsp;&nbsp;<?php echo $withdrawal['draw_date'];?>
+                </td>
+                
                
             </tr>
             <?php endforeach; ?>
-
-
       </tbody>
-    </table>
-                                       
-                                        <p>Company's customer withdrawals</p>
-                                        <hr/>
-                                      </div>
-                                    </div>
-                        </div>
-                    </div>
+    </table>                        
+              <p style="text-align: center;">Company's customer withdrawals</p>
+              <hr/>
+              </div>
                 </div>
             </div>
-          <!-- end: content -->       
+           </div>
+          </div>
+        </div> 
       </div>
+    </div>
+  </div>
+          <!-- end: content -->       
+   

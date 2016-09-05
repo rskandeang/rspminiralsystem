@@ -7,48 +7,35 @@
 			  <div class="panel-body">
 			  		<?php echo $this->Form->create('Costomer',array('enctype'=>'multipart/form-data'));?>
 			            <div class="row">
-			                <div class="col-xs-12 col-sm-6 col-md-6">
+			                <div class="col-xs-12 col-sm-4 col-md-4">
 			    				<div class="form-group">
-			                       <?php echo $this->Form->input('first_name', array(
+			                       <?php echo $this->Form->input('firstname', array(
 										'class' => 'form-control','placeholder'=>'First Name','label' => false ));?>
 								</div>
 							</div>
-							<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="col-xs-12 col-sm-4 col-md-4">
 								<div class="form-group">
-									<?php echo $this->Form->input('last_name', array(
+									<?php echo $this->Form->input('lastname', array(
 										'class' => 'form-control','placeholder'=>'Last Name','label' => false ));?>
 								</div>
 							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<div class="form-group">
+									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male','Female'),'default'=>'2'));?>
+								</div>
+								
+							</div>
 						</div>
-						<div class="row">
-			                <div class="col-xs-12 col-sm-6 col-md-6">
+
 			    				<div class="form-group">
-									<?php echo $this->Form->input('user_name', array(
+									<?php echo $this->Form->input('username', array(
 										'class' => 'form-control','placeholder'=>'User Name','label' => false ));?>
 								</div>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-6">
+					
 								<div class="form-group">
 									<?php echo $this->Form->input('password', array(
 										'class' => 'form-control','placeholder'=>'Password','label' => false));?>
 								</div>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<?php echo $this->Form->input('first', array(
-								  'class'=>'form-control',
-                                  'type'=>'checkbox', 
-                                  'format' => array('before', 'input', 'between', 'label', 'after', 'error'))); ?>
-						</div> 
-						<div class="form-group">
-										<?php echo $this->Form->input('dob', array('class'=>'form-control', 
-											'placeholder'=>'Day of birth','label' => false));?>
-						</div>
-						<div class="form-group">
-							<?php echo $this->Form->input('gender', array(
-										'class' => 'form-control','placeholder'=>'Gender','label' => false));?>
-						</div>
 						
 						<div class="form-group">
 							<?php echo $this->Form->input('phone', array(
@@ -63,6 +50,22 @@
 						<div class="form-group">
 							<?php echo $this->Form->input('code', array(
 											'class' => 'form-control','placeholder'=>'Code','label' => false));?>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div><?php echo $this->Form->label('Birthday') ?></div>
+								<div>
+										<?php echo $this->Form->input('dob',array('style'=>'padding:3px;margin:10px 0px 10px 0px;','label' => false), array('class'=>'col-md-3'));?>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div style="margin-top:30px;" >
+									<?php echo $this->Form->input('first',array(
+										  'class'=>'form-check-input',
+		                                  'type'=>'checkbox',
+		                                  'format' => array('before', 'input', 'between', 'label', 'after', 'error'))); ?>
+								</div>
+							</div>
 						</div>
         
         

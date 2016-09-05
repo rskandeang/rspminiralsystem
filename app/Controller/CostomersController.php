@@ -83,7 +83,7 @@ class CostomersController extends AppController {
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
 						$this->One->create();
-						$own_id = date('YmdHis', strtotime("$date $time"));
+						$own_id = date('YmdHis');
 						$this->One->set(array(
 						'code' =>  $own_id,
 						'costomer_id' => $id
