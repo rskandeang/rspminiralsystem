@@ -7,7 +7,7 @@
                         <div class="col-md-12 padding-0">
                             <div class="col-md-12 padding-0">
                                 <div class="col-md-4">
-                                    <div  style='background:#28B463' class="panel box-v1">
+                                    <div  style='background:#E0EEF2' class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
                                         <div class="col-md-12 col-sm-6 col-xs-6 text-left padding-0">
                                           <h4 class="text-left">Total Amount</h4>
@@ -23,7 +23,7 @@
                                                       </tr> 
                                                       <?php endforeach; ?>
                                                
-                                            <p style="color:#fff;font-size:30px;"><?php echo $total; ?></p>
+                                            <p style="font-size:30px;"><?php echo $total; ?></p>
 
 
                                         <p>Amount order of a month</p>
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4" >
-                                    <div style='background:#5DADE2' class="panel box-v1">
+                                    <div style='background:#E0EEF2' class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
                                         <div class="col-md-12 col-sm-6 col-xs-12 text-left padding-0">
                                           <h4 class="text-left">Total Purchase</h4>
@@ -40,7 +40,7 @@
                                         
                                       </div>
                                       <div class="panel-body text-center">
-                                            <p style="color:#fff;font-size:30px;"><?php echo $total_price; ?></p>
+                                            <p style="font-size:30px;"><?php echo $total_price; ?></p>
                                           
                                         <p>Total purchase of a month</p>
                                         <hr/>
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div style='background:#A569BD' class="panel box-v1">
+                                    <div style='background:#E0EEF2' class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
                                         <div class="col-md-12 col-sm-6 col-xs-6 text-left padding-0">
                                           <h4 class="text-left">Current money</h4>
@@ -63,7 +63,7 @@
                                                       </tr> 
                                                       <?php endforeach; ?>
                                                
-                                            <p style="color:#fff;font-size:30px;"><?php echo $total; ?></p>
+                                            <p style="font-size:30px;"><?php echo $total; ?></p>
                                        
                                         <p>Company current monies</p>
                                         <hr/>
@@ -77,11 +77,11 @@
 <div class="col-md-12">
   <div class="col-md-12">
     <div class="panel panel-default">
-      <div style="background:#B9770E;" class="panel-heading">
+      <div  class="panel-heading">
         <h1 class="panel-title "><strong class="pull-left"> Customers withdrawal List</strong>
         <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
       </div>
-        <div style="background:#D68910;" class="panel-body">
+        <div  class="panel-body">
           <div class="table-responsive">
             <div style="padding-left:100px;padding-right:100px;" class="panel-body">
 
@@ -102,8 +102,12 @@
                 <td   scope="row" style="text-align: right;">Customer ID( <?php echo $withdrawal['draw_id']; ?> )
                 </td>
                 <td style="text-align: left;"> 
-                  Customer name:&nbsp;&nbsp;&nbsp; <strong><?php echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?></strong> &nbsp; have been withdrawal the amounts: &nbsp;&nbsp;&nbsp;" <?php echo $withdrawal['money'];?>$ "&nbsp;&nbsp;&nbsp; on &nbsp;&nbsp;&nbsp;<?php echo $withdrawal['draw_date'];?>
+                  Customer name:&nbsp;&nbsp;&nbsp; <strong><?php echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?></strong>
                 </td>
+                <td>
+                   have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ "
+                </td>
+                <td> on <?php echo $withdrawal['draw_date'];?></td>
                 
                
             </tr>

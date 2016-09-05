@@ -303,7 +303,7 @@ class CostomersController extends AppController {
 					else{
 							
 							$this->Two->create();
-								$own_id = date('YmdHis', strtotime("$date $time"));
+								$own_id = date('YmdHis');
 								$this->Two->set(array(
 								'code' => 'st'.$own_id,
 								'costomer_id' => $id,
