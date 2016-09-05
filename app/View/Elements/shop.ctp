@@ -56,14 +56,8 @@
                                         
                                       </div>
                                       <div class="panel-body text-center">
-                                        <?php $totalMoney = 0; ?>
-                                                    <?php foreach($monies as $money): ?>  
-                                                     <tr>
-                                                        <td><?php $total += $money['Money']['curent_moneys']; ?></td>
-                                                      </tr> 
-                                                      <?php endforeach; ?>
-                                               
-                                            <p style="color:#fff;font-size:30px;"><?php echo $total; ?></p>
+                                        
+                                            <p style="color:#fff;font-size:30px;"><?php echo $total_cur_money; ?></p>
                                        
                                         <p>Company current monies</p>
                                         <hr/>
@@ -97,9 +91,14 @@
             <?php foreach($withdrawals as $withdrawal): ?>  
 
             <tr>  
+
                 <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['draw_id']; ?>)
 				Customer name: <strong>
 					<?php //echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?>
+
+                <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['draw_id']; ?>) Customer name: <strong>
+					<?php //echo $withdrawal['firstname'].' //'.$withdrawal['lastname'];?>
+
 				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['draw_date'];?> .</td>
                
             </tr>
