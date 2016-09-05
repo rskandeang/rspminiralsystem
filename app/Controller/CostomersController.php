@@ -503,12 +503,27 @@ class CostomersController extends AppController {
 				
 			}		
 			$sum_beni = $sum_one + $sum_two + $sum_three;
+			
 		// Draw_money
+			$date_time = date('Y-m-d H:i:s');
+			
+			if($this->request->is('post')){
+				$this->Withdrawal->set(array(
+								'customer_id' => $id,
+								'draw_date' => $date_time));
+				if($test = $this->Withdrawal->save($this->request->data)){
+					$this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view',$id));
+				}
+				$this->set('id', $id);
+			}
+		
 			$sum_draw = 0;
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
-		
+			
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
@@ -1077,12 +1092,6 @@ class CostomersController extends AppController {
 
         $this->loadModel('Withdrawal');
 
-       //  $findwithdrawal = $this->Withdrawal->find('all', array(
-       //                  'order' => 'Withdrawal.draw_id ASC'
-       //                  ));
-     	 // $this->set('withdrawals', $findwithdrawal);
-
-
 		 $findCus =$this->Costomer->find('all',array(
                             'order'=>'costomer.id'));
         $arr = array();
@@ -1099,8 +1108,8 @@ class CostomersController extends AppController {
                        	 	$Id = $withdrawal['draw_id'];
                        	 	 $data = array(
 	                            'id' => $customer['Costomer']['id'],
-	                            'firstname' => $customer['Costomer']['firstname'],
-	                            'lastname' => $customer['Costomer']['lastname'],
+	                            //'firstname' => $customer['Costomer']['firstname'],
+	                           //'lastname' => $customer['Costomer']['lastname'],
 	                            'draw_date'=> $date_withdraw,
 	                            'money'=> $m_withdrawl,
 	                            'draw_id' => $Id,
@@ -1109,104 +1118,116 @@ class CostomersController extends AppController {
         array_push($arr, $data);
     }
     // var_dump($data);exit();
-    $this->set('withdrawals', $arr);
-                    // var_dump($findwithdrawal);exit();
-
-        /***********************************************************
-
-        $this->loadModel('Purchase');
-        $this->loadModel('Money');
-        $this->loadModel('Withdrawal');
-        $findCus =$this->Costomer->find('all',array(
-                            'order'=>'costomer.id'));
-        $arr = array();
-                foreach( $findCus as $customer){
-                    $customer_id = $customer['Costomer']['id'];
-
-                    $findmoney = $this->Money->find('first',array(
-                        'conditions' => array(
-                            'Money.customer_id' => $customer_id ),
-                        'order' => 'Money.customer_id'
-                        ));
-
-                      	foreach ($findmoney as $money) {
-                         	$current_money = $money['curent_moneys'];
-                  		 }
-                    
-                    $findwithdrawal = $this->Withdrawal->find('first', array(
-                        'conditions' => array(
-                            'Withdrawal.customer_id' =>  $customer_id),
-                        'order' => 'Withdrawal.customer_id DESC'
-                        ));
-                    // var_dump($findwithdrawal);exit();
-
-                    
-                    	 foreach($findwithdrawal as $withdrawal){
-                       	 	$costomer_withdrawal = $withdrawal['withdrawal'];
-                    	 }
-
-                    $findpurchase = $this->Purchase->find('first',array(
-                    	'conditions' => array(
-                            'Purchase.customer_id' =>  $customer_id),
-                    	'SUM(Purchase.amounts) AS totalAmount',
-                        'order' => 'Purchase.customer_id DESC',
-                        'group' => 'Purchase.id'
-                        ));
-                    // var_dump($findpurchase);exit();
-                     
-
-
-                    	foreach($findpurchase as $purchase){
-	                        $allpurchase = $purchase['amounts'];
-	                        $all_t_prices = $purchase['t_price'];
-	                        // var_dump($all_t_prices);exit();
-	                        $data = array(
-	                            'id' => $customer['Costomer']['id'],
-	                            'firstname' => $customer['Costomer']['firstname'],
-	                            'lastname' => $customer['Costomer']['lastname'],
-	                            'username' => $customer['Costomer']['username'],
-	                            'amounts' => $allpurchase,
-	                            't_price' => $$all_t_prices,
-	                            'withdrawal' => $costomer_withdrawal,
-	                            'curent_moneys'=> $current_money
-	                        );
-                   		}
-                  **************************************************************/
-
-
-                     // array_push($arr, $data);
-                    /***********************************************************
-         			// $this->set('purchases', $findpurchase);
-            		// $this->set('withdrawals', $findwithdrawal);
-                    // $this->set('moneys', $findmoney);
-                    // var_dump($this->set('moneys', $findmoney));exit();
-					**************************************************************/
-                 // }
-
-     // $this->set('costomers', $this->Costomer->find('all'));
-
-     //            $findPur = $this->Purchase->find('all');
-     //            $Pur_id = $findPur['Purchase']['id'];
-     //            $findmoney = $this->Money->find('all',array(
-     //                    'conditions' => array(
-     //                        'monies.costomer_id' => $Pur_id),
-     //                    'order' => 'monies.costomer_id'
-     //                    ));
-                    
-     //            $findWithdrawl = $this->Withdrawal->find('all', array(
-     //                    'conditions' => array(
-     //                        'Withdrawal.costomer_id' => $Pur_id),
-     //                    'order' => 'Withdrawal.costomer_id DESC'
-     //                    ));
-
-     //            $this->set('purchases', $findPur);
-     //            $this->set('monies', $findmoney);
-     //            $this->set('withdrawals', $findWithdrawl);
-
-
-
-    // $this->set('customers', $arr);
-
+	$this->set('withdrawals', $arr);
+	
+	// Total Current money
+	
+	$this->loadModel('One');
+	$this->loadModel('Two');
+	$this->loadModel('Three');
+	$this->loadModel('Four');
+	$sum_one = 0;
+	$sum_two = 0;
+	$sum_three = 0;
+	$sum_draw_money = 0;
+	
+	//$g_one = $this->One->find('all', array(
+     //   'conditions' => 'One.code'));
+	$g_one = $this->One->find('all');
+	//pr($g_one);
+	
+	foreach($g_one as $g_ones){
+		$one_code = $g_ones['One']['code'];
+		//pr($one_code);
+		
+		$g_two = $this->Two->find('all',array(
+		'conditions' => array(
+		'Two.refer' => $one_code)));
+		//pr($g_two);
+		
+		foreach($g_two as $g_twos){
+			$two_code = $g_twos['Two']['costomer_id'];
+			
+			$pur_one = $this->Purchase->find('all', array(
+				'conditions' => array(
+				'Purchase.customer_id' => $two_code)));
+			foreach($pur_one as $pur_ones){
+				$amounts = $pur_ones['Purchase']['amounts'];
+				$price = $pur_ones['Purchase']['price'];
+				
+				$beni_one = ($amounts * $price)*0.05;
+			
+				$sum_one += $beni_one;
+				//pr($sum_one);
+			}
+			
+		}
+		
+		$g_three = $this->Three->find('all',array(
+		'conditions' => array(
+		'Three.refer' => $one_code)));
+		//pr($g_three);
+		
+		foreach($g_three as $g_threes){
+			$three_code = $g_threes['Three']['costomer_id'];
+			
+			$pur_two = $this->Purchase->find('all', array(
+				'conditions' => array(
+				'Purchase.customer_id' => $three_code)));
+			//pr($pur_two);
+			
+			foreach($pur_two as $pur_twos){
+				$amounts = $pur_twos['Purchase']['amounts'];
+				$price = $pur_twos['Purchase']['price'];
+				
+				$beni_two = ($amounts * $price)*0.03;
+				
+				//pr($beni_one);
+				$sum_two += $beni_two;
+				//pr($sum_two);
+			}
+		}
+		
+		$g_four = $this->Four->find('all',array(
+		'conditions' => array(
+		'Four.refer' => $one_code)));
+		//pr($g_four);
+		
+		foreach($g_four as $g_fours){
+			$four_code = $g_fours['Four']['costomer_id'];
+			//pr($four_code);
+			
+			$pur_three = $this->Purchase->find('all', array(
+				'conditions' => array(
+				'Purchase.customer_id' => $four_code)));
+			//pr($pur_three);
+			
+			foreach($pur_three as $pur_threes){
+				$amounts = $pur_threes['Purchase']['amounts'];
+				$price = $pur_threes['Purchase']['price'];
+				
+				$beni_three = ($amounts * $price)*0.02;
+				
+				//pr($beni_three);
+				$sum_three += $beni_three;
+				//pr($sum_three);
+			}
+		}
+	}
+	$total_money = $sum_one + $sum_two + $sum_three;
+	
+	$money_draw = $this->Withdrawal->find('all');
+	//pr($money_draw);
+	foreach($money_draw as $money_draws){
+		$money = $money_draws['Withdrawal']['money'];
+		//pr($money);
+		$sum_draw_money += $money;
+		//pr($sum_draw_money);
+	}
+	
+	$total_cur_money = $total_money - $sum_draw_money;
+	
+	$this->set('total_cur_money', $total_cur_money);
     }
 	
 	public function own_update($id) {
