@@ -394,7 +394,6 @@ class CostomersController extends AppController {
 		$this->loadModel('Money');
 		$this->loadModel('Withdrawal');
 		
-		
 		$st = 0.05;
 		$nd = 0.03;
 		$rd = 0.02;
@@ -504,6 +503,14 @@ class CostomersController extends AppController {
 			}		
 			$sum_beni = $sum_one + $sum_two + $sum_three;
 		// Draw_money
+			/*if($test = $this->request->is('post')){
+				$this->Withdrawal->create();
+				
+				pr($this->Withdrawal->save($this->request->data));exit;
+				
+			}*/
+			//if()
+
 			$sum_draw = 0;
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
@@ -1099,8 +1106,9 @@ class CostomersController extends AppController {
                        	 	$Id = $withdrawal['draw_id'];
                        	 	 $data = array(
 	                            'id' => $customer['Costomer']['id'],
-	                            'firstname' => $customer['Costomer']['firstname'],
-	                            'lastname' => $customer['Costomer']['lastname'],
+	                            //'first_name' => $customer['Costomer']['first
+								//-name'],
+	                            //'lastname' => //$customer['Costomer']['las_tname'],
 	                            'draw_date'=> $date_withdraw,
 	                            'money'=> $m_withdrawl,
 	                            'draw_id' => $Id,
