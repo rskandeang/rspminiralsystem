@@ -505,24 +505,51 @@ class CostomersController extends AppController {
 			$sum_beni = $sum_one + $sum_two + $sum_three;
 			
 		// Draw_money
-			$date_time = date('Y-m-d H:i:s');
-			
-			if($this->request->is('post')){
-				$this->Withdrawal->set(array(
-								'customer_id' => $id,
-								'draw_date' => $date_time));
-				if($test = $this->Withdrawal->save($this->request->data)){
-					$this->redirect(array(
-					'controller'=>'Costomers',
-					'action'=>'view',$id));
-				}
-				$this->set('id', $id);
-			}
-		
-			$sum_draw = 0;
+
+		$sum_draw = 0;
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
+			
+			foreach($drawal as $drawals){
+				$draw_money = $drawals['Withdrawal']['money'];
+				//pr($draw_money);
+				$sum_draw += $draw_money;
+			}
+			//echo '$'.$sum_draw;
+			// balance money
+			$balance = $sum_beni - $sum_draw;
+			
+			$date_time = date('Y-m-d H:i:s');
+			
+			if($sum_beni > 0){
+				if($this->request->is('post') == 1){
+					$test = $this->Withdrawal->set(array(
+									'customer_id' => $id,
+									'draw_date' => $date_time));
+					$input = $this->request->data;
+					foreach($input as $inputs){
+						$input_money = $inputs['money'];
+					}
+					if($input_money == null){
+						$this->redirect(array(
+							'controller'=>'Costomers',
+							'action'=>'view',$id));
+					}
+					else if($input_money < $balance){
+						if($test = $this->Withdrawal->save($this->request->data)){
+							$this->redirect(array(
+							'controller'=>'Costomers',
+							'action'=>'view',$id));
+						}
+					}
+					$this->set('id', $id);
+				}
+				
+			}
+			
+			
+			
 			
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
@@ -1002,7 +1029,9 @@ class CostomersController extends AppController {
 				
 			}		
 			$sum_beni = $sum_one + $sum_two + $sum_three;
-		// Draw_money
+			
+			// Draw_money
+			
 			$sum_draw = 0;
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(

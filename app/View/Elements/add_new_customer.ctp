@@ -38,7 +38,8 @@
 						<div class="form-group">
 							<?php echo $this->Form->input('first', array(
 								  'class'=>'form-control',
-                                  'type'=>'checkbox', 
+                                  'type'=>'checkbox',
+								  'id' => 'box',
                                   'format' => array('before', 'input', 'between', 'label', 'after', 'error'))); ?>
 						</div> 
 						<div class="form-group">
@@ -62,7 +63,10 @@
 						</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('code', array(
-											'class' => 'form-control','placeholder'=>'Code','label' => false));?>
+											'class' => 'form-control'
+											,'placeholder'=>'Code',
+											'label' => false,
+											'id' => 'text'));?>
 						</div>
         
         
@@ -80,3 +84,10 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	document.getElementById('box').onchange = function() {
+    document.getElementById('text').disabled = this.checked;
+};
+</script>
