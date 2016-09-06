@@ -7,7 +7,7 @@
                         <div class="col-md-12 padding-0">
                             <div class="col-md-12 padding-0">
                                 <div class="col-md-4">
-                                    <div  style='background:#E0EEF2' class="panel box-v1">
+                                    <div  style='background:#28B463' class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
                                         <div class="col-md-12 col-sm-6 col-xs-6 text-left padding-0">
                                           <h4 class="text-left">Total Amount</h4>
@@ -23,7 +23,7 @@
                                                       </tr> 
                                                       <?php endforeach; ?>
                                                
-                                            <p style="font-size:30px;"><?php echo $total; ?></p>
+                                            <p style="color:#fff;font-size:30px;"><?php echo $total; ?></p>
 
 
                                         <p>Amount order of a month</p>
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4" >
-                                    <div style='background:#E0EEF2' class="panel box-v1">
+                                    <div style='background:#5DADE2' class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
                                         <div class="col-md-12 col-sm-6 col-xs-12 text-left padding-0">
                                           <h4 class="text-left">Total Purchase</h4>
@@ -40,7 +40,7 @@
                                         
                                       </div>
                                       <div class="panel-body text-center">
-                                            <p style="font-size:30px;"><?php echo $total_price; ?></p>
+                                            <p style="color:#fff;font-size:30px;"><?php echo $total_price; ?></p>
                                           
                                         <p>Total purchase of a month</p>
                                         <hr/>
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div style='background:#E0EEF2' class="panel box-v1">
+                                    <div style='background:#A569BD' class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
                                         <div class="col-md-12 col-sm-6 col-xs-6 text-left padding-0">
                                           <h4 class="text-left">Current money</h4>
@@ -56,10 +56,8 @@
                                         
                                       </div>
                                       <div class="panel-body text-center">
-
                                         
                                             <p style="color:#fff;font-size:30px;"><?php echo $total_cur_money; ?></p>
-
                                        
                                         <p>Company current monies</p>
                                         <hr/>
@@ -70,18 +68,16 @@
                         </div>
                     </div>
 
-<div class="col-md-12">
-  <div class="col-md-12">
-    <div class="panel panel-default">
-      <div  class="panel-heading">
-        <h1 class="panel-title "><strong class="pull-left"> Customers withdrawal List</strong>
-        <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
-      </div>
-        <div  class="panel-body">
-          <div class="table-responsive">
-            <div style="padding-left:100px;padding-right:100px;" class="panel-body">
-
-      <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
+                    <div class="col-md-12">
+                        <div class="panel box-v1">
+                                      <div class="panel-heading bg-white border-none">
+                                        <div class="col-md-12 col-sm-6 col-xs-6 text-left padding-0">
+                                          <h4 style="margin-bottom:25px;" class="text-center">All list of withdrawals</h4>
+                                        </div>
+                                        
+                                      </div>
+                                      <div class="panel-body text-center">
+                                        <table class="col-md-12 table table-hover table-striped" cellpadding="0" cellspacing="0">
       <thead style="background-color:#1d933F;"> 
        <!--  <tr> 
             <th class="table-header" style="text-align: center;color:white">No</th>
@@ -94,27 +90,25 @@
       <tbody >
             <?php foreach($withdrawals as $withdrawal): ?>  
 
-
             <tr>  
                 <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['draw_id']; ?>) Customer name: <strong>
 					<?php //echo $withdrawal['firstname'].' //'.$withdrawal['lastname'];?>
 				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['draw_date'];?> .</td>
-
                
             </tr>
             <?php endforeach; ?>
+
+
       </tbody>
-    </table>                        
-              <p style="text-align: center;">Company's customer withdrawals</p>
-              <hr/>
-              </div>
+    </table>
+                                       
+                                        <p>Company's customer withdrawals</p>
+                                        <hr/>
+                                      </div>
+                                    </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-           </div>
-          </div>
-        </div> 
-      </div>
-    </div>
-  </div>
           <!-- end: content -->       
-   
+      </div>

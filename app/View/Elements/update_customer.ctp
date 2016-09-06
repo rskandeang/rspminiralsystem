@@ -1,5 +1,6 @@
 <div class="container" style="margin-top:30px">
-	<div class="col-md-10 col-md-offset-1">
+	<div class="col-md-2"></div>
+	<div class="col-md-6 col-md-offset-1">
 		<div class="panel panel-default">
 		  <div style="text-align:center;" class="panel-heading ">
 		  		<h3 class="panel-title"><strong>Sign up</strong></h3>

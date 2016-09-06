@@ -1,5 +1,6 @@
 <div class="container" style="margin-top:30px">
-	<div class="col-md-10 col-md-offset-1">
+	<div class="col-md-2"></div>
+	<div class="col-md-6 col-md-offset-1">
 		<div class="panel panel-default">
 		  <div style="text-align:center;" class="panel-heading ">
 		  		<h3 class="panel-title"><strong>Sign up</strong></h3>
@@ -29,8 +30,7 @@
 										'class' => 'form-control','placeholder'=>'Password','label' => false));?>
 						</div> -->
 						<div class="form-group">
-							<?php echo $this->Form->input('gender', array(
-										'class' => 'form-control','placeholder'=>'Gender','label' => false));?>
+									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'Male','Female'=>'Female'),'default'=>'2'));?>
 						</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('phone', array(
