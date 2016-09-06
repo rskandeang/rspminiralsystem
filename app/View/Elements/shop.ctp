@@ -91,9 +91,9 @@
             <?php foreach($withdrawals as $withdrawal): ?>  
 
             <tr>  
-                <td   scope="row" style="text-align: center;">Customer ID( <?php echo $withdrawal['draw_id']; ?>) Customer name: <strong>
-					<?php //echo $withdrawal['firstname'].' //'.$withdrawal['lastname'];?>
-				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['draw_date'];?> .</td>
+                <td   scope="row" style="text-align: center;"> Customer name: <strong>
+					<?php echo $withdrawal['user_name']?>
+				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['date'];?> .</td>
                
             </tr>
             <?php endforeach; ?>
