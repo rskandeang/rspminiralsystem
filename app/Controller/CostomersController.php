@@ -15,9 +15,9 @@ class CostomersController extends AppController {
 				'conditions' => array(
 						'OR' => array(
 								array('Costomer.id LIKE' => '%' . $keyword . '%'),
-								array('Costomer.first_name LIKE' => '%' . $keyword . '%'),
-								array('Costomer.last_name LIKE' => '%' . $keyword . '%'),
-								array('Costomer.user_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
+								array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
+								array('Costomer.username LIKE' => '%' . $keyword . '%'),
 								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
 								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
 								array('Costomer.email LIKE' => '%' . $keyword . '%'),
@@ -83,7 +83,7 @@ class CostomersController extends AppController {
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
 						$this->One->create();
-						$own_id = date('YmdHis', strtotime("$date $time"));
+						$own_id = date('YmdHis');
 						$this->One->set(array(
 						'code' =>  $own_id,
 						'costomer_id' => $id
@@ -303,7 +303,7 @@ class CostomersController extends AppController {
 					else{
 							
 							$this->Two->create();
-								$own_id = date('YmdHis', strtotime("$date $time"));
+								$own_id = date('YmdHis');
 								$this->Two->set(array(
 								'code' => 'st'.$own_id,
 								'costomer_id' => $id,

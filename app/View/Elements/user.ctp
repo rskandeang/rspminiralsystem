@@ -6,10 +6,10 @@
         <div style="" class="col-md-12"><h4 class="text-center">List for all users</h4></div>
     </div>
     <div class="col-md-12 ">
-        <div style="background-color:#E7E7E7;padding:6px" class="col-md-2 panel-body">
+        <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">
            
             <div style="background-color:#fff;padding-left:10px;padding-right:10px;padding-bottom:10px;">
-                <span class="btn btn-default" id="btn-default" style="width:100%;"><?php echo $this->Html->link( "Create NewUser",array('controller'=>'Users','action'=>'add'),array('style'=>'color:green;') );?></span>
+                <span class="btn btn-default" id="btn-default" style="width:100%;"><?php echo $this->Html->link( "Create New User",array('controller'=>'Users','action'=>'add'),array('style'=>'color:green;') );?></span>
 
             <?php echo $this->Form->create('User', array('type' => 'get')); ?>
             <?php echo $this->Form->input('Search',array('class'=>'form-control','placeholder'=>'Search...','label'=>false,'style'=>'margin-top:10px;')); ?>

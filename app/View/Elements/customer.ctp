@@ -1,12 +1,11 @@
 
 <div class="container-fluid">
   <div class="row ">
-     <div class="col-md-2">
-        
-        <div style="" class="col-md-12"><h4 class="text-center">List for all users</h4></div>
+     <div class="col-md-12">
+        <div  class="col-md-2"><h4 class="text-center">List for all customers</h4></div>
     </div>
     <div class="col-md-12 ">
-        <div style="background-color:#E7E7E7;padding:6px" class="col-md-2 panel-body">
+        <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">
            
             <div style="background-color:#fff;padding-left:10px;padding-right:10px;padding-bottom:10px;">
                 <span class="btn btn-default" id="btn-default" style="width:100%;"><?php echo $this->Html->link( "Add Customer",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:green') );?></span>
@@ -22,7 +21,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Users List</strong>
+                    <h1 class="panel-title "><strong class="pull-left"> Customers List</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body">
@@ -34,13 +33,13 @@
                           <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#000;')); ?></th>
                      
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('first_name', 'First Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('firstname', 'First Name',array('style'=>'color:#000;')); ?></th>
                           
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('last_name', 'Last Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('lastname', 'Last Name',array('style'=>'color:#000;')); ?></th>
                         
                         <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('user_name', 'User Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#000;')); ?></th>
                                   <th class="table-header" style="text-align: center;">
                                     <?php echo $this->Paginator->sort('gender', 'Gender',array('style'=>'color:#000;')); ?></th>
                           
@@ -65,11 +64,11 @@
        
             <td scope="row"><?php echo $id; ?></td>
       
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['first_name'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['firstname'];?></td>
 			
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['last_name'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['lastname'];?></td>
 			
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['user_name'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['username'];?></td>
       
             <td style="text-align: center;"><?php echo $costomer['Costomer']['gender'];?></td>
       
