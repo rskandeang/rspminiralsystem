@@ -1,7 +1,7 @@
-<div class="container-fluid wrapper ">
+<div class="container-fluid well wrapper ">
 
   <!-- start: content -->
-    <div id="content">
+    <div id="content ">
         <div class="col-md-12" style="padding:20px;">
             <div class="col-md-12 padding-0">
                 <div class="col-md-12 padding-0">
