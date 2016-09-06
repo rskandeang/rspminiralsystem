@@ -2,7 +2,8 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><i style="color:green; font-size:20px;" class="fa fa-money fa-fw"></i> Customer Purchase</h3>
+            <h1 class="panel-title "><strong class="pull-left"> Customer Purchase</strong>
+        <i style="color:green; font-size:20px;" class="fa fa-line-chart pull-right"></i><h1>
         </div>
         <div class="panel-body">
           <div class="table-responsive">

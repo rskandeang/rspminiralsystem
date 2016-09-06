@@ -17,7 +17,7 @@ class UsersController extends AppController {
 		$this->paginate = array(
 				'limit' => 10,
 				'conditions' => array(
-
+						'User.status' => '1',
 						'OR' => array(
 								array('User.id LIKE' => '%' . $keyword . '%'),
 								array('User.username LIKE' => '%' . $keyword . '%'),
