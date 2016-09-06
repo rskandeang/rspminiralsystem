@@ -15,9 +15,9 @@ class CostomersController extends AppController {
 				'conditions' => array(
 						'OR' => array(
 								array('Costomer.id LIKE' => '%' . $keyword . '%'),
-								array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
-								array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
-								array('Costomer.username LIKE' => '%' . $keyword . '%'),
+								array('Costomer.first_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.last_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.user_name LIKE' => '%' . $keyword . '%'),
 								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
 								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
 								array('Costomer.email LIKE' => '%' . $keyword . '%'),
@@ -35,21 +35,7 @@ class CostomersController extends AppController {
 	    $this->Auth->allow('add', 'logout','login');
 	}
 
-	// function index(){
-
-	// 	$costomers = $this->Costomer->find('all');
-	// 	$this->set('costomers',$costomers);
-	// }
-
-	// public function login() {
-	//     if ($this->request->is('post')) {
-	//         if ($this->Auth->login()) {
-	//             return $this->redirect($this->Auth->redirectUrl());
-	//         }
-	//         // $this->Flash->error(__('Invalid username or password, try again'));
-	//     }
-	// }
-
+	
 	function login(){
 
 		if ($this->request->is('post')) {
