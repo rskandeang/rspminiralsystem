@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2016 at 04:16 AM
+-- Generation Time: Sep 06, 2016 at 03:10 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -28,8 +28,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `costomers` (
   `id` int(3) NOT NULL,
-  `name` varchar(225) NOT NULL,
-  `dob` datetime NOT NULL,
+  `first_name` varchar(225) NOT NULL,
+  `last_name` varchar(225) NOT NULL,
+  `user_name` varchar(225) NOT NULL,
+  `dob` date NOT NULL,
   `gender` varchar(5) NOT NULL,
   `phone` int(10) NOT NULL,
   `email` varchar(225) NOT NULL,
@@ -42,14 +44,16 @@ CREATE TABLE `costomers` (
 -- Dumping data for table `costomers`
 --
 
-INSERT INTO `costomers` (`id`, `name`, `dob`, `gender`, `phone`, `email`, `status`, `first`, `code`) VALUES
-(535, 'a', '2016-08-25 03:09:00', '', 1234567, '', 'T', 'T', ''),
-(536, 'b', '2016-08-25 03:09:00', '', 1234567, '', 'T', '', '20160825041257'),
-(537, 'c', '2016-08-25 03:09:00', '', 1234567, '', 'T', '', 'st20160825041435'),
-(538, 'd', '2016-08-25 03:09:00', '', 1234567, '', 'T', '', 'nd20160825041542'),
-(539, 'e', '2016-08-25 03:09:00', '', 1234567, '', 'T', '', 'rd20160825041710'),
-(540, 'b1', '2016-08-25 03:09:00', '', 1234567, '', 'T', '', '20160825041257'),
-(541, 'z', '2016-08-25 09:45:00', '', 12345678, '', 'T', 'T', '');
+INSERT INTO `costomers` (`id`, `first_name`, `last_name`, `user_name`, `dob`, `gender`, `phone`, `email`, `status`, `first`, `code`) VALUES
+(535, 'a', 'a', 'a', '2016-08-25', 'M', 1234567, 'test@gmail.com', 'T', 'T', ''),
+(536, 'b', 'b', 'b', '2016-08-25', 'M', 1234567, 'test@gamil.com', 'T', '', '20160825041257'),
+(537, '', '', 'c', '2016-08-25', '', 1234567, '', 'T', '', 'st20160825041435'),
+(538, '', '', 'd', '2016-08-25', '', 1234567, '', 'T', '', 'nd20160825041542'),
+(539, '', '', 'e', '2016-08-25', '', 1234567, '', 'T', '', 'rd20160825041710'),
+(540, '', '', 'b1', '2016-08-25', '', 1234567, '', 'T', '', '20160825041257'),
+(575, 'test1', 'test1', 'test1', '2016-09-02', '', 123456, '', 'T', 'T', ''),
+(576, 'test2', 'test2', 'test2', '2016-09-02', '', 123456, '', 'T', '', '20160902055628'),
+(577, '1test', '1test', '1test', '2016-09-02', '', 12345678, '', 'T', 'T', '');
 
 -- --------------------------------------------------------
 
@@ -113,7 +117,9 @@ INSERT INTO `ones` (`one_id`, `code`, `costomer_id`) VALUES
 (91, '20160825041435', 536),
 (92, '20160825041542', 537),
 (93, '20160825041710', 538),
-(94, '20160825094753', 541);
+(107, '20160902055628', 575),
+(108, '20160902055948', 576),
+(109, '20160902061711', 577);
 
 -- --------------------------------------------------------
 
@@ -211,7 +217,8 @@ INSERT INTO `twos` (`two_id`, `code`, `refer`, `costomer_id`) VALUES
 (240, 'st20160825041542', '20160825041435', 537),
 (241, 'st20160825041710', '20160825041542', 538),
 (242, 'st20160825042409', '20160825041710', 539),
-(243, 'st20160825043010', '20160825041257', 540);
+(243, 'st20160825043010', '20160825041257', 540),
+(274, 'st20160902055948', '20160902055628', 576);
 
 -- --------------------------------------------------------
 
@@ -261,7 +268,10 @@ INSERT INTO `withdrawals` (`draw_id`, `money`, `draw_date`, `customer_id`) VALUE
 (1, 20, '2016-08-29 00:00:00', 535),
 (2, 20, '2016-08-28 00:00:00', 535),
 (3, 10, '2016-08-27 00:00:00', 535),
-(4, 10, '2016-08-29 00:00:00', 536);
+(4, 10, '2016-08-29 00:00:00', 536),
+(27, 3, '2016-09-05 06:38:32', 535),
+(28, 3, '2016-09-05 07:10:51', 535),
+(30, 1, '2016-09-05 12:03:01', 535);
 
 --
 -- Indexes for dumped tables
@@ -335,7 +345,7 @@ ALTER TABLE `withdrawals`
 -- AUTO_INCREMENT for table `costomers`
 --
 ALTER TABLE `costomers`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=542;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
 --
 -- AUTO_INCREMENT for table `fours`
 --
@@ -350,7 +360,7 @@ ALTER TABLE `monies`
 -- AUTO_INCREMENT for table `ones`
 --
 ALTER TABLE `ones`
-  MODIFY `one_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `one_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 --
 -- AUTO_INCREMENT for table `purchases`
 --
@@ -370,7 +380,7 @@ ALTER TABLE `threes`
 -- AUTO_INCREMENT for table `twos`
 --
 ALTER TABLE `twos`
-  MODIFY `two_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+  MODIFY `two_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -380,7 +390,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `withdrawals`
 --
 ALTER TABLE `withdrawals`
-  MODIFY `draw_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `draw_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
