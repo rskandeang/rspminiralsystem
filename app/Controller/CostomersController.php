@@ -492,23 +492,29 @@ class CostomersController extends AppController {
 			
 		// Draw_money
 			$date_time = date('Y-m-d H:i:s');
-			
-			if($this->request->is('post')){
-				$this->Withdrawal->set(array(
-								'customer_id' => $id,
-								'draw_date' => $date_time));
-				if($test = $this->Withdrawal->save($this->request->data)){
-					$this->redirect(array(
-					'controller'=>'Costomers',
-					'action'=>'view',$id));
+			if($sum_beni > 0){
+				if($this->request->is('post')){
+					$this->Withdrawal->set(array(
+									'customer_id' => $id,
+									'draw_date' => $date_time));
+					if($test = $this->Withdrawal->save($this->request->data)){
+						$this->redirect(array(
+						'controller'=>'Costomers',
+						'action'=>'view',$id));
+					}
+					$this->set('id', $id);
 				}
-				$this->set('id', $id);
 			}
-		
 			$sum_draw = 0;
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
+			//pr($drawal);exit;
+			foreach($drawal as $drawals){
+				$draw_money = $drawals['Withdrawal']['money'];	
+					$sum_draw += $draw_money;
+			}
+			echo '$'.$sum_draw;
 			
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
