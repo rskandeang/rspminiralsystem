@@ -98,6 +98,6 @@
 <script type="text/javascript">
 
 	document.getElementById('box').onchange = function() {
-    document.getElementById('text').disabled = this.checked;
-};
+		document.getElementById('text').disabled = this.checked;
+	};
 </script>

@@ -210,7 +210,7 @@
           </div>
         </div>
           <!-- end table wrap -->
-
+<!--
 <!-- start the table of the record withdrawals -->
  <div class="col-md-12">
   <div class="col-md-12">
@@ -226,11 +226,13 @@
       <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
       <thead style="background-color:#1d933F;"> 
        <!--  <tr> 
+	   
             <th class="table-header" style="text-align: center;color:white">No</th>
             <th class="table-header" style="text-align: center;color:white"></th>
             <th class="table-header" style="text-align: center;color:white">Customer Name</th>
             <th class="table-header" style="text-align: center;color:white"></th>
             <th class="table-header" style="text-align: center;color:white">Withdrawal Amount</th>
+			
         </tr> -->
     </thead>
       <tbody >
@@ -245,7 +247,7 @@
             </tr>
             <?php endforeach; ?>
       </tbody>
-    </table>                        
+    </table>
               <p style="text-align: center;">Company's customer withdrawals</p>
               <hr/>
               </div>
@@ -255,6 +257,7 @@
           </div>
         </div>  
         <!-- end the table of the record withdrawals -->
+		-->
       </div>
     </div>
   </div>

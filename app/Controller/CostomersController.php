@@ -16,9 +16,9 @@ class CostomersController extends AppController {
 					'Costomer.status' => '1',
 						'OR' => array(
 								array('Costomer.id LIKE' => '%' . $keyword . '%'),
-								array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
-								array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
-								array('Costomer.username LIKE' => '%' . $keyword . '%'),
+								array('Costomer.first_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.last_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.user_name LIKE' => '%' . $keyword . '%'),
 								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
 								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
 								array('Costomer.email LIKE' => '%' . $keyword . '%'),
@@ -527,6 +527,7 @@ class CostomersController extends AppController {
 					$test = $this->Withdrawal->set(array(
 									'customer_id' => $id,
 									'draw_date' => $date_time));
+					pr($test);exit;
 					$input = $this->request->data;
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
@@ -813,7 +814,6 @@ class CostomersController extends AppController {
 				$purchase = $this->Purchase->find('all',array(
 				'conditions' => array(
 				'Purchase.customer_id' => $cus_id)));
-				
 				
 			foreach($purchase as $purchases){
 					$price = $purchases['Purchase']['price'];
@@ -1121,58 +1121,8 @@ class CostomersController extends AppController {
          // var_dump($findmoney);exit();
 
         $this->loadModel('Withdrawal');
-
-		/*$findCus =$this->Costomer->find('all',array(
-                            'order'=>'costomer.id'));
-        $arr = array();
-                foreach( $findCus as $customer){
-                    $customer_id = $customer['Costomer']['id'];
-                    $findwithdrawal = $this->Withdrawal->find('all', array(
-                        'conditions' => array(
-                            'Withdrawal.customer_id' =>  $customer_id),
-                        'order' => 'Withdrawal.customer_id'
-                        ));
-					pr($findwithdrawal);
-                     foreach($findwithdrawal as $withdrawal){
-                       	 	$date_withdraw = $withdrawal['draw_date'];
-                       	 	$m_withdrawl = $withdrawal['money'];
-                       	 	$Id = $withdrawal['draw_id'];
-                       	 	 $data = array(
-	                            'id' => $customer['Costomer']['id'],
-
-	                            'firstname' => $customer['Costomer']['firstname'],
-	                           'lastname' => $customer['Costomer']['lastname'],
-
-	                            'draw_date'=> $date_withdraw,
-	                            'money'=> $m_withdrawl,
-	                            'draw_id' => $Id,
-	                        );
-
-                       	 	 array_push($arr, $data);
-                    	 }
-        
-    }
-
-							array_push($arr, $data);
-                    	 }
-						//pr(array_push($arr, $data));
-				}
-			
-	/*$findCus =$this->Costomer->find('all');	
-	//pr($findCus);exit;
-	foreach($findCus as $findCuss){
-		$name = $findCuss['Costomer']['user_name'];
-		$id_cus = $findCuss['Costomer']['id'];
-		
-		$test = $this->Withdrawal->find('all', array(
-		'conditions' => array(
-		'Withdrawal.customer_id' => $id_cus)));
-		
-		pr($test);
-		
-	}*/
-	
-	// test
+	/*	
+	// draw list
 	
 	$find_draw =$this->Withdrawal->find('all');
 		//pr($find_draw);exit;					
@@ -1190,7 +1140,7 @@ class CostomersController extends AppController {
 					//pr($findwithdrawal);
 					
 					foreach($findwithdrawal as $findwithdrawals){
-                       	 	$name = $findwithdrawals['Costomer']['username'];
+                       	 	$name = $findwithdrawals['Costomer']['user_name'];
                        	 	$id = $findwithdrawals['Costomer']['id'];
 							
                        	 	 $data = array(
@@ -1205,8 +1155,9 @@ class CostomersController extends AppController {
 				}
 	
     // var_dump($data);exit();
-	$this->set('data', $data);
-	$this->set('withdrawals', $arr);
+	//$this->set('data', $data);
+	$this->set('withdrawals', $arr); */
+	
 	// Total Current money
 	
 	$this->loadModel('One');
@@ -1219,7 +1170,7 @@ class CostomersController extends AppController {
 	$sum_draw_money = 0;
 	
 	//$g_one = $this->One->find('all', array(
-     //   'conditions' => 'One.code'));
+    //   'conditions' => 'One.code'));
 	$g_one = $this->One->find('all');
 	//pr($g_one);
 	
@@ -1323,7 +1274,7 @@ class CostomersController extends AppController {
 		$data = $this->Costomer->find('first',array(
 			'conditions'=>array('id'=>$id)));
 			if($this->request->is(array('post','put'))){
-				$this->Costomer->id=$id;
+				$this->Costomer->id = $id;
 				if($this->Costomer->save($this->request->data)){
 					$this->Session->setFlash('You have been update');
 				    $this->redirect(array(
@@ -1332,7 +1283,7 @@ class CostomersController extends AppController {
 				}
 			}
 			$this->set('id', $id);
-			$this->request->data =$data;
+			$this->request->data = $data;
 	}
 
 
