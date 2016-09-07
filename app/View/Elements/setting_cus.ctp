@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title"><strong> Customer Purchase</strong>
+            <h1 class="panel-title"><strong> Customer Information</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
               
             </h1>

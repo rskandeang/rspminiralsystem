@@ -3,7 +3,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Customer detail</strong>
+                    <h1 class="panel-title "><strong class="pull-left"> Dashboard</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-info  fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body " style="background:#F5F6F0">

@@ -221,7 +221,7 @@
       </div>
         <div  class="panel-body">
           <div class="table-responsive">
-            <div style="padding-left:100px;padding-right:100px;" class="panel-body">
+            <div style="padding-left:200px;padding-right:200px;" class="panel-body">
 
       <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
       <thead style="background-color:#1d933F;"> 
@@ -237,7 +237,7 @@
             <?php foreach($withdrawals as $withdrawal): ?>  
 
             <tr>  
-                <td   scope="row" style="text-align: center;"> Customer name: <strong>
+                <td   scope="row" style="text-align: center;"> Customer <strong>
 					<?php echo $withdrawal['user_name']?>
 				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['date'];?> .</td>
 
@@ -246,7 +246,7 @@
             <?php endforeach; ?>
       </tbody>
     </table>                        
-              <p style="text-align: center;">Company's customer withdrawals</p>
+              
               <hr/>
               </div>
                 </div>

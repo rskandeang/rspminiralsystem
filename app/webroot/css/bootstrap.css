@@ -2528,6 +2528,20 @@ input[type="checkbox"] {
 }
 input[type="file"] {
   display: block;
+  position: relative;
+    overflow: hidden;
+   text-align: right;
+  filter: alpha(opacity=0);
+   top: 0;
+    right: 0;
+    padding-right: 219px;
+    min-width: 20%;
+    min-height: 20%;
+    font-size: 15px;
+    outline: none;
+    background: white;
+    cursor: inherit;
+
 }
 input[type="range"] {
   display: block;

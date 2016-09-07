@@ -68,7 +68,7 @@
                                 <td >
 
                                 <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
-                                        array('action'=>'edit', $user['User']['id']),array('escape' => false,'style'=>'color:green')); ?>
+                                        array('action'=>'edit', $user['User']['id']),array('escape' => false,'style'=>'color:#2DB4DB')); ?>
                                  | 
                                 <?php
                                     if( $user['User']['status'] != 0){ 

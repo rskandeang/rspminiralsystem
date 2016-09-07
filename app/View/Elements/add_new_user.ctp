@@ -1,3 +1,4 @@
+
 <div class="container" style="margin-top:30px">
 	<div class="col-md-2"></div>
 	<div class="col-md-6 col-md-offset-1">
@@ -47,10 +48,9 @@
 
         
 						<div class="form-group">
-							<?php echo $this->Form->input('image', array(
-											'type' => 'file'));?>
+							<?php echo $this->Form->input('image', array('type' => 'file','class'=>'btn btn-default btn-file'));?>
 						</div>            
-     
+
 						  <button type="submit" class="btn btn-success form-control">submit</button>
 						  <!-- <span class="pull-right" <?php echo $this->Form->submit('Submit')?></span> -->
 											<?php echo $this->Form->end();?>
