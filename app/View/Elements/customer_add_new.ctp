@@ -34,8 +34,7 @@
 								<div class="form-group">
 									<?php echo $this->Form->input('password', array(
 										'class' => 'form-control','placeholder'=>'Password','label' => false));?>
-								</div>
-						
+								</div>		
 						<div class="form-group">
 							<?php echo $this->Form->input('phone', array(
 										'class' => 'form-control','placeholder'=>'Phone','label' => false));?>
@@ -54,6 +53,7 @@
 								<div style="margin-top:-10px;" >
 										<?php echo $this->Form->input('first',array(
 											  'class'=>'form-check-input',
+											  'id' => 'box',
 			                                  'type'=>'checkbox',
 			                                  'format' => array('before', 'input', 'between', 'label', 'after', 'error'))); ?>
 								</div>
@@ -62,7 +62,11 @@
 							</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('code', array(
-											'class' => 'form-control','placeholder'=>'Code','label' => false));?>
+											'class' => 'form-control'
+											,'placeholder'=>'Code',
+											'id' => 'text',
+											'label' => false,
+											'id' => 'text'));?>
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-6">
@@ -90,3 +94,10 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	document.getElementById('box').onchange = function() {
+    document.getElementById('text').disabled = this.checked;
+};
+</script>
