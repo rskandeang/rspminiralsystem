@@ -1334,6 +1334,25 @@ class CostomersController extends AppController {
 			$this->set('id', $id);
 			$this->request->data =$data;
 	}
+	public function notification() {
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
+		//pr($Withdrawal);
+    }
+    public function update($id =null){
+    	$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
+		foreach ($datas as $data) {
+		 	$this->Withdrawal->id=$data['Withdrawal']['id'];
+		 	if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
+				$this->redirect('notification');
+		 } 
+	
+	}	
+}
+
+
 
 
 }

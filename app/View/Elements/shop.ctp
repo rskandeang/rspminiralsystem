@@ -21,7 +21,7 @@
                                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                                              <div class="col-md-6 text-left"> 
-                                              <h4  >Total Amounts</h4>
+                                              <h4  >Total Volume</h4>
                                              </div>
                                              <div class="col-md-6 text-right">
                                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-briefcase" aria-hidden="true" > </i>
@@ -43,7 +43,7 @@
                                           
                                         </div>
                                         <div style="background:#fff;" class="panel-footer text-center">
-                                          <p>Amount order of a month</p>
+                                          <p>Volume of customer order</p>
                                           <hr/>
                                         </div>
                                       </div>
@@ -139,7 +139,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>Total purchase of a month</p>
+                          <p>The amount of sold out</p>
                           <hr/>
                         </div>
                       </div>
@@ -150,7 +150,7 @@
                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                              <div class="col-md-6 text-left"> 
-                               <h4 class="text-left">Current money</h4>
+                               <h4 class="text-left">Total Current Balance</h4>
                              </div>
                              <div class="col-md-6 text-right">
                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-signal" aria-hidden="true" > </i>
@@ -170,7 +170,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>Company current monies</p>
+                          <p>All the balance that need to pay for customer</p>
                           <hr/>
                         </div>
                       </div>
@@ -181,7 +181,7 @@
                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                             <div class="col-md-6 text-left"> 
-                               <h4  class="text-left">Total Benefit</h4>
+                               <h4  class="text-left">Total Commission</h4>
                              </div>
                              <div class="col-md-6 text-right">
                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-flask" aria-hidden="true" > </i>
@@ -195,7 +195,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>Total purchase of a month</p>
+                          <p>Total amount for all commission</p>
                           <hr/>
                         </div>
                       </div>
@@ -221,7 +221,7 @@
       </div>
         <div  class="panel-body">
           <div class="table-responsive">
-            <div style="padding-left:200px;padding-right:200px;" class="panel-body">
+            <div style="padding-left:250px;padding-right:250px;" class="panel-body">
 
       <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
       <thead style="background-color:#1d933F;"> 

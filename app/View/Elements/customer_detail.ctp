@@ -98,7 +98,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">Total Balance</h4>
+                <h4  class="text-left">Current Balance</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>

@@ -1,4 +1,3 @@
-<?php echo $withdrawals;?>
 <!-- <div  class="container-fluid ">
   <div  class="row">
     <div  class="col-md-12 ">
@@ -79,7 +78,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
-              <li ><div id="notification"style="background:#f1240f;position: absolute;right: 27px;margin-right:-79px;margin-top:3px;border-radius:50%;width:20px;height:20px;"><div style="color:#FFF;position:absolute;right:6px;"><?php echo $withdrawals; ?></div></div><?php echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));?></li>
+              <li ><div id="notification"style="background:#f1240f;position: absolute;right: 27px;margin-right:-79px;margin-top:3px;border-radius:50%;width:20px;height:20px;">
+              	<div style="color:#FFF;position:absolute;right:6px;"><?php echo $withdrawals; ?></div>
+              </div><?php echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Withdrawals','action'=>'delete'),array('escape' => 0));?>
+          	  </li>
               <!-- <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-university" aria-hidden="true"></span></li>',array('controller'=>'Withdrawals','action'=>'index'),array('escape' => 0));?></li>
 
               <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;"  ><span style="color:#fff" class="fa fa-usd" aria-hidden="true"></span></li>',array('controller'=>'Moneys','action'=>'index'),array('escape' => 0));?></li>
@@ -114,3 +116,7 @@
 
 </nav>
   
+
+<?php echo $withdrawals; ?>
+<button><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action'=>'delete', $withdrawals['withdrawals']['draw_id']),array('escape' => false,'style'=>'color:#2E86C1')); ?></button>
+
