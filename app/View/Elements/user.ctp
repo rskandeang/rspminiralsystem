@@ -30,8 +30,8 @@
                     <table class="col-md-12 table table-bordered table-hover table-striped " cellpadding="0" cellspacing="0">
                       <thead style="background-color:#f5f5f5;" > 
                         <tr> 
-                            <th class="table-header" style="text-align:center;">
-                                <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#000;')); ?></th>
+                           <!--  <th class="table-header" style="text-align:center;">
+                                <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#000;')); ?></th> -->
                             <th class="table-header" style="text-align:center;">
                                 <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#000;')); ?></th>
                             <th class="table-header" style="text-align:center;">
@@ -56,7 +56,7 @@
                         <?php foreach($users as $user): ?>                
                             <?php $id ++;?>
                               <tr>
-                                <td scope="row"><?php echo $id; ?></td>
+                                <!-- <td scope="row"><?php echo $id; ?></td> -->
                                 <td style="text-align: center;"><?php echo $user['User']['username'];?></td>
                                 <td style="text-align: center;"><?php echo $user['User']['gender'];?></td>
                                 <td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created']); ?></td>

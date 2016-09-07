@@ -81,7 +81,7 @@
                   <div class="input-group-addon">.00</div>
                 </div>
                 <div class="col-md-4 pull-right"> 
-                   <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-primary','style'=>'margin-top:-35px;'))?>
+                   <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-success','style'=>'margin-top:-35px;'))?>
               </div>
               </div>
              <?php echo $this->Form->end();?>

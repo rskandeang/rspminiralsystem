@@ -49,7 +49,8 @@
 						<div class="form-group">
 							<?php echo $this->Form->input('image', array(
 											'type' => 'file'));?>
-						</div>                    
+						</div>            
+     
 						  <button type="submit" class="btn btn-success form-control">submit</button>
 						  <!-- <span class="pull-right" <?php echo $this->Form->submit('Submit')?></span> -->
 											<?php echo $this->Form->end();?>

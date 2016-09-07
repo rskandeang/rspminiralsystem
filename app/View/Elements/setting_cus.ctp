@@ -4,9 +4,7 @@
         <div class="panel-heading">
             <h1 class="panel-title"><strong> Customer Purchase</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
-              <a href="#">
-                 <span> <?php echo $this->Html->link( '<i class="glyphicon glyphicon-edit"></i>',array('controller'=>'Costomers','action'=>'own_update',$id),array('escape' => 0,'style'=>'color:green','class'=>'pull-right'));?></span> 
-                </a>
+              
             </h1>
 
         </div>
@@ -15,6 +13,9 @@
             <div class="col-lg-4 col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
+                              <a href="#">
+                 <span> <?php echo $this->Html->link( '<i class="glyphicon glyphicon-edit"></i>',array('controller'=>'Costomers','action'=>'own_update',$id),array('escape' => 0,'style'=>'color:green','class'=>'btn btn-default pull-right'));?></span> 
+                </a>
                               <span><?php echo $this->Html->image('profile.png', array('alt' => 'profile', 'border' => '0','width'=>'225','height'=>'260')); ?></span>
                                 <h5 class="text-center"><strong><?php echo $customers['Costomer']['first_name'].' '.$customers['Costomer']['last_name']?></strong></h5>
                                 <h5 class="text-center"><strong><?php echo $cus_code;?></strong></h5>

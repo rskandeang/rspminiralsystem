@@ -184,7 +184,7 @@
                                <h4  class="text-left">Total Benefit</h4>
                              </div>
                              <div class="col-md-6 text-right">
-                                <i style="color:#2DB4DB" class="fa fa-3x  fa-cc-visa" aria-hidden="true" > </i>
+                                <i style="color:#2DB4DB" class="fa fa-3x  fa-flask" aria-hidden="true" > </i>
                              </div>
                           </div>
                         </div>
@@ -237,15 +237,13 @@
             <?php foreach($withdrawals as $withdrawal): ?>  
 
             <tr >  
-                <td   scope="row" style="text-align: right;">Customer ID( <?php echo $withdrawal['draw_id']; ?> )
-                </td>
-                <td style="text-align: left;"> 
+                <td   scope="row" style="text-align: center;"><!-- Customer ID( <?php echo $withdrawal['draw_id']; ?> ) -->
+                
+                
                   Customer name:&nbsp;&nbsp;&nbsp; <strong><?php echo $withdrawal['firstname'].' '.$withdrawal['lastname'];?></strong>
-                </td>
-                <td>
+                
                    have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ "
-                </td>
-                <td> on <?php echo $withdrawal['draw_date'];?></td>
+                 on <?php echo $withdrawal['draw_date'];?></td>
                 
                
             </tr>
