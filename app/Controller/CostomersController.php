@@ -35,22 +35,6 @@ class CostomersController extends AppController {
 	    parent::beforeFilter();
 	    $this->Auth->allow('add', 'logout','login');
 	}
-
-	// function index(){
-
-	// 	$costomers = $this->Costomer->find('all');
-	// 	$this->set('costomers',$costomers);
-	// }
-
-	// public function login() {
-	//     if ($this->request->is('post')) {
-	//         if ($this->Auth->login()) {
-	//             return $this->redirect($this->Auth->redirectUrl());
-	//         }
-	//         // $this->Flash->error(__('Invalid username or password, try again'));
-	//     }
-	// }
-
 	function login(){
 
 		if ($this->request->is('post')) {
@@ -74,8 +58,8 @@ class CostomersController extends AppController {
 		$this->loadModel('Four');
 		if($this->request->is('post')){
 			$this->Costomer->create();
-			if($this->Costomer->save($this->request->data)){
-				
+			if($test = $this->Costomer->save($this->request->data)){
+				pr($test);exit;
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
