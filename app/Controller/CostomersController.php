@@ -1282,12 +1282,16 @@ class CostomersController extends AppController {
 		$data = $this->Costomer->find('first',array(
 			'conditions'=>array('id'=>$id)));
 			if($this->request->is(array('post','put'))){
-				$this->Costomer->id = $id;
+				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
+					
 					$this->Session->setFlash('You have been update');
 				    $this->redirect(array(
 					'controller'=>'Costomers',
 					'action'=>'view_setting',$id));
+				}
+				else{
+					echo 'no';
 				}
 			}
 			$this->set('id', $id);
