@@ -210,7 +210,7 @@
           </div>
         </div>
           <!-- end table wrap -->
-<!--
+
 <!-- start the table of the record withdrawals -->
  <div class="col-md-12">
   <div class="col-md-12">
@@ -224,30 +224,30 @@
             <div style="padding-left:100px;padding-right:100px;" class="panel-body">
 
       <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
-      <thead style="background-color:#1d933F;"> 
-       <!--  <tr> 
+      <thead style="background-color:#1d933F; visibility: hidden;"> 
+         <tr style="visibility: hidden;"> 
 	   
             <th class="table-header" style="text-align: center;color:white">No</th>
+            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('customer_name', 'Name'); ?></th>
+            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('money', 'Name'); ?></th>
             <th class="table-header" style="text-align: center;color:white"></th>
-            <th class="table-header" style="text-align: center;color:white">Customer Name</th>
-            <th class="table-header" style="text-align: center;color:white"></th>
-            <th class="table-header" style="text-align: center;color:white">Withdrawal Amount</th>
+            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('draw_date', 'Date'); ?></th>
 			
-        </tr> -->
+        </tr> 
     </thead>
       <tbody >
-            <?php foreach($withdrawals as $withdrawal): ?>  
-
+            <?php foreach($withdrawal as $withdrawals): ?>  
             <tr>  
                 <td   scope="row" style="text-align: center;"> Customer name: <strong>
-					<?php echo $withdrawal['user_name']?>
-				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['date'];?> .</td>
+					<?php echo $withdrawals['Withdrawal']['customer_name']?>
+				</strong> have been withdrawal the amounts: " <?php echo $withdrawals['Withdrawal']['money'];?>$ " on <?php echo $withdrawals['Withdrawal']['draw_date'];?> .</td>
 
                
             </tr>
             <?php endforeach; ?>
       </tbody>
     </table>
+	<?php echo $this->element('pagination'); ?>	
               <p style="text-align: center;">Company's customer withdrawals</p>
               <hr/>
               </div>
@@ -257,7 +257,6 @@
           </div>
         </div>  
         <!-- end the table of the record withdrawals -->
-		-->
       </div>
     </div>
   </div>

@@ -507,6 +507,14 @@ class CostomersController extends AppController {
 		// Draw_money
 
 		$sum_draw = 0;
+			$find_cus = $this->Costomer->find('all', array(
+				'conditions' => array(
+				'Costomer.id' => $id)));
+				//pr($find_cus);
+				foreach($find_cus as $find_cuss){
+					$lastname = $find_cuss['Costomer']['last_name'];
+					$firstname = $find_cuss['Costomer']['first_name'];
+				}
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
@@ -526,8 +534,9 @@ class CostomersController extends AppController {
 				if($this->request->is('post') == 1){
 					$test = $this->Withdrawal->set(array(
 									'customer_id' => $id,
+									'customer_name' => $firstname.' '.$lastname,
 									'draw_date' => $date_time));
-					pr($test);exit;
+					//pr($test);exit;
 					$input = $this->request->data;
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
@@ -1107,6 +1116,7 @@ class CostomersController extends AppController {
 	public function link(){
          $this->loadModel('Costomer');
          $this->loadModel('Purchase');
+         $this->loadModel('Withdrawal');
          $findpurchase = $this->Purchase->find('all',array(
                         'order' => 'Purchase.pur_id ASC'
                         ));
@@ -1120,7 +1130,6 @@ class CostomersController extends AppController {
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
 
-        $this->loadModel('Withdrawal');
 	/*	
 	// draw list
 	
@@ -1158,7 +1167,19 @@ class CostomersController extends AppController {
 	//$this->set('data', $data);
 	$this->set('withdrawals', $arr); */
 	
-	// Total Current money
+	$withdrawal = $this->Withdrawal->find('all');
+	//$keyword = $this->request->query('Search');
+		$this->paginate = array(
+				'limit' => 10,
+				'OR' => array(
+								array('Withdrawal.draw_id LIKE' => '%' ),
+								array('Withdrawal.customer_name LIKE' => '%'),
+								array('Withdrawal.money LIKE' => '%'),
+								array('Withdrawal.draw_date LIKE' => '%')
+								));
+
+	$this->set('withdrawal', $this->paginate('Withdrawal'));
+// end 
 	
 	$this->loadModel('One');
 	$this->loadModel('Two');
