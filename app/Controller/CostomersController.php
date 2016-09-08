@@ -1101,43 +1101,6 @@ class CostomersController extends AppController {
                         ));
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
-
-	/*	
-	// draw list
-	
-	$find_draw =$this->Withdrawal->find('all');
-		//pr($find_draw);exit;					
-        $arr = array();
-                foreach( $find_draw as $find_draws){
-                    $customer_id = $find_draws['Withdrawal']['customer_id'];
-					$money = $find_draws['Withdrawal']['money'];
-					$date = $find_draws['Withdrawal']['draw_date'];
-					//pr($customer_id);
-                    
-					$findwithdrawal = $this->Costomer->find('all', array(
-                        'conditions' => array(
-                            'Costomer.id' =>  $customer_id)
-                        ));
-					//pr($findwithdrawal);
-					
-					foreach($findwithdrawal as $findwithdrawals){
-                       	 	$name = $findwithdrawals['Costomer']['user_name'];
-                       	 	$id = $findwithdrawals['Costomer']['id'];
-							
-                       	 	 $data = array(
-	                            'id' => $customer_id,
-	                            'user_name' => $name,
-								'money' => $money,
-								'date' => $date
-	                        );
-							//pr($data);
-							array_push($arr, $data);
-                    	 }
-				}
-	
-    // var_dump($data);exit();
-	//$this->set('data', $data);
-	$this->set('withdrawals', $arr); */
 	
 	$withdrawal = $this->Withdrawal->find('all');
 	//$keyword = $this->request->query('Search');
