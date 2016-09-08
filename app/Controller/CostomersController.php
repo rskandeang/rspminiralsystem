@@ -79,6 +79,7 @@ class CostomersController extends AppController {
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
 				//pr($id);exit;
+				$code = $this->request->data['Costomer']['code'];
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
 						$this->One->create();
