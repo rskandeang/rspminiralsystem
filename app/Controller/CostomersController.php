@@ -17,9 +17,9 @@ class CostomersController extends AppController {
 					'Costomer.status' => '1',
 						'OR' => array(
 								array('Costomer.id LIKE' => '%' . $keyword . '%'),
-								array('Costomer.firstname LIKE' => '%' . $keyword . '%'),
-								array('Costomer.lastname LIKE' => '%' . $keyword . '%'),
-								array('Costomer.username LIKE' => '%' . $keyword . '%'),
+								array('Costomer.first_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.last_name LIKE' => '%' . $keyword . '%'),
+								array('Costomer.user_name LIKE' => '%' . $keyword . '%'),
 								array('Costomer.gender LIKE' => '%' . $keyword . '%'),
 								array('Costomer.phone LIKE' => '%' . $keyword . '%'),
 								array('Costomer.email LIKE' => '%' . $keyword . '%'),
@@ -42,22 +42,6 @@ class CostomersController extends AppController {
 	    parent::beforeFilter();
 	    $this->Auth->allow('add', 'logout','login');
 	}
-
-	// function index(){
-
-	// 	$costomers = $this->Costomer->find('all');
-	// 	$this->set('costomers',$costomers);
-	// }
-
-	// public function login() {
-	//     if ($this->request->is('post')) {
-	//         if ($this->Auth->login()) {
-	//             return $this->redirect($this->Auth->redirectUrl());
-	//         }
-	//         // $this->Flash->error(__('Invalid username or password, try again'));
-	//     }
-	// }
-
 	function login(){
 
 		if ($this->request->is('post')) {
@@ -81,12 +65,12 @@ class CostomersController extends AppController {
 		$this->loadModel('Four');
 		if($this->request->is('post')){
 			$this->Costomer->create();
-			if($this->Costomer->save($this->request->data)){
-				
+			if($test = $this->Costomer->save($this->request->data)){
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
 				//pr($id);exit;
+				$code = $this->request->data['Costomer']['code'];
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
 						$this->One->create();
@@ -323,6 +307,9 @@ class CostomersController extends AppController {
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
 								$this->Session->setFlash(__('tow table.'));
+								$this->redirect(array(
+						'controller'=>'Costomers',
+						'action'=>'index'));
 								
 								
 						}
@@ -536,6 +523,14 @@ class CostomersController extends AppController {
 		// Draw_money
 
 		$sum_draw = 0;
+			$find_cus = $this->Costomer->find('all', array(
+				'conditions' => array(
+				'Costomer.id' => $id)));
+				//pr($find_cus);
+				foreach($find_cus as $find_cuss){
+					$lastname = $find_cuss['Costomer']['last_name'];
+					$firstname = $find_cuss['Costomer']['first_name'];
+				}
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
@@ -555,7 +550,9 @@ class CostomersController extends AppController {
 				if($this->request->is('post') == 1){
 					$test = $this->Withdrawal->set(array(
 									'customer_id' => $id,
+									'customer_name' => $firstname.' '.$lastname,
 									'draw_date' => $date_time));
+					//pr($test);exit;
 					$input = $this->request->data;
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
@@ -852,7 +849,6 @@ class CostomersController extends AppController {
 				$purchase = $this->Purchase->find('all',array(
 				'conditions' => array(
 				'Purchase.customer_id' => $cus_id)));
-				
 				
 			foreach($purchase as $purchases){
 					$price = $purchases['Purchase']['price'];
@@ -1159,6 +1155,7 @@ class CostomersController extends AppController {
     	
          $this->loadModel('Costomer');
          $this->loadModel('Purchase');
+         $this->loadModel('Withdrawal');
          $findpurchase = $this->Purchase->find('all',array(
                         'order' => 'Purchase.pur_id ASC'
                         ));
@@ -1172,54 +1169,26 @@ class CostomersController extends AppController {
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
 
-        $this->loadModel('Withdrawal');
-       
-       
-				 	// var_dump($datas);exit();
-				
-
-
-	
-	$find_draw =$this->Withdrawal->find('all');
-		//pr($find_draw);exit;					
-        $arr = array();
-	                foreach( $find_draw as $find_draws){
-	                    $customer_id = $find_draws['Withdrawal']['customer_id'];
-						$money = $find_draws['Withdrawal']['money'];
-						$date = $find_draws['Withdrawal']['draw_date'];
-						//pr($customer_id);
-	                    
-						$findwithdrawal = $this->Costomer->find('all', array(
-	                        'conditions' => array(
-	                            'Costomer.id' =>  $customer_id)
-	                        ));
-						//pr($findwithdrawal);
-						
-							foreach($findwithdrawal as $findwithdrawals){
-	                       	 	$name = $findwithdrawals['Costomer']['username'];
-	                       	 	$id = $findwithdrawals['Costomer']['id'];
-								
-	                       	 	 $data = array(
-		                            'id' => $customer_id,
-		                            'user_name' => $name,
-									'money' => $money,
-									'date' => $date
-		                        );
-								//pr($data);
-								array_push($arr, $data);
-	                    	 }
-					}
 				$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
 				foreach ($datas as $data) {
 				 	$this->Withdrawal->id=$data['Withdrawal']['id'];
 				 	if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
 						
 				 	} 
-	}
-    // var_dump($data);exit();
-	$this->set('data', $data);
-	$this->set('withdrawals', $arr);
-	// Total Current money
+	}	
+	$withdrawal = $this->Withdrawal->find('all');
+	//$keyword = $this->request->query('Search');
+		$this->paginate = array(
+				'limit' => 10,
+				'OR' => array(
+								array('Withdrawal.draw_id LIKE' => '%' ),
+								array('Withdrawal.customer_name LIKE' => '%'),
+								array('Withdrawal.money LIKE' => '%'),
+								array('Withdrawal.draw_date LIKE' => '%')
+								));
+
+	$this->set('withdrawal', $this->paginate('Withdrawal'));
+// end 
 	
 	$this->loadModel('One');
 	$this->loadModel('Two');
@@ -1231,7 +1200,7 @@ class CostomersController extends AppController {
 	$sum_draw_money = 0;
 	
 	//$g_one = $this->One->find('all', array(
-     //   'conditions' => 'One.code'));
+    //   'conditions' => 'One.code'));
 	$g_one = $this->One->find('all');
 	//pr($g_one);
 	
@@ -1341,7 +1310,7 @@ class CostomersController extends AppController {
 		$data = $this->Costomer->find('first',array(
 			'conditions'=>array('id'=>$id)));
 			if($this->request->is(array('post','put'))){
-				$this->Costomer->id=$id;
+				$this->Costomer->id = $id;
 				if($this->Costomer->save($this->request->data)){
 					$this->Session->setFlash('You have been update');
 				    $this->redirect(array(
@@ -1350,6 +1319,7 @@ class CostomersController extends AppController {
 				}
 			}
 			$this->set('id', $id);
+
 			$this->request->data =$data;
 
 			//test ------------------------------
@@ -1357,28 +1327,8 @@ class CostomersController extends AppController {
 		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
 
 		$this->set('withdrawals',$Withdrawal);
-	}
-	public function notification() {
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
-		//pr($Withdrawal);
-    }
-    public function update($id =null){
-    	$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
-		foreach ($datas as $data) {
-		 	$this->Withdrawal->id=$data['Withdrawal']['id'];
-		 	if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
-				$this->redirect('notification');
-		 } 
 	
-	//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
-
-		$this->set('withdrawals',$Withdrawal);
-	}	
 }
 
 

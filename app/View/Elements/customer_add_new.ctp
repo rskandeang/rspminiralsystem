@@ -27,7 +27,7 @@
 									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'Male','Female'=>'Female'),'default'=>'2'));?>
 								</div>
 			    				<div class="form-group">
-									<?php echo $this->Form->input('username', array(
+									<?php echo $this->Form->input('user_name', array(
 										'class' => 'form-control','placeholder'=>'User Name','label' => false ));?>
 								</div>
 					
@@ -98,6 +98,6 @@
 <script type="text/javascript">
 
 	document.getElementById('box').onchange = function() {
-    document.getElementById('text').disabled = this.checked;
-};
+		document.getElementById('text').disabled = this.checked;
+	};
 </script>

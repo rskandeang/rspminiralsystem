@@ -221,32 +221,38 @@
       </div>
         <div  class="panel-body">
           <div class="table-responsive">
-            <div style="padding-left:250px;padding-right:250px;" class="panel-body">
+            <div style="padding-left:170px;padding-right:170px;" class="panel-body">
 
-      <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
-      <thead style="background-color:#1d933F;"> 
-       <!--  <tr> 
+      <table style="margin-left: 102px;" class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
+      <thead style="background-color:#1d933F; visibility: hidden;"> 
+         <tr style="visibility: hidden;"> 
+	   
             <th class="table-header" style="text-align: center;color:white">No</th>
+            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('customer_name', 'Name'); ?></th>
+            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('money', 'Name'); ?></th>
             <th class="table-header" style="text-align: center;color:white"></th>
-            <th class="table-header" style="text-align: center;color:white">Customer Name</th>
-            <th class="table-header" style="text-align: center;color:white"></th>
-            <th class="table-header" style="text-align: center;color:white">Withdrawal Amount</th>
-        </tr> -->
+            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('draw_date', 'Date'); ?></th>
+			
+        </tr> 
     </thead>
       <tbody >
-            <?php foreach($withdrawals as $withdrawal): ?>  
-
+            <?php foreach($withdrawal as $withdrawals): ?>  
             <tr>  
-                <td   scope="row" style="text-align: center;"> Customer <strong>
-					<?php echo $withdrawal['user_name']?>
-				</strong> have been withdrawal the amounts: " <?php echo $withdrawal['money'];?>$ " on <?php echo $withdrawal['date'];?> .</td>
+
+                <td   scope="row" style="text-align: center;"> Customer  <strong>
+					<?php echo $withdrawals['Withdrawal']['customer_name']?>
+				</strong> have been withdrawal the amounts " <?php echo $withdrawals['Withdrawal']['money'];?>$ " on <?php echo $withdrawals['Withdrawal']['draw_date'];?> .</td>
+
 
                
             </tr>
             <?php endforeach; ?>
       </tbody>
-    </table>                        
-              
+
+    </table>
+	<?php echo $this->element('pagination'); ?>	
+              <p style="text-align: center;">Company's customer withdrawals</p>
+
               <hr/>
               </div>
                 </div>

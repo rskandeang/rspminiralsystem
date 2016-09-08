@@ -33,13 +33,13 @@
                           <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#000;')); ?></th>
                       -->
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('firstname', 'First Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('first_name', 'First Name',array('style'=>'color:#000;')); ?></th>
                           
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('lastname', 'Last Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('last_name', 'Last Name',array('style'=>'color:#000;')); ?></th>
                         
                         <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('username', 'User Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('user_name', 'User Name',array('style'=>'color:#000;')); ?></th>
                                   <th class="table-header" style="text-align: center;">
                                     <?php echo $this->Paginator->sort('gender', 'Gender',array('style'=>'color:#000;')); ?></th>
                           
@@ -64,11 +64,11 @@
        
             <!-- <td scope="row"><?php echo $id; ?></td> -->
       
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['firstname'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['first_name'];?></td>
 			
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['lastname'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['last_name'];?></td>
 			
-			<td style="text-align: center;"><?php echo $costomer['Costomer']['username'];?></td>
+			<td style="text-align: center;"><?php echo $costomer['Costomer']['user_name'];?></td>
       
             <td style="text-align: center;"><?php echo $costomer['Costomer']['gender'];?></td>
       
