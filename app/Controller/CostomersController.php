@@ -59,6 +59,7 @@ class CostomersController extends AppController {
 		if($this->request->is('post')){
 			$this->Costomer->create();
 			if($test = $this->Costomer->save($this->request->data)){
+				pr($test);exit;
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
@@ -355,22 +356,6 @@ class CostomersController extends AppController {
         $this->Session->setFlash(__('Customer was not re-activated'));
         $this->redirect(array('action' => 'index'));
     }
-	
-	public function edit($id){
-			$data = $this->Costomer->find('first',array(
-			'conditions'=>array('id'=>$id)));
-			// $data = $this->Costomer->findById($id);
-			if($this->request->is(array('post','put'))){
-				$this->Costomer->id=$id;
-				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
-				    $this->redirect('index');
-				}
-			}
-
-			$this->request->data =$data;
-	}
-
 	function view($id){
 		$this->loadModel('One');
 		$this->loadModel('Two');
@@ -1278,22 +1263,7 @@ class CostomersController extends AppController {
 	$this->set('total_money', $total_money);
     }
 	
-	public function own_update($id) {
-		$data = $this->Costomer->find('first',array(
-			'conditions'=>array('id'=>$id)));
-			if($this->request->is(array('post','put'))){
-				$this->Costomer->id=$id;
-				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
-				    $this->redirect(array(
-					'controller'=>'Costomers',
-					'action'=>'view_setting',$id));
-				}
-			}
-			$this->set('id', $id);
-			$this->request->data =$data;
-	}
-
+	
 
 }
 
