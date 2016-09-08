@@ -1121,48 +1121,6 @@ class CostomersController extends AppController {
          // var_dump($findmoney);exit();
 
         $this->loadModel('Withdrawal');
-
-		/*$findCus =$this->Costomer->find('all',array(
-                            'order'=>'costomer.id'));
-        $arr = array();
-                foreach( $findCus as $customer){
-                    $customer_id = $customer['Costomer']['id'];
-                    $findwithdrawal = $this->Withdrawal->find('all', array(
-                        'conditions' => array(
-                            'Withdrawal.customer_id' =>  $customer_id),
-                        'order' => 'Withdrawal.customer_id'
-                        ));
-					pr($findwithdrawal);
-                     foreach($findwithdrawal as $withdrawal){
-                       	 	$date_withdraw = $withdrawal['draw_date'];
-                       	 	$m_withdrawl = $withdrawal['money'];
-                       	 	$Id = $withdrawal['draw_id'];
-                       	 	 $data = array(
-	                            'id' => $customer['Costomer']['id'],
-	                            'first_name' => $customer['Costomer']['first_name'],
-	                           'last_name' => $customer['Costomer']['last_name'],
-	                            'draw_date'=> $date_withdraw,
-	                            'money'=> $m_withdrawl,
-	                            'draw_id' => $Id,
-	                        );
-							array_push($arr, $data);
-                    	 }
-						//pr(array_push($arr, $data));
-				}
-			
-	/*$findCus =$this->Costomer->find('all');	
-	//pr($findCus);exit;
-	foreach($findCus as $findCuss){
-		$name = $findCuss['Costomer']['user_name'];
-		$id_cus = $findCuss['Costomer']['id'];
-		
-		$test = $this->Withdrawal->find('all', array(
-		'conditions' => array(
-		'Withdrawal.customer_id' => $id_cus)));
-		
-		pr($test);
-		
-	}*/
 	
 	// test
 	
@@ -1197,7 +1155,7 @@ class CostomersController extends AppController {
 				}
 	
     // var_dump($data);exit();
-	$this->set('data', $data);
+	//$this->set('data', $data);
 	$this->set('withdrawals', $arr);
 	// Total Current money
 	
