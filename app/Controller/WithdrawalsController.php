@@ -38,8 +38,9 @@ class WithdrawalsController extends AppController {
 
 	public function notification() {	
 		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		
+		// $this->render('/elements/header/');
 		$this->set('withdrawals',$Withdrawal);
-
 		
     }
     public function delete($id =null){
@@ -49,6 +50,7 @@ class WithdrawalsController extends AppController {
 		 	if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
 				$this->redirect('notification');
 		 } 
+		
 	
 	}	
 }
