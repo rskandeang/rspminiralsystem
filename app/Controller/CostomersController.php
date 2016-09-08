@@ -59,11 +59,11 @@ class CostomersController extends AppController {
 		if($this->request->is('post')){
 			$this->Costomer->create();
 			if($test = $this->Costomer->save($this->request->data)){
-				pr($test);exit;
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
 				//pr($id);exit;
+				$code = $this->request->data['Costomer']['code'];
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
 						$this->One->create();
@@ -300,6 +300,9 @@ class CostomersController extends AppController {
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
 								$this->Session->setFlash(__('tow table.'));
+								$this->redirect(array(
+						'controller'=>'Costomers',
+						'action'=>'index'));
 								
 								
 						}
