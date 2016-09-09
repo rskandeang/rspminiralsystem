@@ -1101,6 +1101,7 @@ class CostomersController extends AppController {
                         ));
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
+
 	
 	$withdrawal = $this->Withdrawal->find('all');
 	//$keyword = $this->request->query('Search');
@@ -1115,6 +1116,7 @@ class CostomersController extends AppController {
 
 	$this->set('withdrawal', $this->paginate('Withdrawal'));
 // end 
+
 	
 	$this->loadModel('One');
 	$this->loadModel('Two');
