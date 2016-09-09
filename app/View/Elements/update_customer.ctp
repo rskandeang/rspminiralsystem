@@ -10,20 +10,20 @@
 			            <div class="row">
 			                <div class="col-xs-12 col-sm-6 col-md-6">
 			    				<div class="form-group">
-			                       <?php echo $this->Form->input('firstname', array(
+			                       <?php echo $this->Form->input('first_name', array(
 										'class' => 'form-control','placeholder'=>'First Name','label' => false ));?>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<div class="form-group">
-									<?php echo $this->Form->input('lastname', array(
+									<?php echo $this->Form->input('last_name', array(
 										'class' => 'form-control','placeholder'=>'Last Name','label' => false ));?>
 								</div>
 							</div>
 						</div>
 						
 			    				<div class="form-group">
-									<?php echo $this->Form->input('username', array(
+									<?php echo $this->Form->input('user_name', array(
 										'class' => 'form-control','placeholder'=>'User Name','label' => false ));?>
 								</div>
 							
