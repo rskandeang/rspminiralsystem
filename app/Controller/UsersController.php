@@ -34,6 +34,11 @@ class UsersController extends AppController {
 		$this->set('users',$this->paginate());
 		// var_dump($keyword);exit();
 
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 
 	function login(){
@@ -89,6 +94,12 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not re-activated'));
         $this->redirect(array('action' => 'index'));
+
+        //test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
     }
 	function add(){
 		if($this->request->is('post')){
@@ -119,6 +130,12 @@ class UsersController extends AppController {
 					$this->User->save($this->data);
 				}
 		}
+
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 	function edit($id){
 		//echo $id;exit();
@@ -174,6 +191,10 @@ class UsersController extends AppController {
 	// 	}
 	// 	$this->request->data = $data;
 	// }
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	 }
-	
 }   

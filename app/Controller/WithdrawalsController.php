@@ -10,7 +10,7 @@ class WithdrawalsController extends AppController {
 			  'RequestHandler');
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login','add','index','edit'); 
+        $this->Auth->allow('login','add','index','edit','header'); 
     }
 	function index(){
 		$keyword = $this->request->query('Search');
@@ -34,5 +34,25 @@ class WithdrawalsController extends AppController {
 
    
 // }
+
+
+	public function notification() {	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		
+		// $this->render('/elements/header/');
+		$this->set('withdrawals',$Withdrawal);
+		
+    }
+    public function delete($id =null){
+    	$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
+		foreach ($datas as $data) {
+		 	$this->Withdrawal->id=$data['Withdrawal']['id'];
+		 	if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
+				$this->redirect('notification');
+		 } 
+		
+	
+	}	
+}
 
 }   

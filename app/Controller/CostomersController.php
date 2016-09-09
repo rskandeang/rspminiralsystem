@@ -8,6 +8,7 @@ class CostomersController extends AppController {
 		public $components = array(
 				  'Paginator',
 				  'RequestHandler');
+
 	function index(){
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
@@ -29,6 +30,12 @@ class CostomersController extends AppController {
 		//$users = $this->User->find('all');
 		$this->set('costomers',$this->paginate());
 		// var_dump($keyword);exit();
+
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 
     public function beforeFilter() {
@@ -310,7 +317,11 @@ class CostomersController extends AppController {
 				
 			}
 		}
-		
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 	
 	public function delete($id = null) {
@@ -333,6 +344,12 @@ class CostomersController extends AppController {
 
         $this->Session->setFlash(__('Customer was not deleted'));
         $this->redirect(array('action' => 'index'));
+
+        //test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
     }
 
     public function activate($id = null) {
@@ -355,6 +372,12 @@ class CostomersController extends AppController {
 
         $this->Session->setFlash(__('Customer was not re-activated'));
         $this->redirect(array('action' => 'index'));
+
+        //test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
     }
 	function view($id){
 		$this->loadModel('One');
@@ -597,6 +620,11 @@ class CostomersController extends AppController {
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);	
 		
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 		
 	}	
 	public function view_pur($id){
@@ -744,6 +772,11 @@ class CostomersController extends AppController {
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);	
 		
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 	
 	function view_refer($id){
@@ -889,6 +922,13 @@ class CostomersController extends AppController {
 		$this->set('count_one', $count_one);	
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);
+
+		//test -------------------------------------
+
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 	
 	function view_setting($id) {
@@ -1082,10 +1122,16 @@ class CostomersController extends AppController {
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);	
 		
-		
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}	
 	
-	public function link(){
+	public function link($id = null){
+		
+    	
          $this->loadModel('Costomer');
          $this->loadModel('Purchase');
          $this->loadModel('Withdrawal');
@@ -1102,7 +1148,15 @@ class CostomersController extends AppController {
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
 
-	
+		$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
+		foreach ($datas as $data) {
+			$this->Withdrawal->id = $data['Withdrawal']['drow_id'];
+			
+			if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
+						
+			} 
+		}	
+
 	$withdrawal = $this->Withdrawal->find('all');
 	//$keyword = $this->request->query('Search');
 		$this->paginate = array(
@@ -1141,74 +1195,74 @@ class CostomersController extends AppController {
 		'Two.refer' => $one_code)));
 		//pr($g_two);
 		
-		foreach($g_two as $g_twos){
-			$two_code = $g_twos['Two']['costomer_id'];
-			
-			$pur_one = $this->Purchase->find('all', array(
-				'conditions' => array(
-				'Purchase.customer_id' => $two_code)));
-			foreach($pur_one as $pur_ones){
-				$amounts = $pur_ones['Purchase']['amounts'];
-				$price = $pur_ones['Purchase']['price'];
-				
-				$beni_one = ($amounts * $price)*0.05;
-			
-				$sum_one += $beni_one;
-				//pr($sum_one);
-			}
-			
-		}
+				foreach($g_two as $g_twos){
+					$two_code = $g_twos['Two']['costomer_id'];
+					
+					$pur_one = $this->Purchase->find('all', array(
+						'conditions' => array(
+						'Purchase.customer_id' => $two_code)));
+					foreach($pur_one as $pur_ones){
+						$amounts = $pur_ones['Purchase']['amounts'];
+						$price = $pur_ones['Purchase']['price'];
+						
+						$beni_one = ($amounts * $price)*0.05;
+					
+						$sum_one += $beni_one;
+						//pr($sum_one);
+					}
+					
+				}
 		
 		$g_three = $this->Three->find('all',array(
 		'conditions' => array(
 		'Three.refer' => $one_code)));
 		//pr($g_three);
 		
-		foreach($g_three as $g_threes){
-			$three_code = $g_threes['Three']['costomer_id'];
-			
-			$pur_two = $this->Purchase->find('all', array(
-				'conditions' => array(
-				'Purchase.customer_id' => $three_code)));
-			//pr($pur_two);
-			
-			foreach($pur_two as $pur_twos){
-				$amounts = $pur_twos['Purchase']['amounts'];
-				$price = $pur_twos['Purchase']['price'];
-				
-				$beni_two = ($amounts * $price)*0.03;
-				
-				//pr($beni_one);
-				$sum_two += $beni_two;
-				//pr($sum_two);
-			}
-		}
+				foreach($g_three as $g_threes){
+					$three_code = $g_threes['Three']['costomer_id'];
+					
+					$pur_two = $this->Purchase->find('all', array(
+						'conditions' => array(
+						'Purchase.customer_id' => $three_code)));
+					//pr($pur_two);
+					
+						foreach($pur_two as $pur_twos){
+							$amounts = $pur_twos['Purchase']['amounts'];
+							$price = $pur_twos['Purchase']['price'];
+							
+							$beni_two = ($amounts * $price)*0.03;
+							
+							//pr($beni_one);
+							$sum_two += $beni_two;
+							//pr($sum_two);
+						}
+				}
 		
 		$g_four = $this->Four->find('all',array(
 		'conditions' => array(
 		'Four.refer' => $one_code)));
 		//pr($g_four);
 		
-		foreach($g_four as $g_fours){
-			$four_code = $g_fours['Four']['costomer_id'];
-			//pr($four_code);
-			
-			$pur_three = $this->Purchase->find('all', array(
-				'conditions' => array(
-				'Purchase.customer_id' => $four_code)));
-			//pr($pur_three);
-			
-			foreach($pur_three as $pur_threes){
-				$amounts = $pur_threes['Purchase']['amounts'];
-				$price = $pur_threes['Purchase']['price'];
-				
-				$beni_three = ($amounts * $price)*0.02;
-				
-				//pr($beni_three);
-				$sum_three += $beni_three;
-				//pr($sum_three);
-			}
-		}
+				foreach($g_four as $g_fours){
+					$four_code = $g_fours['Four']['costomer_id'];
+					//pr($four_code);
+					
+					$pur_three = $this->Purchase->find('all', array(
+						'conditions' => array(
+						'Purchase.customer_id' => $four_code)));
+					//pr($pur_three);
+					
+						foreach($pur_three as $pur_threes){
+							$amounts = $pur_threes['Purchase']['amounts'];
+							$price = $pur_threes['Purchase']['price'];
+							
+							$beni_three = ($amounts * $price)*0.02;
+							
+							//pr($beni_three);
+							$sum_three += $beni_three;
+							//pr($sum_three);
+						}
+				}
 	}
 	$total_money = $sum_one + $sum_two + $sum_three;
 	//pr($total_money);
@@ -1226,6 +1280,12 @@ class CostomersController extends AppController {
 	
 	$this->set('total_cur_money', $total_cur_money);
 	$this->set('total_money', $total_money);
+
+	//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
     }
 	
 	public function edit($id){
@@ -1241,6 +1301,11 @@ class CostomersController extends AppController {
 			}
 
 			$this->request->data =$data;
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
 	}
 	
 	public function own_update($id) {
@@ -1257,6 +1322,14 @@ class CostomersController extends AppController {
 			}
 			$this->set('id', $id);
 			$this->request->data =$data;
+
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
+
+	
 	}
 
 }

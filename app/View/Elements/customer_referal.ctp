@@ -56,7 +56,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 style="color:#52BE80" class="text-center">First Level</h4>
+                      <h4  class="text-center">First Level</h4>
 
                  </div>
 
@@ -143,7 +143,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 style="color:#F7DC6F" class="text-center">Secont Level</h4>
+                      <h4 class="text-center">Secont Level</h4>
 
                  </div>
 
@@ -229,7 +229,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 style="color:#5DADE2" class="text-center">Third Level</h4>
+                      <h4 class="text-center">Third Level</h4>
 
                  </div>
 
@@ -388,37 +388,37 @@
 
                  <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
 				 
-					<!-- Trigger/Open The Modal -->
-                    <h4  class="text-center" id="myBtn"">
-						<?php 
-							$count = 0;
-							foreach($two as $twos){
-							//pr($twos);
-								$code_two = $twos['Two']['code'].'<br/>';
-								$count_two = count($code_two);
-								$count += $count_two;
-							}
-							echo $count.'<br/>';
-							
-						?>
-						
-					</h4>
-					
-					<!-- The Modal -->
-					<div id="refer_modal" class="refer">
-						<!-- Modal content -->
-						
-						<div class="refer-content"> 
-							<span class="my_span">×</span>
-							<?php
-								foreach($two as $twos){
-									echo $twos['Two']['code'].'<br />';
-								}
-							?>
-						</div>
-					</div>
-					
+        					<!-- Trigger/Open The Modal -->
+                    <h4  class="text-center" id="myBtn">
+        						<?php 
+        							$count = 0;
+        							foreach($two as $twos){
+        							//pr($twos);
+        								$code_two = $twos['Two']['code'].'<br/>';
+        								$count_two = count($code_two);
+        								$count += $count_two;
+        							}
+        							echo $count.'<br/>';
+        							
+        						?>
+        						
+        					</h4>
+        					
+        					<!-- The Modal -->
+        					<div id="refer_modal" class="refer">
+        						<!-- Modal content -->
+        						
+        						<div class="refer-content"> 
+        							<span class="my_span">×</span>
+        							<?php
+        								foreach($two as $twos){
+        									echo $twos['Two']['code'].'<br />';
+        								}
+        							?>
+        						</div>
+        					</div>
                  </div>	
+
                  <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
                    <h4  class="text-center">
 						<?php echo '$ '.$sum_one;?>

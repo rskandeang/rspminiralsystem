@@ -1,3 +1,5 @@
+
+
 <!-- <div  class="container-fluid ">
   <div  class="row">
     <div  class="col-md-12 ">
@@ -61,7 +63,6 @@
     </div>
   </div>
 </div> -->
-
 <nav class="navbar navbar-inverse">
   <div style="background-color:#1d933F;" class="container-fluid">
     <div class="navbar-header">
@@ -77,7 +78,25 @@
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-              <li ><?php echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));?></li>
+        
+              <li id="icon" >
+                <?php if($withdrawals >= 1){ ?>
+                        <div id="notification" style="background:#f1240f;position: absolute;right: 27px;margin-right:-79px;margin-top:3px;border-radius:50%;width:20px;height:20px;">
+                  <div style="color:#FFF;position:absolute;right:6px;">
+                    <?php 
+                       echo $withdrawals;
+                       
+                    ?>
+                  </div>
+                </div>
+                     <?php }
+                ?>
+                
+                <?php 
+                  echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));
+                  ?>
+            </li>
+
               <!-- <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-university" aria-hidden="true"></span></li>',array('controller'=>'Withdrawals','action'=>'index'),array('escape' => 0));?></li>
 
               <li ><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;"  ><span style="color:#fff" class="fa fa-usd" aria-hidden="true"></span></li>',array('controller'=>'Moneys','action'=>'index'),array('escape' => 0));?></li>
@@ -111,4 +130,6 @@
   <div style="background-color:#fff; height:6px;" ></div>
 
 </nav>
+
+
   

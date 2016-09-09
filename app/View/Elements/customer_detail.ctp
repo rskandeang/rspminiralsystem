@@ -3,7 +3,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Customer detail</strong>
+                    <h1 class="panel-title "><strong class="pull-left"> Dashboard</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-info  fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body " style="background:#F5F6F0">
@@ -98,7 +98,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">Total Balance</h4>
+                <h4  class="text-left">Current Balance</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>
