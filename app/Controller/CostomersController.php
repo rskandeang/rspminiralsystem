@@ -1228,7 +1228,36 @@ class CostomersController extends AppController {
 	$this->set('total_money', $total_money);
     }
 	
+	public function edit($id){
+			$data = $this->Costomer->find('first',array(
+			'conditions'=>array('id'=>$id)));
+			// $data = $this->Costomer->findById($id);
+			if($this->request->is(array('post','put'))){
+				$this->Costomer->id=$id;
+				if($this->Costomer->save($this->request->data)){
+					$this->Session->setFlash('You have been update');
+				    $this->redirect('index');
+				}
+			}
+
+			$this->request->data =$data;
+	}
 	
+	public function own_update($id) {
+		$data = $this->Costomer->find('first',array(
+			'conditions'=>array('id'=>$id)));
+			if($this->request->is(array('post','put'))){
+				$this->Costomer->id=$id;
+				if($this->Costomer->save($this->request->data)){
+					$this->Session->setFlash('You have been update');
+				    $this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view_setting',$id));
+				}
+			}
+			$this->set('id', $id);
+			$this->request->data =$data;
+	}
 
 }
 

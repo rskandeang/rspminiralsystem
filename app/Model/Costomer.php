@@ -2,7 +2,7 @@
 
 class Costomer extends AppModel {
 public $validate = array(
-		 'firstname' => array(
+		 'first_name' => array(
 	        'name' => array(
 	            'rule' => '/[A-Za-z]+/',
 	            'required' => true,
@@ -13,7 +13,7 @@ public $validate = array(
 	            'message' => 'Username between 1 and 24 chars'
 	        )
 	    ),
-		'lastname' => array(
+		'last_name' => array(
 	        'name' => array(
 	            'rule' => '/[A-Za-z]+/',
 	            'required' => true,
@@ -24,7 +24,7 @@ public $validate = array(
 	            'message' => 'Username between 1 and 24 chars'
 	        )
 	    ),
-	    'username'=>array(
+	    'user_name'=>array(
 
             'That username has already been taken'=>array(
                 'rule'=>'isUnique',
@@ -42,12 +42,12 @@ public $validate = array(
 	            'message' => 'phone number between 1 and 24 chars'
 	        )
 		),
-        'password'=>array(
-            'Not empty'=>array(
-                'rule'=>'notEmpty',
-                'message'=>'Please enter your password'
-            	)
-            ),
+        //'password'=>array(
+        //    'Not empty'=>array(
+         //       'rule'=>'notEmpty',
+         //       'message'=>'Please enter your password'
+        //    	)
+         //   ),
         'email'=>array(
             'Valid email'=>array(
                 'rule'=>array('email'),
