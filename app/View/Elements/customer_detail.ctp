@@ -153,7 +153,6 @@
                
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>Amount order of a month</p>
             <hr/>
           </div>
         </div>

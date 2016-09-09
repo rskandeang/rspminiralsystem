@@ -10,7 +10,7 @@ class UsersController extends AppController {
 			  'RequestHandler');
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login','add','index','edit'); 
+        $this->Auth->allow('login'); 
     }
 	function index(){
 		$keyword = $this->request->query('Search');

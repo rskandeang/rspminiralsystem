@@ -63,23 +63,5 @@ class AppController extends Controller {
 		
 	// 	return true;
 	// }
-	public function initialize()
-		{
-	    parent::initialize();
-	    $this->loadComponent('Flash');
-	    $this->loadComponent('Auth', [
-		        'loginAction' => [
-		            'controller' => 'Costomers',
-		            'action' => 'login'
-		        ],
-		        'authenticate' => [
-		            'Form' => [
-		                'fields' => ['username'=>'username','password'=>'password']
-		                
-		            ]
-		        ],
-		        'storage' => 'Session'
-		    ]);
-		}
 	
 }

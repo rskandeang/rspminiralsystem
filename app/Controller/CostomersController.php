@@ -5,10 +5,13 @@ class CostomersController extends AppController {
 				  'Paginator',
 				  'Html',
 				  'Form');
-		public $components = array(
+	public $components = array(
 				  'Paginator',
 				  'RequestHandler');
-
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('login_cus'); 
+    }
 	function index(){
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
@@ -36,11 +39,6 @@ class CostomersController extends AppController {
 		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
 
 		$this->set('withdrawals',$Withdrawal);
-	}
-
-    public function beforeFilter() {
-	    parent::beforeFilter();
-	    $this->Auth->allow('add', 'logout','login');
 	}
 	function login(){
 
@@ -755,6 +753,20 @@ class CostomersController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
+		// add purchase
+		$date = date('Y-m-d');
+		if($this->request->is('post')){
+			$this->Purchase->create();
+			$this->Purchase->set(array(
+			'price' => 15,
+			'pur_date' => $date,
+			'customer_id' => $id));
+			if($test = $this->Purchase->save($this->request->data)){
+				$this->redirect(array(
+				'controller'=>'Costomers',
+				'action'=>'view_pur',$id));
+			}
+		}
 		
 
 		$this->set('customers', $findCustomer);	
@@ -907,7 +919,6 @@ class CostomersController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
-
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('two', $two);	
@@ -1150,7 +1161,7 @@ class CostomersController extends AppController {
 
 		$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
 		foreach ($datas as $data) {
-			$this->Withdrawal->id = $data['Withdrawal']['drow_id'];
+			$this->Withdrawal->id = $data['Withdrawal']['draw_id'];
 			
 			if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
 						
@@ -1328,8 +1339,77 @@ class CostomersController extends AppController {
 		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
 
 		$this->set('withdrawals',$Withdrawal);
-
+	}
 	
+	public function add_pur($id = null){
+		$this->loadModel('Costomer');	
+		$this->loadModel('Purchase');	
+		
+		if($this->request->is('post')){
+			$this->Purchase->create();
+			$this->Purchase->set(array(
+			'price' => 15,
+			'customer_id' => $id));
+			if($test = $this->Purchase->save($this->request->data)){
+				$this->redirect(array(
+				'controller'=>'Costomers',
+				'action'=>'view_pur',$id));
+			}
+		}
+		
+		//test ------------------------------
+		$this->loadModel('Withdrawal');	
+		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('withdrawals',$Withdrawal);
+		$this->set('id',$id);
+	}
+	
+	public function login_cus(){
+		$this->loadModel('One');	
+		$this->loadModel('Costomer');	
+		if($this->request->is('post')){
+			$check = $this->request->data;
+			
+			foreach($check as $checks){
+				$username = $checks['username'];
+				$password = $checks['password'];
+			}
+			
+	if(strpos($username, 'st') !== false || strpos($username, 'nd') !== false || strpos($username, 'rd') !== false){
+				$username = substr($username, 2);
+			}
+			//pr($username);exit;
+			$find_id = $this->One->find('all', array(
+			'conditions'=>array(
+			'code'=>$username)));
+			
+			foreach($find_id as $find_ids){
+				$id = $find_ids['One']['costomer_id'];
+			}
+			
+			$pass = $this->Costomer->find('count', array(
+			'conditions'=>array(
+			'AND' => array(
+                        'id' => $id,
+                        'password' => $password))));
+			
+			$name = $find = $this->One->find('count', array(
+			'conditions'=>array(
+			'AND' => array(
+                        'costomer_id' => $id,
+                        'code' => $username))));
+			//pr($name);exit;
+			if($pass == 1 && $name == 1){
+				function beforeFilter() {
+					parent::beforeFilter();
+					$this->Auth->allow('view'); 
+				}
+				$this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view',$id));
+			}
+		}
 	}
 
 }
