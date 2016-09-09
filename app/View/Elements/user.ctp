@@ -6,6 +6,8 @@
         <!-- <div style="" class="col-md-12"><h4 class="text-center">List for all users</h4></div> -->
     </div>
     <div class="col-md-12 ">
+        <p><?php echo $this->Session->flash(); ?></p>
+      
         <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">
            
             <div style="background-color:#fff;padding-left:10px;padding-right:10px;padding-bottom:10px;">
@@ -72,7 +74,7 @@
                                  | 
                                 <?php
                                     if( $user['User']['status'] != 0){ 
-                                         echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'style'=>'color:red'));}
+                                         echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'style'=>'color:red'),array('confirm'=>'Are you sure you want to delet?'));}
                                     else {
                                         echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action'=>'activate', $user['User']['id']),array('escape' => false,'style'=>'color:#2E86C1'));
                                     }

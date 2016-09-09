@@ -1143,7 +1143,7 @@ class CostomersController extends AppController {
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);	
 		
-		//test ------------------------------
+		// notification ------------------------------
 		$this->loadModel('Withdrawal');	
 		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
 

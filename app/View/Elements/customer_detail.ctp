@@ -75,7 +75,9 @@
                       'class' => 'form-control',
                       'id' =>'exampleInputAmount',
                       'placeholder' => 'Amount',
+                      'type' => 'int',
                       'label'=> false
+                      
                       ));
                     ?>
                   <div class="input-group-addon">.00</div>

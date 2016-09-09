@@ -1,4 +1,9 @@
-
+.message{
+	color:#17202A;
+	background: #EC7063;
+	padding: 15px;
+	text-align: center;
+}
 /*
 Menu sidebar right
 */

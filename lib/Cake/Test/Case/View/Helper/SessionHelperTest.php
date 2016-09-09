@@ -118,7 +118,7 @@ class SessionHelperTest extends CakeTestCase {
  */
 	public function testFlash() {
 		$result = $this->Session->flash('flash');
-		$expected = '<div id="flashMessage" class="message">This is a calling</div>';
+		$expected = '<div id="flashMessage" class="message" >This is a calling</div>';
 		$this->assertEquals($expected, $result);
 		$this->assertFalse($this->Session->check('Message.flash'));
 

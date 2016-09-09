@@ -70,7 +70,7 @@ class UsersController extends AppController {
             $this->redirect(array('action'=>'index'));
         }
         if ($this->User->saveField('status', 0)) {
-            $this->Session->setFlash(__('User deleted'));
+            $this->Session->setFlash(__('User have been deleted'));
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash(__('User was not deleted'));
@@ -112,6 +112,7 @@ class UsersController extends AppController {
 						$file = $this->request->data['User']['image'];
 						$ext = substr(strtolower(strrchr($file['name'], '.')), 1); 
 						$arr_ext = array('jpg', 'jpeg', 'gif','png');
+
 							if(in_array($ext, $arr_ext))
 							{
 								//do the actual uploading of the file. First arg is the tmp name, second arg is 
@@ -143,7 +144,7 @@ class UsersController extends AppController {
 		if($this->request->is(array('post','put'))){
 			$this->User->id = $id;
 			if($this->User->save($this->request->data)){
-				$this->Session->setFlash('edited');
+				$this->Session->setFlash('User have been update');
 				$this->redirect('index');
 			}
 		}

@@ -1,4 +1,4 @@
-
+<p><?php echo $this->Session->flash(); ?></p>
 <div class="container-fluid">
   <div class="row ">
      <div class="col-md-12">
