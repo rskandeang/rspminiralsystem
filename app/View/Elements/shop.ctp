@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Shop</strong>
+                    <h1 class="panel-title "><strong class="pull-left">ការលក់</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-tags  fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body" style="background:#F5F6F0">
@@ -21,7 +21,7 @@
                                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                                              <div class="col-md-6 text-left"> 
-                                              <h4  >Total Volume</h4>
+                                              <h4 >ចំនួននៃការលក់សរុប</h4>
                                              </div>
                                              <div class="col-md-6 text-right">
                                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-briefcase" aria-hidden="true" > </i>
@@ -43,7 +43,7 @@
                                           
                                         </div>
                                         <div style="background:#fff;" class="panel-footer text-center">
-                                          <p>Volume of customer order</p>
+                                          <p>ចំនួនលក់ចេញទៅអោយអតិថិជន</p>
                                           <hr/>
                                         </div>
                                       </div>
@@ -125,7 +125,7 @@
                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                             <div class="col-md-6 text-left"> 
-                               <h4  class="text-left">Total Purchase</h4>
+                               <h4  class="text-left">ទឹកប្រាក់នៃការលក់សរុប</h4>
                              </div>
                              <div class="col-md-6 text-right">
                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-cc-visa" aria-hidden="true" > </i>
@@ -139,7 +139,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>The amount of sold out</p>
+                          <p>ចំនួនទឹកប្រាក់នៃការលក់ចេញទៅអោយអតិថិជន</p>
                           <hr/>
                         </div>
                       </div>
@@ -149,10 +149,10 @@
                       <div class="panel box-v1">
                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
-                             <div class="col-md-6 text-left"> 
-                               <h4 class="text-left">Total Current Balance</h4>
+                             <div class="col-md-8 text-left"> 
+                               <h4 class="text-left">ទឹកប្រាក់មិនទាន់ដកសរុប</h4>
                              </div>
-                             <div class="col-md-6 text-right">
+                             <div class="col-md-4 text-right">
                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-signal" aria-hidden="true" > </i>
                              </div>
                           </div>
@@ -170,7 +170,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>All the balance that need to pay for customer</p>
+                          <p>ចំនួនទឹកប្រាក់ដែលអតិថិជនទាំងអស់មិនទាន់ដកសរុប</p>
                           <hr/>
                         </div>
                       </div>
@@ -179,11 +179,11 @@
                     <div class="col-md-6">
                       <div class="panel box-v1">
                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
-                          <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
-                            <div class="col-md-6 text-left"> 
-                               <h4  class="text-left">Total Commission</h4>
+                          <div class="col-md-12 col-sm-8 col-xs-6 text-center padding-0">
+                            <div class="col-md-10 text-left"> 
+                               <h4  class="text-left">ទឹកប្រាក់ Commission​ សរុប</h4>
                              </div>
-                             <div class="col-md-6 text-right">
+                             <div class="col-md-2 text-right">
                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-flask" aria-hidden="true" > </i>
                              </div>
                           </div>
@@ -195,7 +195,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>Total amount for all commission</p>
+                          <p>ទឹកប្រាក Commission សរុបដែលត្រូវផ្ដល់ឲ្យអតិថិជនទាំអស់</p>
                           <hr/>
                         </div>
                       </div>
@@ -216,32 +216,32 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div  class="panel-heading">
-        <h1 class="panel-title "><strong class="pull-left"> Customers withdrawal List</strong>
+        <h1 class="panel-title "><strong class="pull-left">បញ្ជីនៃការដកលុយរបស់អតិថិជន</strong>
         <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
       </div>
-        <div  class="panel-body">
+        <div style="padding-left:70px;padding-right:70px;" class="panel-body">
           <div class="table-responsive">
-            <div style="padding-left:170px;padding-right:170px;" class="panel-body">
+            <div  class="panel-body">
 
-      <table style="margin-left: 102px;" class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
-      <thead style="background-color:#1d933F; visibility: hidden;"> 
+      <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
+<!--       <thead style="background-color:#1d933F; visibility: hidden;"> 
          <tr style="visibility: hidden;"> 
-	   
+     
             <th class="table-header" style="text-align: center;color:white">No</th>
             <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('customer_name', 'Name'); ?></th>
             <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('money', 'Name'); ?></th>
             <th class="table-header" style="text-align: center;color:white"></th>
             <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('draw_date', 'Date'); ?></th>
-			
+      
         </tr> 
-    </thead>
+    </thead> -->
       <tbody >
             <?php foreach($withdrawal as $withdrawals): ?>  
             <tr>  
 
-                <td   scope="row" style="text-align: center;"> Customer  <strong>
-					<?php echo $withdrawals['Withdrawal']['customer_name']?>
-				</strong> have been withdrawal the amounts " <?php echo $withdrawals['Withdrawal']['money'];?>$ " on <?php echo $withdrawals['Withdrawal']['draw_date'];?> .</td>
+                <td   scope="row" style="text-align: left;padding-left:40px;"> អតិថិជនឈ្មោះ  <strong>
+          <?php echo $withdrawals['Withdrawal']['customer_name']?>
+        </strong>​​ បានដលប្រាកចំនួន " <?php echo $withdrawals['Withdrawal']['money'];?>$ " នៅថ្ងៃទី <?php echo $withdrawals['Withdrawal']['draw_date'];?> .</td>
 
 
                
@@ -250,8 +250,8 @@
       </tbody>
 
     </table>
-	<?php echo $this->element('pagination'); ?>	
-              <p style="text-align: center;">Company's customer withdrawals</p>
+  <?php echo $this->element('pagination'); ?> 
+            
 
               <hr/>
               </div>

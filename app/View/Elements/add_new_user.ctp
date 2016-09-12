@@ -4,7 +4,7 @@
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel panel-default">
 		  <div style="text-align:center;" class="panel-heading ">
-		  		<h3 class="panel-title"><strong>Sign up</strong></h3>
+		  		<h3 class="panel-title"><strong>ចុះឈ្មោះអ្នកប្រើប្រាស់</strong></h3>
 		  </div>
 			  <div class="panel-body">
 			  	<p><?php echo $this->Session->flash(); ?></p>
@@ -14,23 +14,23 @@
 			                <div class="col-xs-12 col-sm-6 col-md-6">
 			    				<div class="form-group">
 			                       <?php echo $this->Form->input('firstname', array(
-										'class' => 'form-control','placeholder'=>'First Name','label' => false ));?>
+										'class' => 'form-control','placeholder'=>'នាមត្រកូល','label' => false ));?>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<div class="form-group">
 									<?php echo $this->Form->input('lastname', array(
-										'class' => 'form-control','placeholder'=>'Last Name','label' => false ));?>
+										'class' => 'form-control','placeholder'=>'នាមខ្លួន','label' => false ));?>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('username', array(
-										'class' => 'form-control','placeholder'=>'User Name','label' => false ));?>
+										'class' => 'form-control','placeholder'=>'ឈ្មោះគណនីយ','label' => false ));?>
 						</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('password', array(
-										'class' => 'form-control','placeholder'=>'Password','label' => false));?>
+										'class' => 'form-control','placeholder'=>'លេខសំងាត់','label' => false));?>
 						</div>
 						<div class="form-group">
 									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'Male','Female'=>'Female'),'default'=>'2'));?>
@@ -38,22 +38,23 @@
 						
 						<div class="form-group">
 							<?php echo $this->Form->input('phone', array(
-										'class' => 'form-control','placeholder'=>'Phone','label' => false));?>
+										'class' => 'form-control','placeholder'=>'លេខទូស័ព្ទ','label' => false));?>
 						</div>
 
 						 
 						<div class="form-group">
 							<?php echo $this->Form->input('email', array(
-											'class' => 'form-control','placeholder'=>'Email','label' => false));?>
+											'class' => 'form-control','placeholder'=>'សារអេឡិចទ្រូនិច','label' => false));?>
 						</div>
 						
 
         
 						<div class="form-group">
-							<?php echo $this->Form->input('image', array('type' => 'file','class'=>'btn btn-default btn-file'));?>
+							<?php echo $this->Form->label("បញ្ចូលរូបភាព"); ?>
+							<?php echo $this->Form->input('image', array('type' => 'file','class'=>'btn btn-default btn-file','label'=>false));?>
 						</div>            
 
-						  <button type="submit" class="btn btn-success form-control">submit</button>
+						  <button type="submit" class="btn btn-success form-control">បញ្ជូន</button>
 						  <!-- <span class="pull-right" <?php echo $this->Form->submit('Submit')?></span> -->
 											<?php echo $this->Form->end();?>
 			  

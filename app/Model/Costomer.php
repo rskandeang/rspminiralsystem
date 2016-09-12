@@ -29,8 +29,12 @@ public $validate = array(
             'That username has already been taken'=>array(
                 'rule'=>'isUnique',
                 'message'=>'That username has already been taken.'
-           		 )
-            ),
+           		 ),
+            'between' => array(
+	            'rule' => array('between', 4, 24),
+	            'message' => 'Username between 4 and 24 chars'
+	        )
+        ),
 
 		'phone' => array(
 		    'numeric' => array(
@@ -51,6 +55,7 @@ public $validate = array(
         'email'=>array(
             'Valid email'=>array(
                 'rule'=>array('email'),
+               	'allowEmpty'=>true,
                 'message'=>'Please enter a valid email address'
             )
         ),

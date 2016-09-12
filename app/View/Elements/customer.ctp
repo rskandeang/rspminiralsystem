@@ -8,11 +8,12 @@
         <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">
            
             <div style="background-color:#fff;padding-left:10px;padding-right:10px;padding-bottom:10px;">
-                <span class="btn btn-default" id="btn-default" style="width:100%;background:#1d933F;"><?php echo $this->Html->link( "Add Customer",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:#fff') );?></span>
+                <span class="btn btn-default" id="btn-default" style="width:100%;background:#1d933F;"><?php echo $this->Html->link( "បង្កើតអតិថិជនថ្មី",array('controller'=>'Costomers','action'=>'add'),array('style'=>'color:#fff') );?></span>
 
             <?php echo $this->Form->create('Costomer', array('type' => 'get')); ?>
-            <?php echo $this->Form->input('Search',array('class'=>'form-control','placeholder'=>'Search...','label'=>false,'style'=>'margin-top:10px;')); ?>
-            <?php echo $this->Form->submit('Search',array('class'=>'form-control','style'=>'width:100%;margin-top:10px;')); ?>
+            <?php echo $this->Form->input('Search',array('class'=>'form-control','placeholder'=>'ស្វែងរក...','label'=>false,'style'=>'margin-top:10px;')); ?>
+             <button type="submit" style='width:100%;margin-top:10px;' class="form-control">ស្វែងរក</button>
+            <!-- <?php echo $this->Form->submit('Search',array('class'=>'form-control','style'=>'width:100%;margin-top:10px;')); ?> -->
             <?php echo $this->Form->end(); ?>
             </div>
         
@@ -21,7 +22,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Customers List</strong>
+                    <h1 class="panel-title "><strong class="pull-left">បញ្ជីឈ្មោះអតិថិជន</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-users fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body">
@@ -33,26 +34,26 @@
                           <?php echo $this->Paginator->sort('id', 'No',array('style'=>'color:#000;')); ?></th>
                       -->
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('first_name', 'First Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('first_name', 'នាមត្រកូល',array('style'=>'color:#000;')); ?></th>
                           
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('last_name', 'Last Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('last_name', 'នាមខ្លួន',array('style'=>'color:#000;')); ?></th>
                         
                         <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('user_name', 'User Name',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('user_name', 'ឈ្មោះគណនីយ',array('style'=>'color:#000;')); ?></th>
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('gender', 'Gender',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('gender', 'ភេទ',array('style'=>'color:#000;')); ?></th>
                           
                                   <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('phone', 'Phone',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('phone', 'លេខទូរស័ព្ទ',array('style'=>'color:#000;')); ?></th>
                                   <th class="table-header" style="text-align: center;">
                         
-                                    <?php echo $this->Paginator->sort('email', 'Email',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('email', 'សារអេឡិចទ្រនិច',array('style'=>'color:#000;')); ?></th>
                                   <!-- <th class="table-header" style="text-align: center;"> -->
                         
                                   <!-- <?php echo $this->Paginator->sort('status', 'Status',array('style'=>'color:#000;')); ?></th> -->
                       
-                                  <th class="table-header" style="text-align: center;">Action</th>
+                                  <th class="table-header" style="text-align: center;">សកម្មភាព</th>
                       </tr>
                       </thead>
                       <tbody>

@@ -56,7 +56,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4  class="text-center">First Level</h4>
+                      <h4  class="text-center">អ្នកទីមួយ</h4>
 
                  </div>
 
@@ -143,7 +143,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 class="text-center">Secont Level</h4>
+                      <h4 class="text-center">អ្នកទីពីរ</h4>
 
                  </div>
 
@@ -229,7 +229,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 class="text-center">Third Level</h4>
+                      <h4 class="text-center">អ្នកទីបី</h4>
 
                  </div>
 

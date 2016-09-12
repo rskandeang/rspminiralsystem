@@ -8,6 +8,8 @@
                 </div>
                 <div class="panel-body " style="background:#F5F6F0">
                   <div class="table-responsive">
+                <?php echo $this->Session->flash(); ?>
+                <br>
                     <!-- start box -->
                      
     <div class="col-md-12">
@@ -16,7 +18,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">Total Benefit</h4>
+                <h4  class="text-left">ផលចំនេញ</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-shopping-bag" aria-hidden="true" > </i>
@@ -29,7 +31,7 @@
            
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>Amount order of a month</p>
+            <p>ប្រាក់ចំនេញពីការទិញ</p>
             <hr/>
           </div>
         </div>
@@ -41,7 +43,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">Total Withdrawal</h4>
+                <h4  class="text-left">ការដកប្រាក់</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-share" aria-hidden="true" > </i>
@@ -74,7 +76,7 @@
                       echo $this->Form->input('money', array(
                       'class' => 'form-control',
                       'id' =>'exampleInputAmount',
-                      'placeholder' => 'Amount',
+                      'placeholder' => 'ចំនូនទឹកប្រាក់',
                       'type' => 'int',
                       'label'=> false
                       
@@ -83,7 +85,8 @@
                   <div class="input-group-addon">.00</div>
                 </div>
                 <div class="col-md-4 pull-right"> 
-                   <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-success','style'=>'margin-top:-35px;'))?>
+              <button type="submit"​​ style='margin-top:-35px;' class="btn btn-success form-control">បញ្ជូន</button>
+                   <!-- <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-success','style'=>'margin-top:-35px;'))?> -->
               </div>
               </div>
              <?php echo $this->Form->end();?>
@@ -100,7 +103,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">Current Balance</h4>
+                <h4  class="text-left">ចំនួននៅសល់</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>
@@ -118,7 +121,7 @@
                 
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>Amount order of a month</p>
+            <p>ទឹកប្រាក់របស់អ្នកដែលមាននៅក្នុងគណនីយ</p>
             <hr/>
           </div>
         </div>
@@ -129,7 +132,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">Total Purchase</h4>
+                <h4  class="text-left">ទឹកប្រាក់បានទិញ</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-cc-visa" aria-hidden="true" > </i>
@@ -155,7 +158,7 @@
                
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>Amount order of a month</p>
+            <p>ចំនួនទឹកប្រាក់របស់អ្នកដែលបានទិញ</p>
             <hr/>
           </div>
         </div>

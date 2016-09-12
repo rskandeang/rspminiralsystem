@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title "><strong class="pull-left"> Customer Purchase</strong>
+            <h1 class="panel-title "><strong class="pull-left">បញ្ជីការទិញរបស់អតិថិជន</strong>
         <i style="color:green; font-size:20px;" class="fa fa-line-chart pull-right"></i><h1>
         </div>
         <div class="panel-body">
@@ -10,11 +10,11 @@
             <table class="col-md-12 table table-bordered table-hover table-striped" cellpadding="0" cellspacing="0">
               <thead > 
                 <tr> 
-                    <th class="table-header" style="text-align: center;">No</th>
-                    <th class="table-header" style="text-align: center;">Date Purchase</th>
-                    <th class="table-header" style="text-align: center;">Prices</th>
-                    <th class="table-header" style="text-align: center;">Amounts</th>
-                    <th class="table-header" style="text-align: center;">Total Prices</th>
+                    <th class="table-header" style="text-align: center;">ចំនួន</th>
+                    <th class="table-header" style="text-align: center;">ថ្ងៃទិញ</th>
+                    <th class="table-header" style="text-align: center;">តម្លៃរាយ</th>
+                    <th class="table-header" style="text-align: center;">ចំនួន</th>
+                    <th class="table-header" style="text-align: center;">តម្លៃសរុប</th>
                 </tr>
               </thead>
               <tbody>

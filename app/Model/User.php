@@ -56,12 +56,13 @@ class User extends AppModel {
          ),
         'email'=>array(
             'Valid email'=>array(
-                'rule' =>  array('email', true),
+                'rule'=>array('email'),
+                'allowEmpty'=>true,
                 'message'=>'Please enter a valid email address'
             )
         ),
         'image' => array(
-        'rule' => array('checkValidImage'),
+            'rule' => array('checkValidImage'),
         )
 
     );
@@ -83,7 +84,7 @@ public function checkValidImage($field)
             }
             else if (empty($field['image']['name']))
             {
-                $errors [] = "Please upload image";
+                $errors [] = "Please upload image file";
             } 
             else if ($field['image']['size'] >= 2097152) {
                 $errors [] = "Please upload jpg,png or gif files with size 2 MB.";

@@ -557,7 +557,8 @@ class CostomersController extends AppController {
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
 					}
-					if($input_money == null){
+					if($input_money == null || $input_money<1){
+						$this->Session->setFlash('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'); 
 						$this->redirect(array(
 							'controller'=>'Costomers',
 							'action'=>'view',$id));
@@ -568,7 +569,9 @@ class CostomersController extends AppController {
 							'controller'=>'Costomers',
 							'action'=>'view',$id));
 						}
+						
 					}
+					else{$this->Session->setFlash('អ្នកមិនអាចដកប្រាក់ច្រើនជាងប្រាក់នៅសល់របស់អ្នកទេ');}
 					$this->set('id', $id);
 				}
 				
