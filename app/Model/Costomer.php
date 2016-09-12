@@ -24,7 +24,7 @@ public $validate = array(
 	            'message' => 'Username between 1 and 24 chars'
 	        )
 	    ),
-	    'username'=>array(
+	    'user_name'=>array(
 
             'That username has already been taken'=>array(
                 'rule'=>'isUnique',

@@ -63,6 +63,8 @@
     </div>
   </div>
 </div> -->
+
+</style>
 <nav class="navbar navbar-inverse">
   <div style="background-color:#1d933F;" class="container-fluid">
     <div class="navbar-header">
@@ -93,7 +95,7 @@
                 ?>
                 
                 <?php 
-                  echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('escape' => 0));
+                  echo $this->Html->link( '<li style="font-size:35px;margin-top:8px;" ><span style="color:#fff" class="fa fa-opencart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'link'),array('title'=>'ការលក់','escape' => 0));
                   ?>
             </li>
 
@@ -103,9 +105,9 @@
               
               <li><?php echo $this->Html->link( '<li style="font-size:30px;margin-top:10px;" ><span style="color:#fff" class="fa fa-credit-card-alt" aria-hidden="true"></span></li>',array('controller'=>'Purchases','action'=>'index'),array('escape' => 0));?></li> -->
 
-              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff" class="fa fa-bar-chart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'index'),array('escape' => 0));?></li>
+              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff" class="fa fa-bar-chart" aria-hidden="true"></span></li>',array('controller'=>'Costomers','action'=>'index'),array('title'=>'អតិថិជន','escape' => 0));?></li>
 
-              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff;" class="fa fa-user-plus" aria-hidden="true"></span></li>',array('controller'=>'Users','action'=>'index'),array('escape' => 0));?></li>
+              <li><?php echo $this->Html->link('<li style="font-size:30px;margin-top:10px;"><span style="color:#fff;" class="fa fa-user-plus" aria-hidden="true"></span></li>',array('controller'=>'Users','action'=>'index'),array('title'=>'អ្នកប្រើ','escape' => 0));?></li>
                 
                 <li style="border-radius:50%" class="dropdown">
   
@@ -113,11 +115,13 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="#"><span>
-                  <?php echo $this->Html->link( " Logout",array('controller'=>'Users','action'=>'logout'),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
-                  <li><a href="#"><span>
+                  <?php echo $this->Html->link("​ Logout",array('controller'=>'Users','action'=>'logout'),array('style'=>'color:#000','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
+
+
+                  <!-- <li><a href="#"><span>
                   <?php echo $this->Html->link( " Change Password",array('controller'=>'Users','action'=>''),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
                   <li><a href="#"><span>
-                  <?php echo $this->Html->link( " Change Profile",array('controller'=>'Users','action'=>''),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
+                  <?php echo $this->Html->link( " Change Profile",array('controller'=>'Users','action'=>''),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock') );?></span></a></li> -->
                     <!-- <li><a href="#">Page 1-2</a></li> -->
                     <!-- <li><a href="#">Page 1-3</a></li>  -->
                   </ul>
