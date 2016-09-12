@@ -79,7 +79,8 @@ class CostomersController extends AppController {
 						'costomer_id' => $id
 						));
 						$this->One->save($refer = $this->request->data);
-					
+						
+						//$this->One->saveField('code', $str2);
 						$this->Session->setFlash(__('One table.'));
 						$this->redirect(array(
 						'controller'=>'Costomers',
@@ -761,14 +762,28 @@ class CostomersController extends AppController {
 			'price' => 15,
 			'pur_date' => $date,
 			'customer_id' => $id));
-			if($test = $this->Purchase->save($this->request->data)){
+			$input_data = $this->request->data;
+			
+			foreach($input_data as $input_datas){
+				$input = $input_datas['amounts'];
+				//pr($input);exit;
+			}
+
+			if($input == null || $input < 1 ){
 				$this->redirect(array(
 				'controller'=>'Costomers',
 				'action'=>'view_pur',$id));
 			}
+			else if($input > 0){
+				if($this->Purchase->save($this->request->data)){
+					$this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view_pur',$id));
+				}
+			}
+			
 		}
 		
-
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('two', $two);	
