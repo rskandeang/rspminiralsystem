@@ -219,22 +219,12 @@
         <h1 class="panel-title "><strong class="pull-left">បញ្ជីនៃការដកលុយរបស់អតិថិជន</strong>
         <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
       </div>
+      
         <div style="padding-left:70px;padding-right:70px;" class="panel-body">
           <div class="table-responsive">
             <div  class="panel-body">
 
       <table class="col-md-10 table table-hover table-striped" cellpadding="0" cellspacing="0">
-<!--       <thead style="background-color:#1d933F; visibility: hidden;"> 
-         <tr style="visibility: hidden;"> 
-     
-            <th class="table-header" style="text-align: center;color:white">No</th>
-            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('customer_name', 'Name'); ?></th>
-            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('money', 'Name'); ?></th>
-            <th class="table-header" style="text-align: center;color:white"></th>
-            <th class="table-header" style="text-align: center;color:white"><?php echo $this->Paginator->sort('draw_date', 'Date'); ?></th>
-      
-        </tr> 
-    </thead> -->
       <tbody >
             <?php foreach($withdrawal as $withdrawals): ?>  
             <tr>  
@@ -257,10 +247,12 @@
               </div>
                 </div>
             </div>
+
            </div>
           </div>
         </div>  
         <!-- end the table of the record withdrawals -->
+
       </div>
     </div>
   </div>

@@ -44,11 +44,11 @@ class UsersController extends AppController {
 	function login(){
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				$this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
+				$this->Session->setFlash(__('សួរស្ដី, '. $this->Auth->user('username')));
 				$this->redirect( array('controller' => 'Costomers', 'action' => 'index'));
 				// $this->redirect('index');
 			} else {
-				$this->Session->setFlash(__('Invalid username or password'));
+				$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ'));
 			}
 		}       
 	}
@@ -70,10 +70,10 @@ class UsersController extends AppController {
             $this->redirect(array('action'=>'index'));
         }
         if ($this->User->saveField('status', 0)) {
-            $this->Session->setFlash(__('User have been deleted'));
+            $this->Session->setFlash(__('អ្នកបានលុបអ្នកប្រើប្រាស់ម្នាក់'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('User was not deleted'));
+        $this->Session->setFlash(__('អ្នកមិនអាចលុបអ្នកប្រើប្រាស់បានទេ'));
         $this->redirect(array('action' => 'index'));
     }
      public function activate($id = null) {
@@ -126,7 +126,7 @@ class UsersController extends AppController {
 					if($this->User->save($this->request->data)){
 						return $this->redirect('index');
 					}else {
-						$this->Session->setFlash(__('The user could not be created. Please, try again.'));
+						$this->Session->setFlash(__('អ្កបង្កើតអ្នកប្រើប្រាស់មិនបានទ, សូមព្រាយាមម្ដងទៀត។'));
 					}
 					$this->User->save($this->data);
 				}
@@ -144,7 +144,7 @@ class UsersController extends AppController {
 		if($this->request->is(array('post','put'))){
 			$this->User->id = $id;
 			if($this->User->save($this->request->data)){
-				$this->Session->setFlash('User have been update');
+				$this->Session->setFlash('ព៍តមានរបស់អ្នកប្រើប្រាស់ត្រូវបានកែតម្រូវ');
 				$this->redirect('index');
 			}
 		}

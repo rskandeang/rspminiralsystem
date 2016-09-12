@@ -50,7 +50,7 @@
 
         
 						<div class="form-group">
-							<?php echo $this->Form->label("បញ្ចូលរូបភាព"); ?>
+							<label>បញ្ចូលរូបភាព</label>
 							<?php echo $this->Form->input('image', array('type' => 'file','class'=>'btn btn-default btn-file','label'=>false));?>
 						</div>            
 

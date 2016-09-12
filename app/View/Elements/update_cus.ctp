@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title"><strong> Customer Edit</strong>
+            <h1 class="panel-title"><strong>កែតម្រូវពត៍មានផ្ទាល់ខ្លួន</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
             </h1>
 
@@ -11,15 +11,15 @@
           <div class="table-responsive">
           
             <div class="col-md-12">
-              <h4>Login information</h4>
-              <hr style="margin-top:10px;margin-bottom:10px;" >
+
           <br>
+
 
               <?php echo $this->Form->create('Costomer',array('enctype'=>'multipart/form-data'));?>
               <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Email ID');?>
+                             <label>សារអេឡិចទ្រូនិច</label>
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -32,7 +32,7 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Login Name');?>
+                       <label>កូដគណនីយ</label>      
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -43,14 +43,10 @@
               </div>
             </div>
             
-          <h4>Personal information</h4>
-          <hr style="margin-top:10px;margin-bottom:10px;" >
-          <br>
-
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="form-group text-right">
-                             <?php echo $this->Form->label('First Name');?>
+                             <label>នាមត្រកូល</label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -63,7 +59,7 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Last Name');?>
+                            <label>នាមខ្លួន</label>
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -76,7 +72,7 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Gender');?>
+                             <label>ភេទ</label>
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -86,19 +82,33 @@
                 </div>
               </div>
             </div>
-			<div class="row">
+            <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Date of birth');?>
+                            <label>លេខទូស័ព្ទ</label>
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
-                  <?php echo $this->Form->input('dob', array(
-                    'class' => 'form-control','placeholder'=>'login name','label' => false ));?>
+                  <?php echo $this->Form->input('phone', array(
+                    'class' => 'form-control','placeholder'=>'last name','label' => false ));?>
                 </div>
               </div>
             </div>
+			     <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="form-group text-right">
+                             <label>ថ្ងៃ ខែ ឆ្នាំកំណើត</label>
+              </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                 <div>
+                    <?php echo $this->Form->input('dob',array('style'=>'padding:3px;margin:5px 0px 10px 0px;','label' => false), array('class'=>'col-md-3'));?>
+                </div>
+              </div>
+            </div>
+
+            
               <button type="submit" class="btn btn-success pull-right">Save Change</button>
               <!-- <span class="pull-right" <?php echo $this->Form->submit('Submit')?></span> -->
                       <?php echo $this->Form->end();?>

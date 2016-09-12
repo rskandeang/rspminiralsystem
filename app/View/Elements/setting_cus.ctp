@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title"><strong>ព៍តមានទាក់ទងជាមួយអតិថិជន</strong>
+            <h1 class="panel-title"><strong>ព៍តមានទូទៅរបស់អតិថិជន</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
               
             </h1>
@@ -25,15 +25,15 @@
                     </div>
 
             <div class="col-md-8">
-              <h4>Login information</h4>
-              <hr style="margin-top:10px;margin-bottom:10px;" >
+             
           <br>
 
               <?php echo $this->Form->create('Costomer',array('enctype'=>'multipart/form-data'));?>
               <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Email ID');?>
+                             <label>សារអេឡិចទ្រូនិច</label>
+                             
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -48,7 +48,7 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Customer ID');?>
+                             <label>កូដ</label>
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -59,15 +59,11 @@
                 </div>
               </div>
             </div>
-            
-          <h4>Personal information</h4>
-          <hr style="margin-top:10px;margin-bottom:10px;" >
-          <br>
-
+       
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="form-group text-right">
-                             <?php echo $this->Form->label('First Name');?>
+                             <label>នាមត្រកូល</label>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -79,7 +75,8 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Last Name');?>
+                             <label>នាមខ្លួន</label>
+                             
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -91,7 +88,8 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Login Name');?>
+                             <label>កូដគណនីយ</label>
+                             
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -104,7 +102,8 @@
 			<div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Date of Birth');?>
+                             <label>ថ្ងៃ ខែ ឆ្នាំកំណើត</label>
+                             
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -117,7 +116,8 @@
 			<div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Gender');?>
+                             <label>ភេទ</label>
+                             
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -130,7 +130,8 @@
 			<div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <?php echo $this->Form->label('Phone Number');?>
+                             <label>លេខទូស័ព្ទ</label>
+                             
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">

@@ -3,7 +3,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left"> Dashboard</strong>
+                    <h1 class="panel-title "><strong class="pull-left">ការទូទាត់សាច់ប្រាក់</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-info  fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body " style="background:#F5F6F0">
@@ -18,7 +18,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">ផលចំនេញ</h4>
+                <h4  class="text-left">ផលចំនេញសរុប</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-shopping-bag" aria-hidden="true" > </i>
@@ -42,10 +42,10 @@
         <div class="panel box-v1">
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
-              <div class="col-md-6 text-left"> 
-                <h4  class="text-left">ការដកប្រាក់</h4>
+              <div class="col-md-10 text-left"> 
+                <h4  class="text-left">ចំនួនទឹកប្រាក់បានដកសរុប</h4>
                </div>
-               <div class="col-md-6 text-right">
+               <div class="col-md-2 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-share" aria-hidden="true" > </i>
                </div>
             </div>
@@ -102,10 +102,10 @@
         <div class="panel box-v1">
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
-              <div class="col-md-6 text-left"> 
-                <h4  class="text-left">ចំនួននៅសល់</h4>
+              <div class="col-md-10 text-left"> 
+                <h4  class="text-left">ចំនួនទឺកប្រាក់នៅសល់សរុប</h4>
                </div>
-               <div class="col-md-6 text-right">
+               <div class="col-md-2 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>
                </div>
             </div>
@@ -131,10 +131,10 @@
         <div class="panel box-v1">
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
-              <div class="col-md-6 text-left"> 
-                <h4  class="text-left">ទឹកប្រាក់បានទិញ</h4>
+              <div class="col-md-10 text-left"> 
+                <h4  class="text-left">ចំនួនទឹកប្រាក់បានទិញសរុប</h4>
                </div>
-               <div class="col-md-6 text-right">
+               <div class="col-md-2 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-cc-visa" aria-hidden="true" > </i>
                </div>
             </div>

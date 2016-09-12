@@ -40,7 +40,7 @@
                                     <?php echo $this->Paginator->sort('last_name', 'នាមខ្លួន',array('style'=>'color:#000;')); ?></th>
                         
                         <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('user_name', 'ឈ្មោះគណនីយ',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('user_name', 'កូដគណនីយ',array('style'=>'color:#000;')); ?></th>
                                   <th class="table-header" style="text-align: center;">
                                     <?php echo $this->Paginator->sort('gender', 'ភេទ',array('style'=>'color:#000;')); ?></th>
                           
@@ -82,13 +82,13 @@
             <td >
 
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
-                    array('action'=>'edit', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:#2DB4DB')); ?>
+                    array('action'=>'edit', $costomer['Costomer']['id']),array('escape' => false,'title'=>'កែតម្រូវ','style'=>'color:#2DB4DB')); ?>
              | <?php echo $this->Html->link('<i class="fa fa-paper-plane" aria-hidden="true"></i>', 
-                    array('action'=>'view', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:green')); ?>
+                    array('action'=>'view', $costomer['Costomer']['id']),array('escape' => false,'title'=>'ព៍តមានលំអិត','style'=>'color:green')); ?>
              | 
             <?php
                 if( $costomer['Costomer']['status'] != 0){ 
-                     echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $costomer['Costomer']['id']) ,array('escape'=>false,'style'=>'color:red'));}
+                     echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $costomer['Costomer']['id']) ,array('escape'=>false,'title'=>'លុបចេញ','style'=>'color:red','confirm'=>'តើអ្នកច្បាស់ទេថាត្រូវលុបអតិថិជនម្នាក់នេះ?'));}
                 else {
                     echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action'=>'activate', $costomer['Costomer']['id']),array('escape' => false,'style'=>'color:#2E86C1'));
                 }

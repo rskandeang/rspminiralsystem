@@ -48,7 +48,7 @@ class CostomersController extends AppController {
 			if ($this->Auth->login()) {
 				return $this->redirect('index');
 			} else {
-				$this->Session->setFlash(__('Invalid username or password'));
+				$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ'));
 			}
 		}       
 	}
@@ -81,7 +81,7 @@ class CostomersController extends AppController {
 						));
 						$this->One->save($refer = $this->request->data);
 					
-						$this->Session->setFlash(__('One table.'));
+						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីមួយ'));
 						$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));	
@@ -102,7 +102,7 @@ class CostomersController extends AppController {
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
 						
-						$this->Session->setFlash(__('Three table.'));
+						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបី'));
 						$three = $this->Three->find('first', array(
 													'order' => array('Three.code' => 'asc')));
 						$str2 = substr($code, 2);
@@ -160,7 +160,7 @@ class CostomersController extends AppController {
 							
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
-							$this->Session->setFlash(__('Four table.'));				
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបូន'));				
 							$str2 = substr($code, 2);
 							$addstr = 'st'.$str2;
 							$threestr = 'nd'.$str2;
@@ -239,7 +239,7 @@ class CostomersController extends AppController {
 								'refer' => $check_three_refer));
 								
 								$this->Four->save($this->request->data);	
-								$this->Session->setFlash(__('Four1 table.'));
+								$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបូន'));
 							
 								
 								$str2 = substr($code, 2);
@@ -306,7 +306,7 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
-								$this->Session->setFlash(__('tow table.'));
+								$this->Session->setFlash(__('អ្នកបានបង្កើតអិតថិជនទីពីរម្នាក់'));
 								$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));
@@ -337,11 +337,11 @@ class CostomersController extends AppController {
         }
 
         if ($this->Costomer->saveField('status', 0)) {
-            $this->Session->setFlash(__('Customer deleted'));
+            $this->Session->setFlash(__('អ្នកបានលុបអតិថិជនម្នាក់'));
             $this->redirect(array('action' => 'index'));
         }
 
-        $this->Session->setFlash(__('Customer was not deleted'));
+        $this->Session->setFlash(__('អ្នកមិនអាចលុបអតិថិជនម្នាក់នេះបានទេ'));
         $this->redirect(array('action' => 'index'));
 
         //test ------------------------------
@@ -386,7 +386,7 @@ class CostomersController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
+					$this->Session->setFlash('អ្នកបានកែតម្រូវព៍តមានរបស់អតិថិជន');
 				    $this->redirect('index');
 				}
 			}
@@ -1315,7 +1315,7 @@ class CostomersController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id = $id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
+					$this->Session->setFlash('អ្នកបានកែតម្លូវព៍តមានរបស់អ្នក');
 				    $this->redirect(array(
 					'controller'=>'Costomers',
 					'action'=>'view_setting',$id));

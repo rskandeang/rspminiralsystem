@@ -10,10 +10,10 @@
             <table class="col-md-12 table table-bordered table-hover table-striped" cellpadding="0" cellspacing="0">
               <thead > 
                 <tr> 
-                    <th class="table-header" style="text-align: center;">ចំនួន</th>
+                    <th class="table-header" style="text-align: center;">ចំនួនដង</th>
                     <th class="table-header" style="text-align: center;">ថ្ងៃទិញ</th>
                     <th class="table-header" style="text-align: center;">តម្លៃរាយ</th>
-                    <th class="table-header" style="text-align: center;">ចំនួន</th>
+                    <th class="table-header" style="text-align: center;">ចំនួនសរុប</th>
                     <th class="table-header" style="text-align: center;">តម្លៃសរុប</th>
                 </tr>
               </thead>

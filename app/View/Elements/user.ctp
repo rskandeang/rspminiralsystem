@@ -71,11 +71,11 @@
                                 <td >
 
                                 <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
-                                        array('action'=>'edit', $user['User']['id']),array('escape' => false,'style'=>'color:#2DB4DB')); ?>
+                                        array('action'=>'edit', $user['User']['id']),array('escape' => false,'title'=>'កែតម្រូវ','style'=>'color:#2DB4DB')); ?>
                                  | 
                                 <?php
                                     if( $user['User']['status'] != 0){ 
-                                         echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'style'=>'color:red'),array('confirm'=>'Are you sure you want to delet?'));}
+                                         echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'title'=>'លុបចេញ','style'=>'color:red','confirm'=>'តើអ្នកច្បាស់ទេថាត្រូវលុបអ្នកប្រើប្រាស់ម្នាក់នេះ?'));}
                                     else {
                                         echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action'=>'activate', $user['User']['id']),array('escape' => false,'style'=>'color:#2E86C1'));
                                     }

@@ -48,11 +48,12 @@
 						</div>
 						<div class="row">	
 							<div class="col-xs-12 col-sm-6 col-md-6">
-								<?php echo $this->Form->label('តើអ្នកជាអតិថិជនទីមួយឬ?');?>
+								<label>តើអ្នកជាអតិថិជនទីមួយឬ?</label>
+								<!-- <?php echo $this->Form->label('តើអ្នកជាអតិថិជនទីមួយឬ?');?> -->
 							</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 								<div style="margin-top:-10px;" >
-									<div style='margin-top: 11px;'><?php echo $this->Form->label('ទីមួយ'); ?></div>
+									<div style='margin-top: 11px;'><label>ទីមួយ</label></div>
 									
 										<?php echo $this->Form->input('first',array(
 											  'class'=>'form-check-input',
@@ -75,7 +76,7 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-6">
-								<div><?php echo $this->Form->label('ថ្ងៃខែឆ្នាំកំណើត') ?></div>
+								<label>ថ្ងៃ​ ខែ ឆ្នាំកំណើត</label>
 								<div>
 										<?php echo $this->Form->input('dob',array('style'=>'padding:3px;margin:10px 0px 10px 0px;','label' => false), array('class'=>'col-md-3'));?>
 								</div>
