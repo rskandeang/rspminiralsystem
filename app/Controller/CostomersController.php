@@ -65,6 +65,7 @@ class CostomersController extends AppController {
 		$this->loadModel('Four');
 		if($this->request->is('post')){
 			$this->Costomer->create();
+			//pr($this->request->data);exit;
 			if($this->Costomer->save($this->request->data)){
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
