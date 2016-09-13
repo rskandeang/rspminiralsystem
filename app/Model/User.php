@@ -7,22 +7,22 @@ class User extends AppModel {
 	        'name' => array(
 	            // 'rule' => '/[A-Za-z]+/',
 	            'required' => true,
-	            'message' => 'input letter only'
+	            'message' => 'សូមបញ្ជូលជាអក្សរ'
 	        ),
 	        'between' => array(
 	            'rule' => array('between', 2, 24),
-	            'message' => 'Firstname between 2 and 24 chars'
+	            'message' => 'នាមត្រកូលចាន់ពី 2 ខ្ទង់ដល់ 24 ខ្ទង់'
 	        )
 	    ),
 		'lastname' => array(
 	        'name' => array(
 	            // 'rule' => '/[A-Za-z]+/',
 	            'required' => true,
-	            'message' => 'input letter only'
+	            'message' => 'សូមបញ្ជូលជាអក្សរ'
 	        ),
 	        'between' => array(
 	            'rule' => array('between', 2, 24),
-	            'message' => 'Lastname between 2 and 24 chars'
+	            'message' => 'នាមត្រកូលចាន់ពី 2 ខ្ទង់ដល់ 24 ខ្ទង់'
 	        )
 	    ),
 	    'username'=>array(
