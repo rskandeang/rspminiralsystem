@@ -24,13 +24,13 @@ public $validate = array(
 	            'message' => 'Username between 1 and 24 chars'
 	        )
 	    ),
-	    'user_name'=>array(
+	    //'user_name'=>array(
 
-            'That username has already been taken'=>array(
-                'rule'=>'isUnique',
-                'message'=>'That username has already been taken.'
-           		 )
-            ),
+         //   'That username has already been taken'=>array(
+        //        'rule'=>'isUnique',
+         //       'message'=>'That username has already been taken.'
+        //   		 )
+        //    ),
 
 		'phone' => array(
 		    'numeric' => array(
