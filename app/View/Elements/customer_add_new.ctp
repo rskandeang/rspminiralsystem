@@ -13,13 +13,14 @@
 			                <div class="col-xs-12 col-sm-6 col-md-6">
 			    				<div class="form-group">
 
-			                       <?php echo $this->Form->input('firstname', array(
+			                       <?php echo $this->Form->input('first_name', array(
 										'class' => 'form-control','placeholder'=>'នាមត្រកូល','label' => false ));?>
+
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<div class="form-group">
-									<?php echo $this->Form->input('lastname', array(
+									<?php echo $this->Form->input('last_name', array(
 										'class' => 'form-control','placeholder'=>'នាមខ្លួន','label' => false ));?>
 								</div>
 							</div>
