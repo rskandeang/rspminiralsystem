@@ -18,7 +18,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-6 text-left"> 
-                <h4  class="text-left">ផលចំនេញសរុប</h4>
+                <h4  class="text-left">ផលជើងសារសរុប</h4>
                </div>
                <div class="col-md-6 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-shopping-bag" aria-hidden="true" > </i>
@@ -31,7 +31,7 @@
            
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>ប្រាក់ចំនេញពីការទិញ</p>
+            <p>ប្រាក់ជើងសារបានមកពីការណែនាំ</p>
             <hr/>
           </div>
         </div>
@@ -103,7 +103,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-10 text-left"> 
-                <h4  class="text-left">ចំនួនទឹកប្រាក់នៅសល់សរុប</h4>
+                <h4  class="text-left">ផងជើងសារនៅសល់សរុប</h4>
                </div>
                <div class="col-md-2 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>
@@ -121,7 +121,7 @@
                 
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
-            <p>ទឹកប្រាក់របស់អ្នកដែលមាននៅក្នុងគណនីយ</p>
+            <p>ទឹកប្រាក់ដែលនៅសល់បន្ទាប់ពីដក</p>
             <hr/>
           </div>
         </div>

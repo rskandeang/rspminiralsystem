@@ -5,7 +5,7 @@ class User extends AppModel {
 	public $validate = array(
 		 'firstname' => array(
 	        'name' => array(
-	            'rule' => '/[A-Za-z]+/',
+	            // 'rule' => '/[A-Za-z]+/',
 	            'required' => true,
 	            'message' => 'input letter only'
 	        ),
@@ -16,7 +16,7 @@ class User extends AppModel {
 	    ),
 		'lastname' => array(
 	        'name' => array(
-	            'rule' => '/[A-Za-z]+/',
+	            // 'rule' => '/[A-Za-z]+/',
 	            'required' => true,
 	            'message' => 'input letter only'
 	        ),
