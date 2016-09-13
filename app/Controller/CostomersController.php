@@ -1244,6 +1244,7 @@ class CostomersController extends AppController {
 	$logslist = $this->Logs->find('all');
 		$this->paginate = array(
 				'limit' => 5,
+				'order' => 'lock_id DESC',
 				'OR' => array(
 								array('Logs.lock_id LIKE' => '%' ),
 								array('Logs.cus_name LIKE' => '%'),
