@@ -17,13 +17,14 @@
 						  echo $this->Form->input('amounts', array(
 						  'class' => 'form-control',
 						  'id' =>'exampleInputAmount',
-						  'placeholder' => 'Add Purchase',
+						  'placeholder' => 'ចំនួនទឹកប្រាក់',
+						  'type'=>'int',
 						  'label'=> false
 						  ));
 						?>
 					</div>	
 					<div class="col-md-2 pull-right"> 
-					   <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-success','style'=>'margin-top:-57px;'))?>
+					   <?php echo $this->Form->submit('បញ្ជូន',array('class'=>'form-control btn btn-success','style'=>'margin-top:-57px;'))?>
 				  </div>
 				  </div>
 				 <?php echo $this->Form->end();?>

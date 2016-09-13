@@ -82,10 +82,10 @@ class CostomersController extends AppController {
 						));
 						$this->One->save($refer = $this->request->data);
 
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីមួយ'));
+						
 						
 						$this->Costomer->saveField('user_name', $own_id);
-						$this->Session->setFlash(__('One table.'));
+						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីមួយម្នាក់'));
 
 						$this->redirect(array(
 						'controller'=>'Costomers',
@@ -107,7 +107,7 @@ class CostomersController extends AppController {
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
 						
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបី'));
+						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបីម្នាក់'));
 
 						$this->Costomer->saveField('user_name', 'ND'.$own_id);
 
@@ -146,6 +146,9 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 						//pr($testsent);exit;
 								$this->One->save($this->request->data);
+								$this->redirect(array(
+						'controller'=>'Costomers',
+						'action'=>'index'));
 					}
 						
 					else if(strpos($code, 'ND') !== false){
@@ -168,7 +171,7 @@ class CostomersController extends AppController {
 							$this->Costomer->saveField('user_name', 'RD'.$own_id);
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
-							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបូន'));				
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបួនម្នាក់'));				
 							$str2 = substr($code, 2);
 							$addstr = 'ST'.$str2;
 							$threestr = 'ND'.$str2;
@@ -219,6 +222,9 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 						//pr($testsent);exit;
 								$this->One->save($this->request->data);
+										$this->redirect(array(
+										'controller'=>'Costomers',
+										'action'=>'index'));
 					}
 					else if(strpos($code, 'RD') !== false){
 						$find_refer = $this->Four->find('all',array(
@@ -325,8 +331,10 @@ class CostomersController extends AppController {
 								
 								
 						}
+
 				
 			}
+			$this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'));
 		}
 		//test ------------------------------
 		$this->loadModel('Logs');	
@@ -1394,7 +1402,7 @@ class CostomersController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
+					$this->Session->setFlash('ព៍តមានរបស់អតិថិជនត្រូវបានកែតម្រូវ');
 				    $this->redirect('index');
 				}
 			}

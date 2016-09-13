@@ -8,6 +8,7 @@
             </h1>
 
         </div>
+        <?php echo $this->Session->flash(); ?>
         <div class="panel-body">
           <div class="table-responsive">
             <div class="col-lg-4 col-md-6">

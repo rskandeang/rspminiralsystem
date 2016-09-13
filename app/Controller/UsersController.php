@@ -104,7 +104,6 @@ class UsersController extends AppController {
 	function add(){
 		if($this->request->is('post')){
 			$this->User->create();
-pr($this->request->data);exit;			
 				if(!empty($this->data))
 				{
 					//Check if image has been uploaded

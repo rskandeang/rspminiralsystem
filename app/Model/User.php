@@ -5,7 +5,7 @@ class User extends AppModel {
 	public $validate = array(
 		 'firstname' => array(
 	        'name' => array(
-	            // 'rule' => '/[A-Za-z]+/',
+	            'rule' => '/[A-Za-z]+/',
 	            'required' => true,
 	            'message' => 'សូមបញ្ជូលជាអក្សរ'
 	        ),
@@ -16,7 +16,7 @@ class User extends AppModel {
 	    ),
 		'lastname' => array(
 	        'name' => array(
-	            // 'rule' => '/[A-Za-z]+/',
+	            'rule' => '/[A-Za-z]+/',
 	            'required' => true,
 	            'message' => 'សូមបញ្ជូលជាអក្សរ'
 	        ),
@@ -29,28 +29,28 @@ class User extends AppModel {
 
             'That username has already been taken'=>array(
                 'rule'=>'isUnique',
-                'message'=>'That username has already been taken.'
+                'message'=>'ឈ្មោះគណនីយមានរួចមន្តងហើយ'
            		 ),
             'between' => array(
 	            'rule' => array('between', 4, 24),
-	            'message' => 'Username between 4 and 24 chars'
+	            'message' => 'ឈ្មោះគណនីយចាប់ពី 4 រហូតដល់ 24 ខ្ទង់'
 	        )
         ),
 
 		'phone' => array(
 		    'numeric' => array(
 		        'rule' => 'numeric',
-		        'message' => 'Please enter only numbers',
+		        'message' => 'សូមបញ្ចូលជាលេខ',
 		    ),
 		    'between' => array(
 	            'rule' => array('between', 8, 24),
-	            'message' => 'phone number between 8 and 24 chars'
+	            'message' => 'លេខចាប់ពិ 4 រហូតដល់ 24 ខ្ទង់'
 	        )
 		),
         'password' => array(            
         	'minLength' => array(
 	            'rule' => array('minLength', 6),
-	            'message' => 'Your password must be at least 6 char'
+	            'message' => 'លេខសំងាត់យ៉ាងតិចមាន 6 ខ្ទង់'
 
                 )
          ),
@@ -58,7 +58,7 @@ class User extends AppModel {
             'Valid email'=>array(
                 'rule'=>array('email'),
                 'allowEmpty'=>true,
-                'message'=>'Please enter a valid email address'
+                'message'=>'សូមបញ្ចូលអ៊ីុមែលអោយបានត្រឹមត្រូវ'
             )
         ),
         'image' => array(

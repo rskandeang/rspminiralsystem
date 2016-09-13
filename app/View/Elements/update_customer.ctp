@@ -22,10 +22,10 @@
 							</div>
 						</div>
 						
-			    				<div class="form-group">
+			    				<!-- <div class="form-group">
 									<?php echo $this->Form->input('user_name', array(
 										'class' => 'form-control','placeholder'=>'កូដគណនីយ','label' => false ));?>
-								</div>
+								</div> -->
 							
 								<!-- <div class="form-group">
 									<?php echo $this->Form->input('password', array(
