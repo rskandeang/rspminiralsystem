@@ -44,7 +44,7 @@ class UsersController extends AppController {
 	function login(){
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				$this->Session->setFlash(__('សួរស្ដី, '. $this->Auth->user('username')));
+				// $this->Session->setFlash(__('សួរស្ដី, '. $this->Auth->user('username')));
 				$this->redirect( array('controller' => 'Costomers', 'action' => 'index'));
 				// $this->redirect('index');
 			} else {

@@ -3,7 +3,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left">ការទូទាត់សាច់ប្រាក់</strong>
+                    <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">ការទូទាត់សាច់ប្រាក់</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-info  fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body " style="background:#F5F6F0">
@@ -68,9 +68,9 @@
           <div style="background:#fff;" class="panel-footer text-center">
            <!-- <form class="form-inline">-->
                <?php echo $this->Form->create('Withdrawal');?>
-              <div class="form-group">
+              <div id="btn-widraw" class="form-group">
                 <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                <div class="input-group col-md-8">
+                <div class="col-md-8 input-group ">
                   <div class="input-group-addon">$</div>
                       <?php 
                       echo $this->Form->input('money', array(
@@ -85,7 +85,7 @@
                   <div class="input-group-addon">.00</div>
                 </div>
                 <div class="col-md-4 pull-right"> 
-              <button type="submit"​​ style='margin-top:-35px;' class="btn btn-success form-control">បញ្ជូន</button>
+                <button type="submit"​​ style='margin-top:-56px;' class="btn btn-success form-control">បញ្ជូន</button>
                    <!-- <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-success','style'=>'margin-top:-35px;'))?> -->
               </div>
               </div>
@@ -103,7 +103,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-10 text-left"> 
-                <h4  class="text-left">ចំនួនទឺកប្រាក់នៅសល់សរុប</h4>
+                <h4  class="text-left">ចំនួនទឹកប្រាក់នៅសល់សរុប</h4>
                </div>
                <div class="col-md-2 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>

@@ -4,7 +4,7 @@
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel panel-default">
 		  <div style="text-align:center;" class="panel-heading ">
-		  		<h3 class="panel-title"><strong>ចុះឈ្មោះអ្នកប្រើប្រាស់</strong></h3>
+		  		<h3 class="panel-title"><strong style="color:#1d933F;">ចុះឈ្មោះអ្នកប្រើប្រាស់</strong></h3>
 		  </div>
 			  <div class="panel-body">
 			  	<p><?php echo $this->Session->flash(); ?></p>
@@ -33,7 +33,7 @@
 										'class' => 'form-control','placeholder'=>'លេខសំងាត់','label' => false));?>
 						</div>
 						<div class="form-group">
-									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'Male','Female'=>'Female'),'default'=>'2'));?>
+									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'ប្រុស','Female'=>'ស្រី'),'default'=>'2'));?>
 						</div>
 						
 						<div class="form-group">

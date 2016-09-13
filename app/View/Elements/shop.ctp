@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left">ការលក់</strong>
+                    <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">ការលក់</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-tags  fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body" style="background:#F5F6F0">
@@ -216,7 +216,7 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div  class="panel-heading">
-        <h1 class="panel-title "><strong class="pull-left">បញ្ជីនៃការដកលុយរបស់អតិថិជន</strong>
+        <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">បញ្ជីនៃការដកលុយរបស់អតិថិជន</strong>
         <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
       </div>
       

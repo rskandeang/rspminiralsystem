@@ -318,7 +318,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4  style="color:#FF5733;"class="text-center">Sponsor</h4>
+                      <h4 class="text-center">អ្នកនាំមក</h4>
 
                  </div>
 
@@ -382,7 +382,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 style="color:#52BE80" class="text-center">First Level</h4>
+                      <h4 class="text-center">ក្រុមទី​ 1</h4>
 
                  </div>
 
@@ -474,7 +474,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 style="color:#F7DC6F" class="text-center">Secont Level</h4>
+                      <h4 class="text-center">ក្រុមទី 2</h4>
 
                  </div>
 
@@ -560,7 +560,7 @@
                   <div class="col-md-3 col-sm-6 col-xs-6 text-center padding-0">
                      <!--  <i style="color:#2DB4DB" class="fa fa-3x  fa-university" aria-hidden="true" > </i> -->
                      <br>
-                      <h4 style="color:#5DADE2" class="text-center">Third Level</h4>
+                      <h4 class="text-center">ក្រុមទី 3</h4>
 
                  </div>
 

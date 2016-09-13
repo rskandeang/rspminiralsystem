@@ -22,7 +22,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left">បញ្ជីឈ្មោះអតិថិជន</strong>
+                    <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">បញ្ជីឈ្មោះអតិថិជន</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-users fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body">

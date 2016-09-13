@@ -3,7 +3,7 @@
     <div style="background-color:#fff;padding-left:10px;padding-right:10px;padding-bottom:10px;"> -->
 
   <div class="nav-side-menu" style="margin-left: 10px;">
-        <div class="brand" style="color:#000; font-family: Kh Siemreap;">ព៍តមានលំអិតរបស់អតិថិជន</div> 
+        <div class="brand" style="color:#1d933F; font-family: Kh Siemreap;">ព៍តមានលំអិតរបស់អតិថិជន</div> 
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list">
           <ul style="text-align: left; margin-left:15px;" id="menu-content" class="menu-content collapse out">

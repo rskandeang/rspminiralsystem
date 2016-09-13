@@ -3,7 +3,7 @@
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel panel-default">
 		  <div style="text-align:center;" class="panel-heading ">
-		  		<h3 class="panel-title"><strong>កែតម្រូវពត៍មានអតិថិជន</strong></h3>
+		  		<h3 class="panel-title"><strong style="color:#1d933F;">កែតម្រូវពត៍មានអតិថិជន</strong></h3>
 		  </div>
 			  <div class="panel-body">
 			  		<?php echo $this->Form->create('Costomer',array('enctype'=>'multipart/form-data'));?>
