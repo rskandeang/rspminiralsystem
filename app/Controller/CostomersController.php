@@ -5,14 +5,18 @@ class CostomersController extends AppController {
 				  'Paginator',
 				  'Html',
 				  'Form');
-		public $components = array(
+	public $components = array(
 				  'Paginator',
 				  'RequestHandler');
-
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('login_cus'); 
+    }
 	function index(){
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
 				'limit' => 10,
+				'order' => 'id DESC',
 				'conditions' => array(
 					'Costomer.status' => '1',
 						'OR' => array(
@@ -32,15 +36,10 @@ class CostomersController extends AppController {
 		// var_dump($keyword);exit();
 
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
-	}
-
-    public function beforeFilter() {
-	    parent::beforeFilter();
-	    $this->Auth->allow('add', 'logout','login');
+		$this->set('logs',$Logs);
 	}
 	function login(){
 
@@ -67,6 +66,7 @@ class CostomersController extends AppController {
 			$this->Costomer->create();
 			//pr($this->request->data);exit;
 			if($this->Costomer->save($this->request->data)){
+
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
@@ -81,13 +81,14 @@ class CostomersController extends AppController {
 						'costomer_id' => $id
 						));
 						$this->One->save($refer = $this->request->data);
-					
+						
+						$this->Costomer->saveField('user_name', $own_id);
 						$this->Session->setFlash(__('One table.'));
 						$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));	
 					}		
-					else if(strpos($code, 'st') !== false){
+					else if(strpos($code, 'ST') !== false){
 						
 						$find_refer = $this->Two->find('all',array(
 																'conditions' => array('Two.code' => $code)));
@@ -98,11 +99,11 @@ class CostomersController extends AppController {
 						$this->Three->create();
 						$own_id = date('YmdHis');
 						$this->Three->set(array(
-						'code' =>  'nd'.$own_id,
+						'code' =>  'ND'.$own_id,
 						'costomer_id' => $id,
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
-						
+						$this->Costomer->saveField('user_name', 'ND'.$own_id);
 						$this->Session->setFlash(__('Three table.'));
 						$three = $this->Three->find('first', array(
 													'order' => array('Three.code' => 'asc')));
@@ -129,7 +130,7 @@ class CostomersController extends AppController {
 						 }
 				
 						$this->Two->set(array(
-						'code' =>  'st'.$own_id,
+						'code' =>  'ST'.$own_id,
 						'refer' => $str2,
 						'costomer_id' => $id));
 						$this->Two->save($this->request->data);
@@ -141,7 +142,7 @@ class CostomersController extends AppController {
 								$this->One->save($this->request->data);
 					}
 						
-					else if(strpos($code, 'nd') !== false){
+					else if(strpos($code, 'ND') !== false){
 					
 						$find_refer = $this->Three->find('all',array(
 														'conditions' => array(
@@ -154,17 +155,17 @@ class CostomersController extends AppController {
 							$this->Four->create();
 							$own_id = date('YmdHis');
 							$this->Four->set(array(
-							'code' =>  'rd'.$own_id,
+							'code' =>  'RD'.$own_id,
 							'costomer_id' => $id,
 							'refer' => $re_code));
 							$this->Four->save($this->request->data);
-							
+							$this->Costomer->saveField('user_name', 'RD'.$own_id);
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
 							$this->Session->setFlash(__('Four table.'));				
 							$str2 = substr($code, 2);
-							$addstr = 'st'.$str2;
-							$threestr = 'nd'.$str2;
+							$addstr = 'ST'.$str2;
+							$threestr = 'ND'.$str2;
 							//pr($threestr);
 							$is_exist = $this->One->find('count',array(
 														'conditions' => array(
@@ -186,7 +187,7 @@ class CostomersController extends AppController {
 							//$this->One->saveField('code', $str2);
 						 }
 							$test=$this->Two->set(array(
-								'code' =>  'st'.$own_id,
+								'code' =>  'ST'.$own_id,
 								'refer' => $str2,
 								'costomer_id' => $id));
 							//pr($test);exit;
@@ -200,7 +201,7 @@ class CostomersController extends AppController {
 							}
 								
 							$test_re_two=$this->Three->set(array(
-								'code' =>  'nd'.$own_id,
+								'code' =>  'ND'.$own_id,
 								'refer' => $re_two,
 								'costomer_id' => $id));
 							//pr($test_re_two);exit;
@@ -213,7 +214,7 @@ class CostomersController extends AppController {
 						//pr($testsent);exit;
 								$this->One->save($this->request->data);
 					}
-					else if(strpos($code, 'rd') !== false){
+					else if(strpos($code, 'RD') !== false){
 						$find_refer = $this->Four->find('all',array(
 								'conditions' => array('Four.code' => $code)));
 								
@@ -221,8 +222,8 @@ class CostomersController extends AppController {
 							$re_code = $find_refers['Four']['code'];	
 							
 							$str_four = substr($re_code, 2);
-							$addstr = 'st'.$str_four;
-							$str_three = 'nd'.$str_four;
+							$addstr = 'ST'.$str_four;
+							$str_three = 'ND'.$str_four;
 						}
 						$test_three = $this->Three->find('all',array(
 																'conditions' => array('Three.code' => $str_three)));
@@ -235,11 +236,12 @@ class CostomersController extends AppController {
 								$this->Four->create();
 								$own_id = date('YmdHis');
 								$this->Four->set(array(
-								'code' =>  'rd'.$own_id,
+								'code' =>  'RD'.$own_id,
 								'costomer_id' => $id,
 								'refer' => $check_three_refer));
 								
-								$this->Four->save($this->request->data);	
+								$this->Four->save($this->request->data);
+								$this->Costomer->saveField('user_name', 'RD'.$own_id);
 								$this->Session->setFlash(__('Four1 table.'));
 							
 								
@@ -264,7 +266,7 @@ class CostomersController extends AppController {
 								 }
 								
 								$this->Two->set(array(
-								'code' =>  'st'.$own_id,
+								'code' =>  'ST'.$own_id,
 								'refer' => $str2,
 								'costomer_id' => $id));
 								//pr($testsent);exit;
@@ -279,7 +281,7 @@ class CostomersController extends AppController {
 								}
 								//pr($re_two);exit;	
 								$test_re_two=$this->Three->set(array(
-									'code' =>  'nd'.$own_id,
+									'code' =>  'ND'.$own_id,
 									'refer' => $re_two,
 									'costomer_id' => $id));
 								$this->Three->save($this->request->data);
@@ -297,7 +299,7 @@ class CostomersController extends AppController {
 							$this->Two->create();
 								$own_id = date('YmdHis');
 								$this->Two->set(array(
-								'code' => 'st'.$own_id,
+								'code' => 'ST'.$own_id,
 								'costomer_id' => $id,
 								'refer' => $code));
 								$this->Two->save($this->request->data);
@@ -307,6 +309,7 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
+								$this->Costomer->saveField('user_name', 'ST'.$own_id);
 								$this->Session->setFlash(__('tow table.'));
 								$this->redirect(array(
 						'controller'=>'Costomers',
@@ -318,10 +321,10 @@ class CostomersController extends AppController {
 			}
 		}
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}
 	
 	public function delete($id = null) {
@@ -346,10 +349,10 @@ class CostomersController extends AppController {
         $this->redirect(array('action' => 'index'));
 
         //test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
     }
 
     public function activate($id = null) {
@@ -374,10 +377,10 @@ class CostomersController extends AppController {
         $this->redirect(array('action' => 'index'));
 
         //test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
     }
 	function view($id){
 		$this->loadModel('One');
@@ -388,6 +391,7 @@ class CostomersController extends AppController {
 		$this->loadModel('Purchase');
 		$this->loadModel('Money');
 		$this->loadModel('Withdrawal');
+		$this->loadModel('Logs');
 		
 		
 		$st = 0.05;
@@ -543,6 +547,25 @@ class CostomersController extends AppController {
 					}
 					else if($input_money < $balance){
 						if($test = $this->Withdrawal->save($this->request->data)){
+							
+							// save draw money in logs table
+							$cus_draw = $this->Withdrawal->find('all', array(
+					'conditions' => array(
+					'customer_id' => $id)));
+					
+					foreach($cus_draw as $cus_draws){
+						$amounts_money = $cus_draws['Withdrawal']['money'];
+						$purdate = $cus_draws['Withdrawal']['draw_date'];
+					}
+					$test1 = $this->Logs->set(array(
+								'cus_name' => $firstname.' '.$lastname ,
+								'amounts' => '$ '.$amounts_money,
+								'date' => $purdate,
+								'cus_id' => $id));
+							//pr($test1);exit;
+							$this->Logs->save($this->request->data);
+		
+							
 							$this->redirect(array(
 							'controller'=>'Costomers',
 							'action'=>'view',$id));
@@ -569,7 +592,7 @@ class CostomersController extends AppController {
 					$cus_code = $code_ones['One']['code'];
 				}
 			}
-			else if($refer == (strpos($refer, 'st') !== false)){
+			else if($refer == (strpos($refer, 'ST') !== false)){
 				$code_three = $this->Three->find('all', array(
 				'conditions' => array(
 				'costomer_id' => $id)));
@@ -578,7 +601,7 @@ class CostomersController extends AppController {
 					
 				}
 			}
-			else if($refer == (strpos($refer, 'nd') !== false)){
+			else if($refer == (strpos($refer, 'ND') !== false)){
 				$code_four = $this->Four->find('all', array(
 				'conditions' => array(
 				'costomer_id' => $id)));
@@ -586,7 +609,7 @@ class CostomersController extends AppController {
 					$cus_code = $code_fours['Four']['code'];
 				}
 			}
-			else if($refer == (strpos($refer, 'rd') !== false)){
+			else if($refer == (strpos($refer, 'RD') !== false)){
 				$code_four = $this->Four->find('all', array(
 				'conditions' => array(
 				'costomer_id' => $id)));
@@ -621,10 +644,10 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);	
 		
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 		
 	}	
 	public function view_pur($id){
@@ -636,6 +659,7 @@ class CostomersController extends AppController {
 		$this->loadModel('Purchase');
 		$this->loadModel('Money');
 		$this->loadModel('Withdrawal');
+		$this->loadModel('Logs');
 		
 		
 		$st = 0.05;
@@ -755,8 +779,67 @@ class CostomersController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
-		
+		// add purchase
+		$find_name = $this->Costomer->find('all', array(
+			'conditions' => array(
+			'id' => $id)));
+			
+			foreach($find_name as $find_names){
+				$firstname = $find_names['Costomer']['first_name'];
+				$lastname = $find_names['Costomer']['last_name'];
+			}
+			
+		$date = date('Y-m-d');
+		if($this->request->is('post')){
+			$this->Purchase->create();
+			$this->Purchase->set(array(
+			'price' => 15,
+			'pur_date' => $date,
+			'name' => $firstname.' '.$lastname,
+			'customer_id' => $id));
+			$input_data = $this->request->data;
+			
+			foreach($input_data as $input_datas){
+				$input = $input_datas['amounts'];
+				//pr($input);exit;
+			}
 
+			if($input == null || $input < 1 ){
+				$this->redirect(array(
+				'controller'=>'Costomers',
+				'action'=>'view_pur',$id));
+			}
+			else if($input > 0){
+				if($this->Purchase->save($this->request->data)){
+					//pr($test);
+					$cus_pur = $this->Purchase->find('all', array(
+					'conditions' => array(
+					'customer_id' => $id)));
+					
+					foreach($cus_pur as $cus_purs){
+						$amounts_pur = $cus_purs['Purchase']['amounts'];
+						$purdate = $cus_purs['Purchase']['pur_date'];
+						$cus_id = $cus_purs['Purchase']['customer_id'];
+						
+						//pr($amounts_pur);
+						//pr($purdate);exit;
+					}
+					$test1 = $this->Logs->set(array(
+								'cus_name' => $firstname.' '.$lastname ,
+								'amounts' => $amounts_pur.' case',
+								'date' => $purdate,
+								'cus_id' => $id));
+							//pr($test1);exit;
+							$this->Logs->save($this->request->data);
+					
+					$this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view_pur',$id));
+				}
+			}
+			
+		}
+		
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('two', $two);	
@@ -773,10 +856,10 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);	
 		
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}
 	
 	function view_refer($id){
@@ -907,7 +990,6 @@ class CostomersController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
-
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('two', $two);	
@@ -925,10 +1007,10 @@ class CostomersController extends AppController {
 
 		//test -------------------------------------
 
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}
 	
 	function view_setting($id) {
@@ -940,6 +1022,7 @@ class CostomersController extends AppController {
 		$this->loadModel('Purchase');
 		$this->loadModel('Money');
 		$this->loadModel('Withdrawal');
+		$this->loadModel('Logs');
 		
 		
 		$st = 0.05;
@@ -1057,7 +1140,7 @@ class CostomersController extends AppController {
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
 			'Withdrawal.customer_id' => $id)));
-		
+			
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
@@ -1071,7 +1154,7 @@ class CostomersController extends AppController {
 					$cus_code = $code_ones['One']['code'];
 				}
 			}
-			else if($refer == (strpos($refer, 'st') !== false)){
+			else if($refer == (strpos($refer, 'ST') !== false)){
 				$code_three = $this->Three->find('all', array(
 				'conditions' => array(
 				'costomer_id' => $id)));
@@ -1080,7 +1163,7 @@ class CostomersController extends AppController {
 					
 				}
 			}
-			else if($refer == (strpos($refer, 'nd') !== false)){
+			else if($refer == (strpos($refer, 'ND') !== false)){
 				$code_four = $this->Four->find('all', array(
 				'conditions' => array(
 				'costomer_id' => $id)));
@@ -1088,7 +1171,7 @@ class CostomersController extends AppController {
 					$cus_code = $code_fours['Four']['code'];
 				}
 			}
-			else if($refer == (strpos($refer, 'rd') !== false)){
+			else if($refer == (strpos($refer, 'RD') !== false)){
 				$code_four = $this->Four->find('all', array(
 				'conditions' => array(
 				'costomer_id' => $id)));
@@ -1123,10 +1206,10 @@ class CostomersController extends AppController {
 		$this->set('count_three', $count_three);	
 		
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}	
 	
 	public function link($id = null){
@@ -1135,6 +1218,7 @@ class CostomersController extends AppController {
          $this->loadModel('Costomer');
          $this->loadModel('Purchase');
          $this->loadModel('Withdrawal');
+         $this->loadModel('Logs');
          $findpurchase = $this->Purchase->find('all',array(
                         'order' => 'Purchase.pur_id ASC'
                         ));
@@ -1148,30 +1232,29 @@ class CostomersController extends AppController {
          $this->set('monies', $findmoney);
          // var_dump($findmoney);exit();
 
-		$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
+		$datas = $this->Logs->find('all',array('conditions'=>array('status'=>'1')));
 		foreach ($datas as $data) {
-			$this->Withdrawal->id = $data['Withdrawal']['drow_id'];
+			$this->Logs->id = $data['Logs']['lock_id'];
 			
-			if($this->Withdrawal->updateAll(array('Withdrawal.status'=>'0'),array('Withdrawal.status'=>'1'))){
+			if($this->Logs->updateAll(array('Logs.status'=>'0'),array('Logs.status'=>'1'))){
 						
 			} 
 		}	
-
-	$withdrawal = $this->Withdrawal->find('all');
-	//$keyword = $this->request->query('Search');
+	//withdrawal list and purchase list
+	$logslist = $this->Logs->find('all');
 		$this->paginate = array(
-				'limit' => 10,
+				'limit' => 5,
 				'OR' => array(
-								array('Withdrawal.draw_id LIKE' => '%' ),
-								array('Withdrawal.customer_name LIKE' => '%'),
-								array('Withdrawal.money LIKE' => '%'),
-								array('Withdrawal.draw_date LIKE' => '%')
+								array('Logs.lock_id LIKE' => '%' ),
+								array('Logs.cus_name LIKE' => '%'),
+								array('Logs.amounts LIKE' => '%'),
+								array('Logs.date LIKE' => '%')
 								));
 
-	$this->set('withdrawal', $this->paginate('Withdrawal'));
-// end 
+	$this->set('logslist', $this->paginate('Logs'));
+	//pr($this->paginate('Logs'));exit;
+	// end list
 
-	
 	$this->loadModel('One');
 	$this->loadModel('Two');
 	$this->loadModel('Three');
@@ -1282,10 +1365,10 @@ class CostomersController extends AppController {
 	$this->set('total_money', $total_money);
 
 	//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
     }
 	
 	public function edit($id){
@@ -1302,10 +1385,10 @@ class CostomersController extends AppController {
 
 			$this->request->data =$data;
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}
 	
 	public function own_update($id) {
@@ -1324,12 +1407,82 @@ class CostomersController extends AppController {
 			$this->request->data =$data;
 
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
-
+		$this->set('logs',$Logs);
+	}
 	
+	public function add_pur($id = null){
+		$this->loadModel('Costomer');	
+		$this->loadModel('Purchase');	
+		
+		if($this->request->is('post')){
+			$this->Purchase->create();
+			$this->Purchase->set(array(
+			'price' => 15,
+			'customer_id' => $id));
+			if($test = $this->Purchase->save($this->request->data)){
+				$this->redirect(array(
+				'controller'=>'Costomers',
+				'action'=>'view_pur',$id));
+			}
+		}
+		$this->set('id',$id);
+		
+		//test ------------------------------
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
+
+		$this->set('logs',$Logs);
+		pr($logs);exit;
+	}
+	
+	public function login_cus(){
+		$this->loadModel('One');	
+		$this->loadModel('Costomer');	
+		if($this->request->is('post')){
+			$check = $this->request->data;
+			
+			foreach($check as $checks){
+				$username = $checks['username'];
+				$password = $checks['password'];
+			}
+			
+	if(strpos($username, 'ST') !== false || strpos($username, 'ND') !== false || strpos($username, 'RD') !== false){
+				$username = substr($username, 2);
+			}
+			//pr($username);exit;
+			$find_id = $this->One->find('all', array(
+			'conditions'=>array(
+			'code'=>$username)));
+			
+			foreach($find_id as $find_ids){
+				$id = $find_ids['One']['costomer_id'];
+			}
+			
+			$pass = $this->Costomer->find('count', array(
+			'conditions'=>array(
+			'AND' => array(
+                        'id' => $id,
+                        'password' => $password))));
+			
+			$name = $find = $this->One->find('count', array(
+			'conditions'=>array(
+			'AND' => array(
+                        'costomer_id' => $id,
+                        'code' => $username))));
+			//pr($name);exit;
+			if($pass == 1 && $name == 1){
+				function beforeFilter() {
+					parent::beforeFilter();
+					$this->Auth->allow('view'); 
+				}
+				$this->redirect(array(
+					'controller'=>'Costomers',
+					'action'=>'view',$id));
+			}
+		}
 	}
 
 }

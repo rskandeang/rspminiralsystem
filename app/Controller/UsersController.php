@@ -10,7 +10,7 @@ class UsersController extends AppController {
 			  'RequestHandler');
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login','add','index','edit'); 
+        $this->Auth->allow('login'); 
     }
 	function index(){
 		$keyword = $this->request->query('Search');
@@ -35,10 +35,10 @@ class UsersController extends AppController {
 		// var_dump($keyword);exit();
 
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}
 
 	function login(){
@@ -96,14 +96,15 @@ class UsersController extends AppController {
         $this->redirect(array('action' => 'index'));
 
         //test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
     }
 	function add(){
 		if($this->request->is('post')){
-			$this->User->create();	
+			$this->User->create();
+pr($this->request->data);exit;			
 				if(!empty($this->data))
 				{
 					//Check if image has been uploaded
@@ -132,10 +133,10 @@ class UsersController extends AppController {
 		}
 
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	}
 	function edit($id){
 		//echo $id;exit();
@@ -192,9 +193,9 @@ class UsersController extends AppController {
 	// 	$this->request->data = $data;
 	// }
 		//test ------------------------------
-		$this->loadModel('Withdrawal');	
-		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
+		$this->loadModel('Logs');	
+		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
-		$this->set('withdrawals',$Withdrawal);
+		$this->set('logs',$Logs);
 	 }
 }   

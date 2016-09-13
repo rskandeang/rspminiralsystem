@@ -80,11 +80,11 @@
       <ul class="nav navbar-nav navbar-right">
         
               <li id="icon" >
-                <?php if($withdrawals >= 1){ ?>
+                <?php if($logs >= 1){ ?>
                         <div id="notification" style="background:#f1240f;position: absolute;right: 27px;margin-right:-79px;margin-top:3px;border-radius:50%;width:20px;height:20px;">
                   <div style="color:#FFF;position:absolute;right:6px;">
                     <?php 
-                       echo $withdrawals;
+                       echo $logs;
                        
                     ?>
                   </div>
