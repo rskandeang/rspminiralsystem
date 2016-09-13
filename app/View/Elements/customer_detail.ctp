@@ -4,7 +4,7 @@
     #widraw{
       
       margin:2px;
-      background: red;
+      
     }
     #widraw2{
       width: 100%;

@@ -1,5 +1,5 @@
 <?php
-class CostomersController extends AppController {
+class ClientsController extends AppController {
 	public $helpers = array(
 				  'Js' => array('Jquery'),
 				  'Paginator',
@@ -8,10 +8,12 @@ class CostomersController extends AppController {
 	public $components = array(
 				  'Paginator',
 				  'RequestHandler');
-	public function beforeFilter() {
+	/*public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login_cus'); 
-    }
+        $this->Auth->allow(array(
+		'User' => 'login',
+		'Costomer' => 'login_cus')); 
+    }*/
 	function index(){
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
@@ -47,7 +49,7 @@ class CostomersController extends AppController {
 			if ($this->Auth->login()) {
 				return $this->redirect('index');
 			} else {
-				$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ'));
+				$this->Session->setFlash(__('Invalid username or password'));
 			}
 		}       
 	}
@@ -64,9 +66,8 @@ class CostomersController extends AppController {
 		$this->loadModel('Four');
 		if($this->request->is('post')){
 			$this->Costomer->create();
-			//pr($this->request->data);exit;
-			if($this->Costomer->save($this->request->data)){
-
+			if($test = $this->Costomer->save($this->request->data)){
+				//pr($test);exit;
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
@@ -81,12 +82,9 @@ class CostomersController extends AppController {
 						'costomer_id' => $id
 						));
 						$this->One->save($refer = $this->request->data);
-
-						
 						
 						$this->Costomer->saveField('user_name', $own_id);
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីមួយម្នាក់'));
-
+						$this->Session->setFlash(__('One table.'));
 						$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));	
@@ -106,11 +104,8 @@ class CostomersController extends AppController {
 						'costomer_id' => $id,
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
-						
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបីម្នាក់'));
-
 						$this->Costomer->saveField('user_name', 'ND'.$own_id);
-
+						$this->Session->setFlash(__('Three table.'));
 						$three = $this->Three->find('first', array(
 													'order' => array('Three.code' => 'asc')));
 						$str2 = substr($code, 2);
@@ -146,9 +141,6 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 						//pr($testsent);exit;
 								$this->One->save($this->request->data);
-								$this->redirect(array(
-						'controller'=>'Costomers',
-						'action'=>'index'));
 					}
 						
 					else if(strpos($code, 'ND') !== false){
@@ -171,7 +163,7 @@ class CostomersController extends AppController {
 							$this->Costomer->saveField('user_name', 'RD'.$own_id);
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
-							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបួនម្នាក់'));				
+							$this->Session->setFlash(__('Four table.'));				
 							$str2 = substr($code, 2);
 							$addstr = 'ST'.$str2;
 							$threestr = 'ND'.$str2;
@@ -222,9 +214,6 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 						//pr($testsent);exit;
 								$this->One->save($this->request->data);
-										$this->redirect(array(
-										'controller'=>'Costomers',
-										'action'=>'index'));
 					}
 					else if(strpos($code, 'RD') !== false){
 						$find_refer = $this->Four->find('all',array(
@@ -252,10 +241,10 @@ class CostomersController extends AppController {
 								'costomer_id' => $id,
 								'refer' => $check_three_refer));
 								
-
 								$this->Four->save($this->request->data);
-						// ​		$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបូន'));
 								$this->Costomer->saveField('user_name', 'RD'.$own_id);
+								$this->Session->setFlash(__('Four1 table.'));
+							
 								
 								$str2 = substr($code, 2);
 								$is_exist = $this->One->find('count',array(
@@ -303,10 +292,6 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
-								$this->Session->setFlash(__('អ្នកបានបង្កើតអិតថិជនថ្មីម្នាក់ទៀត'));
-								$this->redirect(array(
-									'controller'=>'Costomers',
-									'action'=>'index'));
 							}
 					}
 				
@@ -325,20 +310,16 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
-
 								$this->Costomer->saveField('user_name', 'ST'.$own_id);
-								$this->Session->setFlash(__('អ្នកបានបង្កើតអិតថិជនទីពីរម្នាក់'));
-
+								$this->Session->setFlash(__('tow table.'));
 								$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));
 								
 								
 						}
-
 				
 			}
-			$this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'));
 		}
 		//test ------------------------------
 		$this->loadModel('Logs');	
@@ -361,11 +342,11 @@ class CostomersController extends AppController {
         }
 
         if ($this->Costomer->saveField('status', 0)) {
-            $this->Session->setFlash(__('អ្នកបានលុបអតិថិជនម្នាក់'));
+            $this->Session->setFlash(__('Customer deleted'));
             $this->redirect(array('action' => 'index'));
         }
 
-        $this->Session->setFlash(__('អ្នកមិនអាចលុបអតិថិជនម្នាក់នេះបានទេ'));
+        $this->Session->setFlash(__('Customer was not deleted'));
         $this->redirect(array('action' => 'index'));
 
         //test ------------------------------
@@ -402,8 +383,6 @@ class CostomersController extends AppController {
 
 		$this->set('logs',$Logs);
     }
-
-
 	function view($id){
 		$this->loadModel('One');
 		$this->loadModel('Two');
@@ -562,8 +541,7 @@ class CostomersController extends AppController {
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
 					}
-					if($input_money == null || $input_money<1){
-						$this->Session->setFlash('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'); 
+					if($input_money == null){
 						$this->redirect(array(
 							'controller'=>'Costomers',
 							'action'=>'view',$id));
@@ -582,7 +560,7 @@ class CostomersController extends AppController {
 					}
 					$test1 = $this->Logs->set(array(
 								'cus_name' => $firstname.' '.$lastname ,
-								'amounts' => 'បានដកប្រាក់ចំនួន $ '.$amounts_money,
+								'amounts' => '$ '.$amounts_money,
 								'date' => $purdate,
 								'cus_id' => $id));
 							//pr($test1);exit;
@@ -593,9 +571,7 @@ class CostomersController extends AppController {
 							'controller'=>'Costomers',
 							'action'=>'view',$id));
 						}
-						
 					}
-					else{$this->Session->setFlash('អ្នកមិនអាចដកប្រាក់ច្រើនជាងប្រាក់នៅសល់របស់អ្នកទេ');}
 					$this->set('id', $id);
 				}
 				
@@ -851,7 +827,7 @@ class CostomersController extends AppController {
 					}
 					$test1 = $this->Logs->set(array(
 								'cus_name' => $firstname.' '.$lastname ,
-								'amounts' => 'បានទិញចំនួន '.$amounts_pur.' កេស',
+								'amounts' => $amounts_pur.' case',
 								'date' => $purdate,
 								'cus_id' => $id));
 							//pr($test1);exit;
@@ -1230,11 +1206,9 @@ class CostomersController extends AppController {
 		$this->set('count_two', $count_two);	
 		$this->set('count_three', $count_three);	
 		
-		// notification ------------------------------
-
+		//test ------------------------------
 		$this->loadModel('Logs');	
 		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
-
 
 		$this->set('logs',$Logs);
 	}	
@@ -1271,7 +1245,6 @@ class CostomersController extends AppController {
 	$logslist = $this->Logs->find('all');
 		$this->paginate = array(
 				'limit' => 5,
-				'order' => 'lock_id DESC',
 				'OR' => array(
 								array('Logs.lock_id LIKE' => '%' ),
 								array('Logs.cus_name LIKE' => '%'),
@@ -1406,7 +1379,7 @@ class CostomersController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('ព៍តមានរបស់អតិថិជនត្រូវបានកែតម្រូវ');
+					$this->Session->setFlash('You have been update');
 				    $this->redirect('index');
 				}
 			}
@@ -1418,15 +1391,15 @@ class CostomersController extends AppController {
 
 		$this->set('logs',$Logs);
 	}
-
-
+	
 	public function own_update($id) {
+		$this->loadModel('Costomer');
 		$data = $this->Costomer->find('first',array(
 			'conditions'=>array('id'=>$id)));
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('អ្នកបានកែតម្លូវព៍តមានរបស់អ្នក');
+					$this->Session->setFlash('You have been update');
 				    $this->redirect(array(
 					'controller'=>'Costomers',
 					'action'=>'view_setting',$id));
@@ -1464,7 +1437,7 @@ class CostomersController extends AppController {
 		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
 
 		$this->set('logs',$Logs);
-		pr($logs);exit;
+		//pr($logs);exit;
 	}
 	
 	public function login_cus(){
@@ -1482,7 +1455,7 @@ class CostomersController extends AppController {
 				$username = substr($username, 2);
 			}
 			//pr($username);exit;
-			$find_id = $this->One->find('all', array(
+			$find_id = $this->One->find('all', array( 
 			'conditions'=>array(
 			'code'=>$username)));
 			
@@ -1503,12 +1476,8 @@ class CostomersController extends AppController {
                         'code' => $username))));
 			//pr($name);exit;
 			if($pass == 1 && $name == 1){
-				function beforeFilter() {
-					parent::beforeFilter();
-					$this->Auth->allow('view'); 
-				}
 				$this->redirect(array(
-					'controller'=>'Costomers',
+					'controller'=>'Clients',
 					'action'=>'view',$id));
 			}
 		}

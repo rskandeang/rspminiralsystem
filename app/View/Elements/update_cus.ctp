@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title"><strong>កែតម្រូវពត៍មានផ្ទាល់ខ្លួន</strong>
+            <h1 class="panel-title"><strong style="color:#1d933F;">កែតម្រូវពត៍មានផ្ទាល់ខ្លួន</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
             </h1>
 

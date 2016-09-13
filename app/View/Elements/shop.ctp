@@ -231,7 +231,7 @@
 
                 <td   scope="row" style="text-align: left;padding-left:40px;"> អតិថិជនឈ្មោះ  <strong>
           <?php echo $withdrawals['Withdrawal']['customer_name']?>
-        </strong>​​ បានដលប្រាកចំនួន " <?php echo $withdrawals['Withdrawal']['money'];?>$ " នៅថ្ងៃទី <?php echo $withdrawals['Withdrawal']['draw_date'];?> .</td>
+        </strong>​​ " <?php echo $withdrawals['Withdrawal']['money'];?>" នៅថ្ងៃទី <?php echo $withdrawals['Withdrawal']['draw_date'];?> .</td>
 
 
                

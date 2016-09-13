@@ -161,7 +161,7 @@
 
                      <td   scope="row" style="text-align: left;padding-left:40px;"> អតិថិជនឈ្មោះ  <strong>
                 <?php echo $logslists['Logs']['cus_name']?>
-              </strong> បានដកប្រាក់ចំនួន " <?php echo $logslists['Logs']['amounts'];?> " នៅថ្ងៃទី <?php echo $logslists['Logs']['date'];?> .</td>
+              </strong>" <?php echo $logslists['Logs']['amounts'];?> " នៅថ្ងៃទី <?php echo $logslists['Logs']['date'];?> .</td>
 
 
                      
