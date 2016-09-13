@@ -126,7 +126,7 @@ class UsersController extends AppController {
 					if($this->User->save($this->request->data)){
 						return $this->redirect('index');
 					}else {
-						$this->Session->setFlash(__('អ្កបង្កើតអ្នកប្រើប្រាស់មិនបានទេ, សូមព្យាយាមម្ដងទៀត។'));
+						$this->Session->setFlash(__('អ្នកបង្កើតអ្នកប្រើប្រាស់មិនបានទេ, សូមព្យាយាមម្ដងទៀត។'));
 					}
 					$this->User->save($this->data);
 				}

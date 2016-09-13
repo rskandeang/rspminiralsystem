@@ -21,7 +21,7 @@
                           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                                <div class="col-md-6 text-left"> 
-                                <h4 >ចំនួននៃការលក់សរុប</h4>
+                                <h4 >ចំនួនការលក់សរុប</h4>
                                </div>
                                <div class="col-md-6 text-right">
                                   <i style="color:#2DB4DB" class="fa fa-3x  fa-briefcase" aria-hidden="true" > </i>
@@ -53,7 +53,7 @@
                         <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
                           <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
                             <div class="col-md-6 text-left"> 
-                               <h4  class="text-left">ទឹកប្រាក់នៃការលក់សរុប</h4>
+                               <h4  class="text-left">ទឹកប្រាក់ការលក់សរុប</h4>
                              </div>
                              <div class="col-md-6 text-right">
                                 <i style="color:#2DB4DB" class="fa fa-3x  fa-cc-visa" aria-hidden="true" > </i>
@@ -67,7 +67,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>ចំនួនទឹកប្រាក់នៃការលក់ចេញទៅអោយអតិថិជន</p>
+                          <p>ចំនួនទឹកប្រាក់ការលក់ចេញទៅអោយអតិថិជន</p>
                           <hr/>
                         </div>
                       </div>
@@ -123,7 +123,7 @@
                           
                         </div>
                         <div style="background:#fff;" class="panel-footer text-center">
-                          <p>ទឹកប្រាកកម្រៃជើងសារសរុបដែលត្រូវផ្ដល់ឲ្យអតិថិជនទាំអស់</p>
+                          <p>ទឹកប្រាក់​កម្រៃជើងសារសរុបដែលត្រូវផ្ដល់ឲ្យអតិថិជនទាំអស់</p>
                           <hr/>
                         </div>
                       </div>
@@ -143,7 +143,7 @@
         <div class="col-md-12">
           <div class="panel panel-default">
             <div  class="panel-heading">
-              <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">បញ្ជីនៃការដកលុយរបស់អតិថិជន</strong>
+              <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">បញ្ជីការដកលុយរបស់អតិថិជន</strong>
               <i style="color:green; font-size:20px;" class="fa fa-th-list pull-right"></i><h1>
             </div>
             
@@ -161,7 +161,7 @@
 
                      <td   scope="row" style="text-align: left;padding-left:40px;"> អតិថិជនឈ្មោះ  <strong>
                 <?php echo $logslists['Logs']['cus_name']?>
-              </strong> បានដលប្រាក់ចំនួន " <?php echo $logslists['Logs']['amounts'];?> " នៅថ្ងៃទី <?php echo $logslists['Logs']['date'];?> .</td>
+              </strong> បានដកប្រាក់ចំនួន " <?php echo $logslists['Logs']['amounts'];?> " នៅថ្ងៃទី <?php echo $logslists['Logs']['date'];?> .</td>
 
 
                      

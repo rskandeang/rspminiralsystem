@@ -1,3 +1,19 @@
+<style type="text/css">
+
+@media (min-width: 300px) and (max-width: 1000px) {
+    #widraw{
+      
+      margin:2px;
+      background: red;
+    }
+    #widraw2{
+      width: 100%;
+      padding-right: 3px;
+    padding-left: 1px;
+      margin-top: 40px;
+    }
+  }
+</style>
 <!-- start table wrap -->
           <div class="col-md-9" >
             <div class="col-md-12">
@@ -68,10 +84,10 @@
           <div style="background:#fff;" class="panel-footer text-center">
            <!-- <form class="form-inline">-->
                <?php echo $this->Form->create('Withdrawal');?>
-              <div id="btn-widraw" class="form-group">
+              <div  class="form-group">
                 <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                <div class="col-md-8 input-group ">
-                  <div class="input-group-addon">$</div>
+                <div id="widraw" class="col-md-8 input-group ">
+                  <div  class="input-group-addon">$</div>
                       <?php 
                       echo $this->Form->input('money', array(
                       'class' => 'form-control',
@@ -84,7 +100,7 @@
                     ?>
                   <div class="input-group-addon">.00</div>
                 </div>
-                <div class="col-md-4 pull-right"> 
+                <div id="widraw2" class="col-md-4 pull-right"> 
                 <button type="submit"​​ style='margin-top:-56px;' class="btn btn-success form-control">បញ្ជូន</button>
                    <!-- <?php echo $this->Form->submit('Submit',array('class'=>'form-control btn btn-success','style'=>'margin-top:-35px;'))?> -->
               </div>
@@ -103,7 +119,7 @@
           <div style="background:#E0EEF2;" class="panel-heading bg-white border-none">
             <div class="col-md-12 col-sm-6 col-xs-6 text-center padding-0">
               <div class="col-md-10 text-left"> 
-                <h4  class="text-left">ផងជើងសារនៅសល់សរុប</h4>
+                <h4  class="text-left">ផលជើងសារនៅសល់សរុប</h4>
                </div>
                <div class="col-md-2 text-right">
                 <i style="color:#2DB4DB" class="fa fa-3x  fa-usd " aria-hidden="true" > </i>

@@ -26,7 +26,7 @@
 							</div>
 						</div>
 								<div class="form-group">
-									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'ប្រុស','Female'=>'ស្រី'),'default'=>'2'));?>
+									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('ប្រុស'=>'ប្រុស','ស្រី'=>'ស្រី'),'default'=>'2'));?>
 								</div>
 <!-- 			    				<div class="form-group">
 									<?php echo $this->Form->input('user_name', array(

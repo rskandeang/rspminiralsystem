@@ -32,8 +32,8 @@
 										'class' => 'form-control','placeholder'=>'Password','label' => false));?>
 						</div> -->
 						<div class="form-group">
-									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('Male'=>'Male','Female'=>'Female'),'default'=>'2'));?>
-						</div>
+									<?php echo $this->Form->input('gender',array('class'=>'form-control','label'=>false,'options'=>array('ប្រុស'=>'ប្រុស','ស្រី'=>'ស្រី'),'default'=>'2'));?>
+								</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('phone', array(
 										'class' => 'form-control','placeholder'=>'លេខទូស័ព្ទ','label' => false));?>

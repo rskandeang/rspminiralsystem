@@ -29,7 +29,7 @@ class User extends AppModel {
 
             'That username has already been taken'=>array(
                 'rule'=>'isUnique',
-                'message'=>'ឈ្មោះគណនីយមានរួចមន្តងហើយ'
+                'message'=>'ឈ្មោះគណនីយមានរួចមន្តងហើយ, សូមបញ្ចូលឈ្មោះផ្សេងទៀត !'
            		 ),
             'between' => array(
 	            'rule' => array('between', 4, 24),

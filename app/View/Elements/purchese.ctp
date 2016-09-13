@@ -1,3 +1,21 @@
+<style type="text/css">
+	    #widraw{
+	    	margin-left: 57%;
+	    }
+@media (min-width: 300px) and (max-width: 1000px) {
+    #widraw{
+      width: 99%;
+      margin:2px;
+   	
+    }
+    #widraw2{
+      width: 100%;
+      padding-right: 3px;
+    padding-left: 1px;
+      margin-top: 40px;
+    }
+  }
+</style>
 <div class="col-md-9">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -6,29 +24,31 @@
         <i style="color:green; font-size:20px;" class="fa fa-line-chart pull-right"></i><h1>
         </div>
         <div class="panel-body">
-			<div class="table-responsive"> 
+			<!-- box form to buy -->
+				<div class="table-responsive"> 
 				<!-- input add purchase -->
 				<?php echo $this->Form->create('Purchase');?>
 				  <div class="form-group">
 					<label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
 				
-					<div class="input-group col-md-3" style = "margin-left: 57%;">
+					<div id="widraw" class="input-group col-md-3" >
 						  <?php 
 						  echo $this->Form->input('amounts', array(
 						  'class' => 'form-control',
 						  'id' =>'exampleInputAmount',
-						  'placeholder' => 'ចំនួនទឹកប្រាក់',
+						  'placeholder' => 'ចំនួនទិញ',
 						  'type'=>'int',
 						  'label'=> false
 						  ));
 						?>
 					</div>	
-					<div class="col-md-2 pull-right"> 
+					<div id="widraw2" class="col-md-2 pull-right"> 
 					   <?php echo $this->Form->submit('បញ្ជូន',array('class'=>'form-control btn btn-success','style'=>'margin-top:-57px;'))?>
 				  </div>
 				  </div>
 				 <?php echo $this->Form->end();?>
 			</div>
+			<!-- end box form to buy -->
           <div class="table-responsive">
             <table class="col-md-12 table table-bordered table-hover table-striped" cellpadding="0" cellspacing="0">
               <thead > 
