@@ -543,7 +543,7 @@ class ClientsController extends AppController {
 					}
 					if($input_money == null){
 						$this->redirect(array(
-							'controller'=>'Costomers',
+							'controller'=>'Clients',
 							'action'=>'view',$id));
 					}
 					else if($input_money < $balance){
@@ -568,7 +568,7 @@ class ClientsController extends AppController {
 		
 							
 							$this->redirect(array(
-							'controller'=>'Costomers',
+							'controller'=>'Clients',
 							'action'=>'view',$id));
 						}
 					}
@@ -807,7 +807,7 @@ class ClientsController extends AppController {
 
 			if($input == null || $input < 1 ){
 				$this->redirect(array(
-				'controller'=>'Costomers',
+				'controller'=>'Clients',
 				'action'=>'view_pur',$id));
 			}
 			else if($input > 0){
@@ -834,7 +834,7 @@ class ClientsController extends AppController {
 							$this->Logs->save($this->request->data);
 					
 					$this->redirect(array(
-					'controller'=>'Costomers',
+					'controller'=>'Clients',
 					'action'=>'view_pur',$id));
 				}
 			}

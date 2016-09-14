@@ -66,8 +66,8 @@
 					<?php foreach($purchase as $purchases): ?>                    
 						<td scope="row" style="text-align: center;"><?php echo $i ?></td>
 						<td style="text-align: center;"><?php echo $purchases['Purchase']['pur_date']; ?></td>
-						<td style="text-align: center;"><?php echo $purchases['Purchase']['price'].'$'; ?></td>
-						<td style="text-align: center;"><?php echo $purchases['Purchase']['amounts'].' '.'Case'; ?></td>
+						<td style="text-align: center;"><?php echo '$ '.$purchases['Purchase']['price']; ?></td>
+						<td style="text-align: center;"><?php echo $purchases['Purchase']['amounts'].' '.'កេស'; ?></td>
 						<td style="text-align: center;"><?php echo '$ '.$purchases['Purchase']['amounts'] * $purchases['Purchase']['price']; ?></td>
 						
 					</tr>

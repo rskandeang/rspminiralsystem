@@ -39,7 +39,7 @@
                                 </tr> 
                                 <?php endforeach; ?>
                          
-                      <p style="font-size:30px;"><?php echo $total; ?></p>
+                      <span style="font-size:30px;"><?php echo $total; ?>​</span><span style="font-size:20px;"> កេស</span>
                             
                           </div>
                           <div style="background:#fff;" class="panel-footer text-center">
