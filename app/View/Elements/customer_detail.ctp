@@ -93,7 +93,7 @@
                       'class' => 'form-control',
                       'id' =>'exampleInputAmount',
                       'placeholder' => 'ចំនូនទឹកប្រាក់',
-                      'type' => 'int',
+                      'type' => 'float',
                       'label'=> false
                       
                       ));

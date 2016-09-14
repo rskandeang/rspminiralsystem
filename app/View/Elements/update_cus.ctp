@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title"><strong style="color:#1d933F;">កែតម្រូវពត៍មានផ្ទាល់ខ្លួន</strong>
+            <h1 class="panel-title"><strong style="color:#1d933F;">កែតម្រូវពត៌មានផ្ទាល់ខ្លួន</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
             </h1>
 
@@ -29,7 +29,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
                        <label>កូដគណនីយ</label>      
@@ -41,7 +41,7 @@
                     'class' => 'form-control','placeholder'=>'login name','label' => false ));?>
                 </div>
               </div>
-            </div>
+            </div> -->
             
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-4">
@@ -109,7 +109,7 @@
             </div>
 
             
-              <button type="submit" class="btn btn-success pull-right">Save Change</button>
+              <button type="submit" class="btn btn-success pull-right">បញ្ជូន</button>
               <!-- <span class="pull-right" <?php echo $this->Form->submit('Submit')?></span> -->
                       <?php echo $this->Form->end();?>
         

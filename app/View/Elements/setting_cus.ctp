@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="panel-title"><strong style="color:#1d933F;">ព៍តមានទូទៅរបស់អតិថិជន</strong>
+            <h1 class="panel-title"><strong style="color:#1d933F;">ពត៌មានទូទៅរបស់អតិថិជន</strong>
               <i style="color:green; font-size:20px;" class="fa fa-cogs fa-lg pull-right"></i>
               
             </h1>
@@ -30,36 +30,9 @@
           <br>
 
               <?php echo $this->Form->create('Costomer',array('enctype'=>'multipart/form-data'));?>
-              <div class="row">
-                      <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="form-group text-right">
-                             <label>សារអេឡិចទ្រូនិច</label>
-                             
-              </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-8">
-                <div class="form-group">
-					<?php 
-						echo $customers['Costomer']['email']
-					?>
-                </div>
-              </div>
-            </div>
+              
           
-            <div class="row">
-                      <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="form-group text-right">
-                             <label>កូដ</label>
-              </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-8">
-                <div class="form-group">
-					<?php 
-						echo $cus_code;
-					?>
-                </div>
-              </div>
-            </div>
+           
        
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-4">
@@ -89,18 +62,51 @@
             <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <label>កូដគណនីយ</label>
+                             <label>ភេទ</label>
                              
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
-                  <?php echo $customers['Costomer']['user_name']?>
+                  <?php echo $customers['Costomer']['gender']?>
+                </div>
+              </div>
+             </div>
+
+              <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="form-group text-right">
+                             <label>កូដ</label>
+              </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="form-group">
+          <?php 
+            echo $cus_code;
+          ?>
                 </div>
               </div>
             </div>
+
+             <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="form-group text-right">
+                             <label>សារអេឡិចទ្រូនិច</label>
+                             
+              </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="form-group">
+          <?php 
+            echo $customers['Costomer']['email']
+          ?>
+                </div>
+              </div>
+            </div>
+
+            
 			
-			<div class="row">
+			     <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
                              <label>ថ្ងៃ ខែ ឆ្នាំកំណើត</label>
@@ -114,16 +120,16 @@
               </div>
             </div>
 			
-			<div class="row">
+			       <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <label>ភេទ</label>
+                             <label>កូដគណនីយ</label>
                              
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
-                  <?php echo $customers['Costomer']['gender']?>
+                  <?php echo $customers['Costomer']['user_name']?>
                 </div>
               </div>
             </div>

@@ -84,7 +84,7 @@
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', 
                     array('action'=>'edit', $costomer['Costomer']['id']),array('escape' => false,'title'=>'កែតម្រូវ','style'=>'color:#2DB4DB')); ?>
              | <?php echo $this->Html->link('<i class="fa fa-paper-plane" aria-hidden="true"></i>', 
-                    array('action'=>'view', $costomer['Costomer']['id']),array('escape' => false,'title'=>'ព៍តមានលំអិត','style'=>'color:green')); ?>
+                    array('action'=>'view', $costomer['Costomer']['id']),array('escape' => false,'title'=>'ពត៌មានលំអិត','style'=>'color:green')); ?>
              | 
             <?php
                 if( $costomer['Costomer']['status'] != 0){ 

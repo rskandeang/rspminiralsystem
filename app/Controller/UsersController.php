@@ -70,10 +70,10 @@ class UsersController extends AppController {
             $this->redirect(array('action'=>'index'));
         }
         if ($this->User->saveField('status', 0)) {
-            $this->Session->setFlash(__('អ្នកបានលុបអ្នកប្រើប្រាស់ម្នាក់'));
+            $this->Session->setFlash(__('អ្នកបានលុបអ្នកគ្រប់គ្រងម្នាក់'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('អ្នកមិនអាចលុបអ្នកប្រើប្រាស់បានទេ'));
+        $this->Session->setFlash(__('អ្នកមិនអាចលុបអ្នកគ្រប់គ្រងបានទេ'));
         $this->redirect(array('action' => 'index'));
     }
      public function activate($id = null) {
@@ -126,7 +126,7 @@ class UsersController extends AppController {
 					if($this->User->save($this->request->data)){
 						return $this->redirect('index');
 					}else {
-						$this->Session->setFlash(__('អ្នកបង្កើតអ្នកប្រើប្រាស់មិនបានទេ, សូមព្យាយាមម្ដងទៀត។'));
+						$this->Session->setFlash(__('អ្នកបង្កើតអ្នកគ្រប់គ្រងមិនបានទេ, សូមព្យាយាមម្ដងទៀត។'));
 					}
 					$this->User->save($this->data);
 				}
@@ -144,7 +144,7 @@ class UsersController extends AppController {
 		if($this->request->is(array('post','put'))){
 			$this->User->id = $id;
 			if($this->User->save($this->request->data)){
-				$this->Session->setFlash('ព៍តមានរបស់អ្នកប្រើប្រាស់ត្រូវបានកែតម្រូវ');
+				$this->Session->setFlash('ពត៌មានរបស់អ្នកគ្រប់គ្រងត្រូវបានកែតម្រូវ');
 				$this->redirect('index');
 			}
 		}

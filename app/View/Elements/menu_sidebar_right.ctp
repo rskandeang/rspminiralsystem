@@ -3,7 +3,7 @@
     <div style="background-color:#fff;padding-left:10px;padding-right:10px;padding-bottom:10px;"> -->
 
   <div class="nav-side-menu" style="margin-left: 10px;">
-        <div class="brand" style="color:#1d933F; font-family: Kh Siemreap;">ព៍តមានលំអិតរបស់អតិថិជន</div> 
+        <div class="brand" style="color:#1d933F; font-family: Kh Siemreap;">ពត៌មានលំអិតរបស់អតិថិជន</div> 
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list">
           <ul style="text-align: left; margin-left:15px;" id="menu-content" class="menu-content collapse out">
@@ -36,7 +36,7 @@
              
               <li>
                 <a href="#">
-                  <i style="color:#2DB4DB" class="fa fa-cogs  fa-lg"></i><span> <?php echo $this->Html->link( 'ព៍តមានទូទៅ',array('controller'=>'Costomers','action'=>'view_setting', $id),array('escape' => 0));?></span> 
+                  <i style="color:#2DB4DB" class="fa fa-cogs  fa-lg"></i><span> <?php echo $this->Html->link( 'ពត៌មានទូទៅ',array('controller'=>'Costomers','action'=>'view_setting', $id),array('escape' => 0));?></span> 
                 </a>
               </li>
              

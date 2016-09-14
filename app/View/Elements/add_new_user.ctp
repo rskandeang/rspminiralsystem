@@ -4,7 +4,7 @@
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel panel-default">
 		  <div style="text-align:center;" class="panel-heading ">
-		  		<h3 class="panel-title"><strong style="color:#1d933F;">ចុះឈ្មោះអ្នកប្រើប្រាស់</strong></h3>
+		  		<h3 class="panel-title"><strong style="color:#1d933F;">ចុះឈ្មោះអ្នកគ្រប់គ្រង</strong></h3>
 		  </div>
 			  <div class="panel-body">
 			  	<p><?php echo $this->Session->flash(); ?></p>

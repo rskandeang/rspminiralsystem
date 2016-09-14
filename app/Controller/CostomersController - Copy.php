@@ -75,8 +75,7 @@ class CostomersController extends AppController {
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
 						$this->One->create();
-						//$own_id = date('YmdHis');
-						$own_id = $id;
+						$own_id = date('YmdHis');
 						$this->One->set(array(
 						'code' =>  $own_id,
 						'costomer_id' => $id
@@ -93,23 +92,7 @@ class CostomersController extends AppController {
 						'action'=>'index'));	
 					}		
 					else if(strpos($code, 'ST') !== false){
-						   $find_referid = $this->request->data;
-							foreach($find_referid as $find_referids){
-								$refer_code = $find_referids['code'];
-							}
-							
-							if(strpos($refer_code, 'ST') !== false || strpos($refer_code, 'ND') !== false || strpos($refer_code, 'RD') !== false){
-								$code_refer = substr($refer_code, 2);
-								//pr($code_refer);exit;
-							}
-							$find_refer_id = $this->One->find('all', array(
-							'conditions' => array(
-							'code' => $code_refer)));
-							//pr($refer_id);exit;
-							foreach($find_refer_id as $find_refer_ids){
-								$refer_id = $find_refer_ids['One']['costomer_id'];
-							}
-							
+						
 						$find_refer = $this->Two->find('all',array(
 																'conditions' => array('Two.code' => $code)));
 						
@@ -117,8 +100,7 @@ class CostomersController extends AppController {
 							$re_code = $find_refers['Two']['refer'];
 						}	
 						$this->Three->create();
-						//$own_id = date('YmdHis');
-						$own_id = $refer_id.$id;
+						$own_id = date('YmdHis');
 						$this->Three->set(array(
 						'code' =>  'ND'.$own_id,
 						'costomer_id' => $id,
@@ -170,22 +152,6 @@ class CostomersController extends AppController {
 					}
 						
 					else if(strpos($code, 'ND') !== false){
-						$find_referid = $this->request->data;
-							foreach($find_referid as $find_referids){
-								$refer_code = $find_referids['code'];
-							}
-							
-							if(strpos($refer_code, 'ST') !== false || strpos($refer_code, 'ND') !== false || strpos($refer_code, 'RD') !== false){
-								$code_refer = substr($refer_code, 2);
-								//pr($code_refer);exit;
-							}
-							$find_refer_id = $this->One->find('all', array(
-							'conditions' => array(
-							'code' => $code_refer)));
-							//pr($refer_id);exit;
-							foreach($find_refer_id as $find_refer_ids){
-								$refer_id = $find_refer_ids['One']['costomer_id'];
-							}
 					
 						$find_refer = $this->Three->find('all',array(
 														'conditions' => array(
@@ -196,8 +162,7 @@ class CostomersController extends AppController {
 							
 						}
 							$this->Four->create();
-							//$own_id = date('YmdHis');
-							$own_id = $refer_id.$id;
+							$own_id = date('YmdHis');
 							$this->Four->set(array(
 							'code' =>  'RD'.$own_id,
 							'costomer_id' => $id,
@@ -262,23 +227,6 @@ class CostomersController extends AppController {
 										'action'=>'index'));
 					}
 					else if(strpos($code, 'RD') !== false){
-						$find_referid = $this->request->data;
-							foreach($find_referid as $find_referids){
-								$refer_code = $find_referids['code'];
-							}
-							
-							if(strpos($refer_code, 'ST') !== false || strpos($refer_code, 'ND') !== false || strpos($refer_code, 'RD') !== false){
-								$code_refer = substr($refer_code, 2);
-								//pr($code_refer);exit;
-							}
-							$find_refer_id = $this->One->find('all', array(
-							'conditions' => array(
-							'code' => $code_refer)));
-							//pr($refer_id);exit;
-							foreach($find_refer_id as $find_refer_ids){
-								$refer_id = $find_refer_ids['One']['costomer_id'];
-							}
-						
 						$find_refer = $this->Four->find('all',array(
 								'conditions' => array('Four.code' => $code)));
 								
@@ -298,8 +246,7 @@ class CostomersController extends AppController {
 							}
 							if($str_three == $check_three){
 								$this->Four->create();
-								//$own_id = date('YmdHis');
-								$own_id = $refer_id.$id;
+								$own_id = date('YmdHis');
 								$this->Four->set(array(
 								'code' =>  'RD'.$own_id,
 								'costomer_id' => $id,
@@ -366,13 +313,7 @@ class CostomersController extends AppController {
 					else{
 							
 							$this->Two->create();
-							$find_referid = $this->request->data;
-							foreach($find_referid as $find_referids){
-								$refer_code = $find_referids['code'];
-							}
-								//$own_id = date('YmdHis');
-								$own_id = $refer_code.$id;
-								
+								$own_id = date('YmdHis');
 								$this->Two->set(array(
 								'code' => 'ST'.$own_id,
 								'costomer_id' => $id,
@@ -873,8 +814,7 @@ class CostomersController extends AppController {
 				$lastname = $find_names['Costomer']['last_name'];
 			}
 			
-		$date = date('Y-m-d​​ H:i:s');
-		
+		$date = date('Y-m-d');
 		if($this->request->is('post')){
 			$this->Purchase->create();
 			$this->Purchase->set(array(
@@ -1330,7 +1270,7 @@ class CostomersController extends AppController {
 	//withdrawal list and purchase list
 	$logslist = $this->Logs->find('all');
 		$this->paginate = array(
-				'limit' => 10,
+				'limit' => 5,
 				'order' => 'lock_id DESC',
 				'OR' => array(
 								array('Logs.lock_id LIKE' => '%' ),
@@ -1486,7 +1426,7 @@ class CostomersController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('អ្នកបានកែតម្រូវពត៌មានរបស់អ្នក');
+					$this->Session->setFlash('អ្នកបានកែតម្លូវពត៌មានរបស់អ្នក');
 				    $this->redirect(array(
 					'controller'=>'Costomers',
 					'action'=>'view_setting',$id));

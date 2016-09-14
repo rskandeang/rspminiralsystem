@@ -54,10 +54,11 @@ class AppController extends Controller {
     );
 	// only allow the login controllers only
 	public function beforeFilter() {
-        $this->Auth->allow('login');
+        $this->Auth->allow(array(
+  'User' => 'login',
+  'Client' => 'login_cus', 'view', 'view_refer', 'view_pur', 'view_setting', 'own_update'));
        
     }
-	
 	// public function isAuthorized($user) {
 	// 	// Here is where we should verify the role and give access based on role
 		

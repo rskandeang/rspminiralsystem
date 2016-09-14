@@ -331,7 +331,7 @@
                  </div>
 
                  <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>
-                   <h4  class="text-center">125 $</h4>
+                   <!-- <h4  class="text-center">125 $</h4> -->
                  </div>
 
                  <div style="border-left:1px solid #ddd;" class="col-md-3 col-sm-6 col-xs-6 text-center padding-0"> <br>

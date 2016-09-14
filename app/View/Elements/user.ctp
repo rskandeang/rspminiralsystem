@@ -25,7 +25,7 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">​បញ្ជីឈ្មោះអ្នកប្រើប្រាស់</strong>
+                    <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">​បញ្ជីឈ្មោះអ្នកគ្រប់គ្រង</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-users fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body">
@@ -75,7 +75,7 @@
                                  | 
                                 <?php
                                     if( $user['User']['status'] != 0){ 
-                                         echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'title'=>'លុបចេញ','style'=>'color:red','confirm'=>'តើអ្នកច្បាស់ទេថាត្រូវលុបអ្នកប្រើប្រាស់ម្នាក់នេះ?'));}
+                                         echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'glyphicon glyphicon-trash')). " ",array('action'=>'delete', $user['User']['id']) ,array('escape'=>false,'title'=>'លុបចេញ','style'=>'color:red','confirm'=>'តើអ្នកច្បាស់ទេថាត្រូវលុបអ្នកគ្រប់គ្រងម្នាក់នេះ?'));}
                                     else {
                                         echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action'=>'activate', $user['User']['id']),array('escape' => false,'style'=>'color:#2E86C1'));
                                     }
