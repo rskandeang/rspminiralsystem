@@ -24,6 +24,7 @@
                 </div>
                 <div class="panel-body " style="background:#F5F6F0">
                   <div class="table-responsive">
+                <?php echo $this->Session->flash('notification'); ?>
                 <?php echo $this->Session->flash(); ?>
                 <br>
                     <!-- start box -->
@@ -83,6 +84,8 @@
           </div>
           <div style="background:#fff;" class="panel-footer text-center">
            <!-- <form class="form-inline">-->
+           <?php if($sum_beni > 0) {?>
+
                <?php echo $this->Form->create('Withdrawal');?>
               <div  class="form-group">
                 <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
@@ -106,6 +109,10 @@
               </div>
               </div>
              <?php echo $this->Form->end();?>
+
+             <?php }else{ ?>
+              <?php echo ' <p>ទឹកប្រាក់ដែលលោកអ្នកបានដកពីផលជើងសារ</p>' ?>
+              <?php } ?>
             <hr/>
           </div>
         </div>

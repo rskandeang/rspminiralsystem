@@ -34,8 +34,8 @@ public $validate = array(
 		        'message' => 'សូមបញ្ចូលជាលេខ',
 		    ),
 		    'between' => array(
-	            'rule' => array('between', 8, 24),
-	            'message' => 'លេខចាប់ពិ 4 រហូតដល់ 24 ខ្ទង់'
+	            'rule' => array('between', 4, 24),
+	            'message' => 'លេខចាប់ពី 4 រហូតដល់ 24 ខ្ទង់'
 	        )
 		),
         //'password'=>array(

@@ -20,7 +20,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="#"><span>
-                  <?php echo $this->Html->link( " ចាកចេញ",array('controller'=>'Clients','action'=>'logout'),array('style'=>'color:green','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
+                  <?php echo $this->Html->link( " ចាកចេញ",array('controller'=>'Clients','action'=>'logout'),array('style'=>'color:green','class'=>'fa fa-sign-out') );?></span></a></li>
                   
                   </ul>
                 </li>

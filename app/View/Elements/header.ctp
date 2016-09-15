@@ -49,7 +49,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="#"><span>
-                  <?php echo $this->Html->link("​ ចាកចេញ?",array('controller'=>'Users','action'=>'logout'),array('style'=>'color:#000;margin-bottom: 10px;','class'=>'glyphicon glyphicon-lock') );?></span></a></li>
+                  <?php echo $this->Html->link("​ ចាកចេញ?",array('controller'=>'Users','action'=>'logout'),array('style'=>'color:#000;margin-bottom: 10px;','class'=>'fa fa-sign-out') );?></span></a></li>
 
 
                   <!-- <li><a href="#"><span>

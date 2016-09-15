@@ -1,4 +1,4 @@
-<p><?php echo $this->Session->flash(); ?></p>
+
 <div class="container-fluid">
   <div class="row ">
      <div class="col-md-12">
@@ -28,6 +28,7 @@
                 </div>
                 <div class="panel-body">
                   <div class="table-responsive">
+                    <p><?php echo $this->Session->flash(); ?></p>
                     <table class="col-md-12 table table-bordered table-hover table-striped " cellpadding="0" cellspacing="0">
                       <thead style="background-color:#f5f5f5;" > 
                         <tr> 

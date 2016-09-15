@@ -12,6 +12,13 @@ class CostomersController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow('login_cus'); 
     }
+
+ /**
+ * This is the view for the customer 
+ * You can search your data in the view by ID, Username, Gender, Phone, Email.
+ * 
+ */
+
 	function index(){
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
@@ -33,31 +40,38 @@ class CostomersController extends AppController {
 						);
 		//$users = $this->User->find('all');
 		$this->set('costomers',$this->paginate());
-		// var_dump($keyword);exit();
 
-		//test ------------------------------
+	/**
+	* notification: when you buy or withdrawal your money will alert to the admin side.
+	* using it in all page for you can see it.
+	*/
+
 		$this->loadModel('Logs');	
 		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
-
 		$this->set('logs',$Logs);
 	}
-	function login(){
 
-		if ($this->request->is('post')) {
-			if ($this->Auth->login()) {
-				return $this->redirect('index');
-			} else {
-				$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ'));
-			}
-		}       
-	}
+	/**
+	* Customer Authentication for logout,
+	* @return boolean.
+	*/
 
 	function logout() {
 		
 		$this->Session->destroy();
 		$this->redirect($this->Auth->logout());
 	}
+
+	/**
+	* Add new customer to the system.
+	* Add customer one: to the table one in the database
+	* Add customer two: to the table two
+	* Add customer three: to the table three
+	* Add customer four: to the table four.
+	*/
+
 	function add(){
+
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
@@ -66,11 +80,9 @@ class CostomersController extends AppController {
 			$this->Costomer->create();
 			//pr($this->request->data);exit;
 			if($this->Costomer->save($this->request->data)){
-
 				$findId=$this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
-				//pr($id);exit;
 				$code = $this->request->data['Costomer']['code'];
 				$first = $this->request->data['Costomer']['first'];
 					if($first == 1){
@@ -82,16 +94,14 @@ class CostomersController extends AppController {
 						'costomer_id' => $id
 						));
 						$this->One->save($refer = $this->request->data);
-
-						
-						
 						$this->Costomer->saveField('user_name', $own_id);
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីមួយម្នាក់'));
+						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 
 						$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));	
-					}		
+					}	
+
 					else if(strpos($code, 'ST') !== false){
 						   $find_referid = $this->request->data;
 							foreach($find_referid as $find_referids){
@@ -125,7 +135,7 @@ class CostomersController extends AppController {
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
 						
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបីម្នាក់'));
+						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 
 						$this->Costomer->saveField('user_name', 'ND'.$own_id);
 
@@ -167,8 +177,7 @@ class CostomersController extends AppController {
 								$this->redirect(array(
 						'controller'=>'Costomers',
 						'action'=>'index'));
-					}
-						
+					}	
 					else if(strpos($code, 'ND') !== false){
 						$find_referid = $this->request->data;
 							foreach($find_referid as $find_referids){
@@ -206,7 +215,7 @@ class CostomersController extends AppController {
 							$this->Costomer->saveField('user_name', 'RD'.$own_id);
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
-							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបួនម្នាក់'));				
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));				
 							$str2 = substr($code, 2);
 							$addstr = 'ST'.$str2;
 							$threestr = 'ND'.$str2;
@@ -260,13 +269,15 @@ class CostomersController extends AppController {
 										$this->redirect(array(
 										'controller'=>'Costomers',
 										'action'=>'index'));
-					}
+					
+				}
 					else if(strpos($code, 'RD') !== false){
 						$find_referid = $this->request->data;
 							foreach($find_referid as $find_referids){
 								$refer_code = $find_referids['code'];
 							}
 							
+				
 							if(strpos($refer_code, 'ST') !== false || strpos($refer_code, 'ND') !== false || strpos($refer_code, 'RD') !== false){
 								$code_refer = substr($refer_code, 2);
 								//pr($code_refer);exit;
@@ -356,7 +367,7 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
-								$this->Session->setFlash(__('អ្នកបានបង្កើតអិតថិជនថ្មីម្នាក់ទៀត'));
+								$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 								$this->redirect(array(
 									'controller'=>'Costomers',
 									'action'=>'index'));
@@ -370,6 +381,7 @@ class CostomersController extends AppController {
 							foreach($find_referid as $find_referids){
 								$refer_code = $find_referids['code'];
 							}
+							
 								//$own_id = date('YmdHis');
 								$own_id = $refer_code.$id;
 								
@@ -386,7 +398,7 @@ class CostomersController extends AppController {
 								$this->One->save($this->request->data);
 
 								$this->Costomer->saveField('user_name', 'ST'.$own_id);
-								$this->Session->setFlash(__('អ្នកបានបង្កើតអិតថិជនទីពីរម្នាក់'));
+								$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 
 								$this->redirect(array(
 						'controller'=>'Costomers',
@@ -397,7 +409,8 @@ class CostomersController extends AppController {
 
 				
 			}
-			$this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'));
+			// $this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'));
+			$this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
 		}
 		//test ------------------------------
 		$this->loadModel('Logs');	
@@ -608,7 +621,10 @@ class CostomersController extends AppController {
 			// balance money
 			$balance = $sum_beni - $sum_draw;
 			
-			$date_time = date('Y-m-d H:i:s');
+			$date = date('Y-m-d​​');
+		    $time = date('H:i:s');
+		    $time1 = $time+5;
+		    $date_time = $date.' '.$time1.':'.date('i:s');
 			
 			if($sum_beni > 0){
 				if($this->request->is('post') == 1){
@@ -622,12 +638,13 @@ class CostomersController extends AppController {
 						$input_money = $inputs['money'];
 					}
 					if($input_money == null || $input_money<1){
-						$this->Session->setFlash('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'); 
+						$this->Session->setFlash(__('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'), 'default', array('class' => 'notification'), 'notification');
+
 						$this->redirect(array(
 							'controller'=>'Costomers',
 							'action'=>'view',$id));
 					}
-					else if($input_money < $balance){
+					else if($input_money <= $balance){
 						if($test = $this->Withdrawal->save($this->request->data)){
 							
 							// save draw money in logs table
@@ -645,8 +662,9 @@ class CostomersController extends AppController {
 								'date' => $purdate,
 								'cus_id' => $id));
 							//pr($test1);exit;
+
 							$this->Logs->save($this->request->data);
-		
+					$this->Session->setFlash(__('លោកអ្នបានដកប្រាក់ចំនួន'.' $ '.$amounts_money));
 							
 							$this->redirect(array(
 							'controller'=>'Costomers',
@@ -654,11 +672,17 @@ class CostomersController extends AppController {
 						}
 						
 					}
-					else{$this->Session->setFlash('អ្នកមិនអាចដកប្រាក់ច្រើនជាងប្រាក់នៅសល់របស់អ្នកទេ');}
+					else{
+						$this->Session->setFlash(__('អ្នកមិនអាចដកប្រាក់ច្រើនជាងប្រាក់នៅសល់របស់អ្នកទេ'), 'default', array('class' => 'notification'), 'notification');
+				}
 					$this->set('id', $id);
+
 				}
 				
 			}
+
+					
+			
 			
 			
 			
@@ -873,13 +897,16 @@ class CostomersController extends AppController {
 				$lastname = $find_names['Costomer']['last_name'];
 			}
 			
-		$date = date('Y-m-d​​ H:i:s');
+		$date = date('Y-m-d​​');
+		$time = date('H:i:s');
+		$time1 = $time+5;
+		$date_time = $date.' '.$time1.':'.date('i:s');
 		
 		if($this->request->is('post')){
 			$this->Purchase->create();
 			$this->Purchase->set(array(
 			'price' => 15,
-			'pur_date' => $date,
+			'pur_date' => $date_time,
 			'name' => $firstname.' '.$lastname,
 			'customer_id' => $id));
 			$input_data = $this->request->data;
@@ -916,7 +943,7 @@ class CostomersController extends AppController {
 								'cus_id' => $id));
 							//pr($test1);exit;
 							$this->Logs->save($this->request->data);
-					
+						$this->Session->setFlash(__('លោកអ្នបានទិញចំនួន​ '.$amounts_pur.' កេស'));
 					$this->redirect(array(
 					'controller'=>'Costomers',
 					'action'=>'view_pur',$id));
@@ -1312,13 +1339,6 @@ class CostomersController extends AppController {
           $this->set('purchases', $findpurchase);
          // var_dump($findpurchase);exit();
 
-        $this->loadModel('Money');
-        $findmoney = $this->Money->find('all',array(
-                        'order' => 'Money.money_id ASC'
-                        ));
-         $this->set('monies', $findmoney);
-         // var_dump($findmoney);exit();
-
 		$datas = $this->Logs->find('all',array('conditions'=>array('status'=>'1')));
 		foreach ($datas as $data) {
 			$this->Logs->id = $data['Logs']['lock_id'];
@@ -1469,6 +1489,7 @@ class CostomersController extends AppController {
 					$this->Session->setFlash('ពត៌មានរបស់អតិថិជនត្រូវបានកែតម្រូវ');
 				    $this->redirect('index');
 				}
+			$this->Session->setFlash(__('ពត៌មានរបស់អតិថិជនកែតម្រូវមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
 			}
 
 			$this->request->data =$data;
@@ -1491,6 +1512,7 @@ class CostomersController extends AppController {
 					'controller'=>'Costomers',
 					'action'=>'view_setting',$id));
 				}
+			$this->Session->setFlash(__('អ្នកែតម្រូវពត៌មានរបស់អ្នកមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
 			}
 			$this->set('id', $id);
 			$this->request->data =$data;

@@ -24,6 +24,7 @@
         <i style="color:green; font-size:20px;" class="fa fa-line-chart pull-right"></i><h1>
         </div>
         <div class="panel-body">
+                
 			<!-- box form to buy -->
 				<div class="table-responsive"> 
 				<!-- input add purchase -->
@@ -50,6 +51,7 @@
 			</div>
 			<!-- end box form to buy -->
           <div class="table-responsive">
+          	<?php echo $this->Session->flash(); ?>
             <table class="col-md-12 table table-bordered table-hover table-striped" cellpadding="0" cellspacing="0">
               <thead > 
                 <tr> 

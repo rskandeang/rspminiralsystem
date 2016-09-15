@@ -12,6 +12,13 @@ class WithdrawalsController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow('login','add','index','edit','header'); 
     }
+
+ /**
+ * This is the view for the withdrawals 
+ * You can search your data in the view by ID, Username
+ * Pagination
+ */
+
 	function index(){
 		$keyword = $this->request->query('Search');
 		$this->paginate = array(
@@ -26,23 +33,31 @@ class WithdrawalsController extends AppController {
 		//$users = $this->User->find('all');
 		$this->set('withdrawals',$this->paginate());
 	}
-// 	public function index(){
-// 			// $this->set('purchases',$this->Purchase->find('all'));
-// 	$withdrawals = $this->Withdrawal->find('all');
+	/*
 
-//     $this->set('withdrawals',$withdrawals);
+ 	public function index(){
+ 	$this->set('purchases',$this->Purchase->find('all'));
+ 	$withdrawals = $this->Withdrawal->find('all');
+    $this->set('withdrawals',$withdrawals);
+ 	}
 
-   
-// }
+	*/
 
+	/**
+	* Notification: use to alert when client withdrawals the money. 
+	*/
 
 	public function notification() {	
 		$Withdrawal =$this->Withdrawal->find('count', array('conditions'=>array('status'=>'1')));
-		
-		// $this->render('/elements/header/');
 		$this->set('withdrawals',$Withdrawal);
 		
     }
+
+    /**
+	* Delete: use to update the count time on the menu bar, How many time client withdrawals
+	* update all fields of status to 0  
+	*/
+
     public function delete($id =null){
     	$datas=$this->Withdrawal->find('all',array('conditions'=>array('status'=>'1')));
 		foreach ($datas as $data) {

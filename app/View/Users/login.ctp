@@ -1,3 +1,4 @@
+<?php echo $this->Session->flash('notification'); ?>
 <div id="loginform">
 	<div id="facebook"><img id="my-logologin" src="img/Logos-login.png" alt"logo"><div id="connect"></div></div>
 		<div id="mainlogin">

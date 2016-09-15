@@ -7,8 +7,8 @@
 		  		<h3 class="panel-title"><strong style="color:#1d933F;">ចុះឈ្មោះអ្នកគ្រប់គ្រង</strong></h3>
 		  </div>
 			  <div class="panel-body">
-			  	<p><?php echo $this->Session->flash(); ?></p>
-			  
+				<?php echo $this->Session->flash('notification'); ?>
+			  	
 			  		<?php echo $this->Form->create('User',array('enctype'=>'multipart/form-data'));?>
 			            <div class="row">
 			                <div class="col-xs-12 col-sm-6 col-md-6">

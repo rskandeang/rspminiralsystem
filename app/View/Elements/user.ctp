@@ -6,7 +6,7 @@
         <!-- <div style="" class="col-md-12"><h4 class="text-center">List for all users</h4></div> -->
     </div>
     <div class="col-md-12 ">
-        <p><?php echo $this->Session->flash(); ?></p>
+         
       
         <div style="background-color:#E7E7E7;padding:6px;margin-bottom: 20px; " class="col-md-2 panel-body">
            
@@ -25,11 +25,14 @@
             <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-heading">
+                   
+        
                     <h1 class="panel-title "><strong class="pull-left" style="color:#1d933F;">​បញ្ជីឈ្មោះអ្នកគ្រប់គ្រង</strong>
                       <i style="color:green; font-size:20px;" class="fa fa-users fa-lg pull-right"></i><h1>
                 </div>
                 <div class="panel-body">
                   <div class="table-responsive">
+                    <p><?php echo $this->Session->flash(); ?></p>
                     <table class="col-md-12 table table-bordered table-hover table-striped " cellpadding="0" cellspacing="0">
                       <thead style="background-color:#f5f5f5;" > 
                         <tr> 

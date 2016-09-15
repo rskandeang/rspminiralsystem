@@ -11,7 +11,7 @@
           <div class="table-responsive">
           
             <div class="col-md-12">
-
+              <?php echo $this->Session->flash('notification'); ?>
           <br>
 
 
@@ -25,7 +25,7 @@
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
                   <?php echo $this->Form->input('email', array(
-                    'class' => 'form-control','placeholder'=>'Email ID','label' => false ));?>
+                    'class' => 'form-control','placeholder'=>'សារអេឡិចទ្រូនិច','label' => false ));?>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
                   <?php echo $this->Form->input('first_name', array(
-                    'class' => 'form-control','placeholder'=>'last name','label' => false ));?>
+                    'class' => 'form-control','placeholder'=>'នាមត្រកូល','label' => false ));?>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
                   <?php echo $this->Form->input('last_name', array(
-                    'class' => 'form-control','placeholder'=>'last name','label' => false ));?>
+                    'class' => 'form-control','placeholder'=>'នាមខ្លួន','label' => false ));?>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
                   <?php echo $this->Form->input('gender', array(
-                    'class' => 'form-control','placeholder'=>'login name','label' => false ));?>
+                    'class' => 'form-control','placeholder'=>'ភេទ','label' => false ));?>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <div class="form-group">
                   <?php echo $this->Form->input('phone', array(
-                    'class' => 'form-control','placeholder'=>'last name','label' => false ));?>
+                    'class' => 'form-control','placeholder'=>'លេខទូស័ព្ទ','label' => false ));?>
                 </div>
               </div>
             </div>

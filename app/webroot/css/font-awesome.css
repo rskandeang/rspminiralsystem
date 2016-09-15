@@ -587,6 +587,8 @@
 }
 .fa-sign-out:before {
   content: "\f08b";
+      color: #1d933F;
+    font-size: 15px;
 }
 .fa-linkedin-square:before {
   content: "\f08c";

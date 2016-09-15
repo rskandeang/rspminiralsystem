@@ -43,16 +43,6 @@ class ClientsController extends AppController {
 
 		$this->set('logs',$Logs);
 	}
-	function login(){
-
-		if ($this->request->is('post')) {
-			if ($this->Auth->login()) {
-				return $this->redirect('index');
-			} else {
-				$this->Session->setFlash(__('Invalid username or password'));
-			}
-		}       
-	}
 
 	function logout() {
 		
@@ -528,8 +518,11 @@ class ClientsController extends AppController {
 			// balance money
 			$balance = $sum_beni - $sum_draw;
 			
-			$date_time = date('Y-m-d H:i:s');
-			
+			$date = date('Y-m-d​​');
+		   $time = date('H:i:s');
+		   $time1 = $time+5;
+		   $date_time = $date.' '.$time1.':'.date('i:s');
+					
 			if($sum_beni > 0){
 				if($this->request->is('post') == 1){
 					$test = $this->Withdrawal->set(array(
@@ -541,12 +534,14 @@ class ClientsController extends AppController {
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
 					}
-					if($input_money == null){
+					if($input_money == null || $input_money<1){
+						$this->Session->setFlash(__('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'), 'default', array('class' => 'notification'), 'notification');
+
 						$this->redirect(array(
 							'controller'=>'Clients',
 							'action'=>'view',$id));
 					}
-					else if($input_money < $balance){
+					else if($input_money <= $balance){
 						if($test = $this->Withdrawal->save($this->request->data)){
 							
 							// save draw money in logs table
@@ -560,17 +555,20 @@ class ClientsController extends AppController {
 					}
 					$test1 = $this->Logs->set(array(
 								'cus_name' => $firstname.' '.$lastname ,
-								'amounts' => '$ '.$amounts_money,
+								'amounts' => 'បានដកប្រាក់ចំនួន $ '.$amounts_money,
 								'date' => $purdate,
 								'cus_id' => $id));
 							//pr($test1);exit;
 							$this->Logs->save($this->request->data);
-		
+							$this->Session->setFlash(__('លោកអ្នបានដកប្រាក់ចំនួន'.' $ '.$amounts_money));
 							
 							$this->redirect(array(
 							'controller'=>'Clients',
 							'action'=>'view',$id));
 						}
+					}else{
+						$this->Session->setFlash(__('អ្នកមិនអាចដកប្រាក់ច្រើនជាងប្រាក់នៅសល់របស់អ្នកទេ'), 'default', array('class' => 'notification'), 'notification');
+
 					}
 					$this->set('id', $id);
 				}
@@ -790,12 +788,15 @@ class ClientsController extends AppController {
 				$lastname = $find_names['Costomer']['last_name'];
 			}
 			
-		$date = date('Y-m-d');
+		$date = date('Y-m-d​​');
+	   $time = date('H:i:s');
+	   $time1 = $time+5;
+	   $date_time = $date.' '.$time1.':'.date('i:s');
 		if($this->request->is('post')){
 			$this->Purchase->create();
 			$this->Purchase->set(array(
 			'price' => 15,
-			'pur_date' => $date,
+			'pur_date' => $date_time,
 			'name' => $firstname.' '.$lastname,
 			'customer_id' => $id));
 			$input_data = $this->request->data;
@@ -827,12 +828,12 @@ class ClientsController extends AppController {
 					}
 					$test1 = $this->Logs->set(array(
 								'cus_name' => $firstname.' '.$lastname ,
-								'amounts' => $amounts_pur.' case',
+								'amounts' => 'បានទិញចំនួន '.$amounts_pur.' កេស',
 								'date' => $purdate,
 								'cus_id' => $id));
 							//pr($test1);exit;
 							$this->Logs->save($this->request->data);
-					
+						$this->Session->setFlash(__('លោកអ្នបានទិញចំនួន​ '.$amounts_pur.' កេស'));
 					$this->redirect(array(
 					'controller'=>'Clients',
 					'action'=>'view_pur',$id));
@@ -1225,14 +1226,6 @@ class ClientsController extends AppController {
                         ));
           $this->set('purchases', $findpurchase);
          // var_dump($findpurchase);exit();
-
-        $this->loadModel('Money');
-        $findmoney = $this->Money->find('all',array(
-                        'order' => 'Money.money_id ASC'
-                        ));
-         $this->set('monies', $findmoney);
-         // var_dump($findmoney);exit();
-
 		$datas = $this->Logs->find('all',array('conditions'=>array('status'=>'1')));
 		foreach ($datas as $data) {
 			$this->Logs->id = $data['Logs']['lock_id'];
@@ -1379,9 +1372,11 @@ class ClientsController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
+					$this->Session->setFlash('ពត៌មានរបស់អតិថិជនត្រូវបានកែតម្រូវ');
 				    $this->redirect('index');
 				}
+			$this->Session->setFlash(__('ពត៌មានរបស់អតិថិជនកែតម្រូវមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
+
 			}
 
 			$this->request->data =$data;
@@ -1399,11 +1394,13 @@ class ClientsController extends AppController {
 			if($this->request->is(array('post','put'))){
 				$this->Costomer->id=$id;
 				if($this->Costomer->save($this->request->data)){
-					$this->Session->setFlash('You have been update');
+					$this->Session->setFlash('ពត៌មានរបស់អ្នកត្រូវបានកែតម្រូវ');
 				    $this->redirect(array(
-					'controller'=>'Costomers',
+					'controller'=>'Clients',
 					'action'=>'view_setting',$id));
 				}
+			$this->Session->setFlash(__('ពត៌មានរបស់អ្នកកែតម្រូវមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
+
 			}
 			$this->set('id', $id);
 			$this->request->data =$data;
@@ -1479,8 +1476,12 @@ class ClientsController extends AppController {
 				$this->redirect(array(
 					'controller'=>'Clients',
 					'action'=>'view',$id));
-			}
+			}else{
+			$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
 		}
+			
+		}
+
 	}
 
 }
