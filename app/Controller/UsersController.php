@@ -61,13 +61,44 @@ class UsersController extends AppController {
 	*/
 
 	function login(){
+		$this->loadModel('Costomer');
 		if ($this->request->is('post')) {
-			if ($this->Auth->login()) {
+			$check = $this->request->data;
+			foreach($check as $checked){
+				$username = $checked['username'];
+				$password = $checked['password'];
+				
+			}
+			$find_user = $this->User->find('all', array(
+			'conditions' => array(
+			'username' => $username)));
+			foreach($find_user as $find_users){
+				$role = $find_users['User']['role'];
+				//pr($role);exit;
+			}
+			if($role == 'user'){
+				if ($this->Auth->login()) {
+					
+					$find_id = $this->Costomer->find('all', array(
+					'conditions' => array(
+					'user_name' => $username)));
+					foreach($find_id as $find_ids){
+						$id = $find_ids['Costomer']['id'];
+					}
+					$this->redirect( array('controller' => 'Clients', 'action' => 'view',$id));
+					} else {
+						$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
+				}
+			}else{
+				if ($this->Auth->login()) {
+				//pr($this->Auth->login());exit;
 				// $this->Session->setFlash(__('សួរស្ដី, '. $this->Auth->user('username')));
 				$this->redirect( array('controller' => 'Costomers', 'action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
+				} else {
+					$this->Session->setFlash(__('ឈ្មោះគណនីយ ឬ លេខសំងាត់មិនត្រិមត្រូវ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
+				}
 			}
+			
 		}       
 	}
 
@@ -78,7 +109,6 @@ class UsersController extends AppController {
 	*/
 
 	function logout() {
-		
 		$this->Session->destroy();
 		$this->redirect($this->Auth->logout());
 	}
@@ -181,6 +211,7 @@ class UsersController extends AppController {
 					*/
 					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 					if($this->User->save($this->request->data)){
+						$this->User->saveField('role', 'admin');
 						$this->Session->setFlash(__('អ្នកបង្កើតអ្នកគ្រប់គ្រងម្នាក់ទៀត'));
 						return $this->redirect('index');
 					}else {

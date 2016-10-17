@@ -206,9 +206,9 @@ class I18n {
 		}
 
 		if (empty($language)) {
-			if (CakeSession::started()) {
-				$language = CakeSession::read('Config.language');
-			}
+			// if (CakeSession::started()) {
+			// 	$language = CakeSession::read('Config.language');
+			// }
 			if (empty($language)) {
 				$language = Configure::read('Config.language');
 			}

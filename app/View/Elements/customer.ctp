@@ -42,7 +42,7 @@
                                     <?php echo $this->Paginator->sort('last_name', 'នាមខ្លួន',array('style'=>'color:#000;')); ?></th>
                         
                         <th class="table-header" style="text-align: center;">
-                                    <?php echo $this->Paginator->sort('user_name', 'កូដគណនីយ',array('style'=>'color:#000;')); ?></th>
+                                    <?php echo $this->Paginator->sort('user_name', 'កូដគណនី',array('style'=>'color:#000;')); ?></th>
                                   <th class="table-header" style="text-align: center;">
                                     <?php echo $this->Paginator->sort('gender', 'ភេទ',array('style'=>'color:#000;')); ?></th>
                           

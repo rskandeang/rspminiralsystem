@@ -1,0 +1,45 @@
+Searching 1227 files for "កូដគណនីយ"
+
+D:\XAMPP\htdocs\rspminiralsystem\app\View\Elements\customer.ctp:
+   43                          
+   44                          <th class="table-header" style="text-align: center;">
+   45:                                     <?php echo $this->Paginator->sort('user_name', 'កូដគណនី',array('style'=>'color:#000;')); ?></th>
+   46                                    <th class="table-header" style="text-align: center;">
+   47                                      <?php echo $this->Paginator->sort('gender', 'ភេទ',array('style'=>'color:#000;')); ?></th>
+
+D:\XAMPP\htdocs\rspminiralsystem\app\View\Elements\setting_client.ctp:
+  124                        <div class="col-xs-12 col-sm-6 col-md-4">
+  125                    <div class="form-group text-right">
+  126:                              <label>កូដគណនី</label>
+  127                               
+  128                </div>
+
+D:\XAMPP\htdocs\rspminiralsystem\app\View\Elements\setting_cus.ctp:
+  124                        <div class="col-xs-12 col-sm-6 col-md-4">
+  125                    <div class="form-group text-right">
+  126:                              <label>កូដគណនី</label>
+  127                               
+  128                </div>
+
+D:\XAMPP\htdocs\rspminiralsystem\app\View\Elements\update_cus.ctp:
+   33                        <div class="col-xs-12 col-sm-6 col-md-4">
+   34                    <div class="form-group text-right">
+   35:                        <label>កូដគណនី</label>      
+   36                </div>
+   37                </div>
+
+D:\XAMPP\htdocs\rspminiralsystem\app\View\Elements\update_customer.ctp:
+   29  			    				<!-- <div class="form-group">
+   30  									<?php echo $this->Form->input('user_name', array(
+   31: 										'class' => 'form-control','placeholder'=>'កូដគណនី','label' => false ));?>
+   32  								</div> -->
+   33  							
+
+D:\XAMPP\htdocs\rspminiralsystem\app\View\Elements\update_user.ctp:
+   27  						<div class="form-group">
+   28  							<?php echo $this->Form->input('username', array(
+   29: 										'class' => 'form-control','placeholder'=>'កូដគណនី','label' => false ));?>
+   30  						</div>
+   31  						<!-- <div class="form-group">
+
+6 matches across 6 files

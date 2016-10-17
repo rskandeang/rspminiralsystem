@@ -123,7 +123,7 @@
 			       <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                             <label>កូដគណនីយ</label>
+                             <label>កូដគណនី</label>
                              
               </div>
               </div>
@@ -146,6 +146,21 @@
                   <?php echo $customers['Costomer']['phone']?>
                 </div>
               </div>
+            </div>
+            <!--<div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="form-group text-right">
+                             <label>អាសយដ្ឋាន</label>
+                             
+              </div>
+              </div>
+               <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="form-group">
+                  <?php //echo $customers['Costomer']['address']?>
+                </div>
+              </div> -->
+			  <?php
+			  echo $this->Html->link('http://localhost/final/rspminiralsystem/Costomers/add?code='.$cus_code);?>
             </div>
                       <?php echo $this->Form->end();?>
         

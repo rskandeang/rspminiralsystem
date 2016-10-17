@@ -39,6 +39,7 @@
 }
 </style>
 <div class="col-md-9">
+
 <?php 
 	foreach($customers as $customer){
 		$fist = $customer['first'];

@@ -1,6 +1,14 @@
-<?php echo $this->element('header_client') ?>
-<?php echo $this->element('customer_detail_header') ?>
-<?php echo $this->element('menu_sidebar_right_client') ?>
-<?php echo $this->element('customer_detail') ?>
-<?php echo $this->element('customer_detail_footer') ?>
-<?php echo $this->element('footer') ?>
+<?php
+	$login_name = $this->Session->read('Auth.User.username');
+	if($login_name == $user_name){
+		echo $this->element('header_client');
+		echo $this->element('customer_detail_header');
+		echo $this->element('menu_sidebar_right_client');
+		echo $this->element('customer_detail');
+		echo $this->element('customer_detail_footer');
+	}
+	else{
+		
+	}
+?>
+

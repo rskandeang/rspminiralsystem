@@ -1,4 +1,4 @@
-
+<?php $code_refer = $this->request->query('code');?>
 <div class="container" style="margin-top:30px">
 	<div class="col-md-2"></div>
 	<div class="col-md-6 col-md-offset-1">
@@ -55,31 +55,13 @@
 							<?php echo $this->Form->input('email', array(
 											'class' => 'form-control','placeholder'=>'សារអេឡិចទ្រូនិច','label' => false));?>
 						</div>
-						<div class="row">	
-							<div class="col-xs-12 col-sm-6 col-md-6">
-								<label>តើអ្នកជាអតិថិជនទីមួយឬ?</label>
-								<!-- <?php echo $this->Form->label('តើអ្នកជាអតិថិជនទីមួយឬ?');?> -->
-							</div>
-								<div class="col-xs-12 col-sm-6 col-md-6">
-								<div style="margin-top:-10px;" >
-									<div style='margin-top: 11px;'><label>ទីមួយ</label></div>
-									
-										<?php echo $this->Form->input('first',array(
-											  'class'=>'form-check-input',
-											  'id' => 'box',
-			                                  'type'=>'checkbox',
-			                                  'label'=>false,
-			                                  'style'=>'margin-top:-27px;',
-			                                  'format' => array('before', 'input', 'between', 'label', 'after', 'error'))); ?>
-								</div>
-								</div>
-							
-							</div>
+						
 						<div class="form-group">
 							<?php echo $this->Form->input('code', array(
 											'class' => 'form-control'
 											,'placeholder'=>'លេខសំងាត់អតិថិជន',
 											'id' => 'text',
+											'value' => $code_refer,
 											'label' => false,
 											'id' => 'text'));?>
 						</div>
@@ -125,10 +107,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-
-	document.getElementById('box').onchange = function() {
-		document.getElementById('text').disabled = this.checked;
-	};
-</script>

@@ -26,7 +26,7 @@
 						</div>
 						<div class="form-group">
 							<?php echo $this->Form->input('username', array(
-										'class' => 'form-control','placeholder'=>'កូដគណនីយ','label' => false ));?>
+										'class' => 'form-control','placeholder'=>'កូដគណនី','label' => false ));?>
 						</div>
 						<!-- <div class="form-group">
 							<?php echo $this->Form->input('password', array(

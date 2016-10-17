@@ -504,6 +504,7 @@ class ClientsController extends AppController {
 				foreach($find_cus as $find_cuss){
 					$lastname = $find_cuss['Costomer']['last_name'];
 					$firstname = $find_cuss['Costomer']['first_name'];
+					$user_name = $find_cuss['Costomer']['user_name'];
 				}
 			$drawal = $this->Withdrawal->find('all',array(
 			'conditions' => array(
@@ -534,7 +535,7 @@ class ClientsController extends AppController {
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
 					}
-					if($input_money == null || $input_money<1){
+					if($input_money == null || $input_money<= 0){
 						$this->Session->setFlash(__('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'), 'default', array('class' => 'notification'), 'notification');
 
 						$this->redirect(array(
@@ -626,6 +627,7 @@ class ClientsController extends AppController {
 			}
 		}
 
+		$this->set('user_name', $user_name);	
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('cus_code', $cus_code);	
@@ -786,6 +788,7 @@ class ClientsController extends AppController {
 			foreach($find_name as $find_names){
 				$firstname = $find_names['Costomer']['first_name'];
 				$lastname = $find_names['Costomer']['last_name'];
+				$user_name = $find_names['Costomer']['user_name'];
 			}
 			
 		$date = date('Y-m-d​​');
@@ -842,6 +845,7 @@ class ClientsController extends AppController {
 			
 		}
 		
+		$this->set('user_name', $user_name);	
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('two', $two);	
@@ -992,6 +996,14 @@ class ClientsController extends AppController {
 		$findCustomer = $this->Costomer->findById($id);
 		// get code customer_id
 		
+		$findCustomer_username = $this->Costomer->find('all', array(
+		'conditions' => array(
+		'id' => $id)));
+		foreach($findCustomer_username as $findCustomer_usernames){
+			$user_name = $findCustomer_usernames['Costomer']['user_name'];
+		}
+		
+		$this->set('user_name', $user_name);	
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('two', $two);	
@@ -1148,6 +1160,7 @@ class ClientsController extends AppController {
 		
 		foreach($findCustomer as $findCustomers){
 			$refer = $findCustomer['Costomer']['code'];
+			$user_name = $findCustomer['Costomer']['user_name'];
 			if($refer == null){
 				$code_one = $this->One->find('all', array(
 				'conditions' => array(
@@ -1191,6 +1204,7 @@ class ClientsController extends AppController {
 			}
 		}
 
+		$this->set('user_name', $user_name);	
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('cus_code', $cus_code);	
@@ -1402,6 +1416,15 @@ class ClientsController extends AppController {
 			$this->Session->setFlash(__('ពត៌មានរបស់អ្នកកែតម្រូវមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
 
 			}
+			
+			$findCustomer_username = $this->Costomer->find('all', array(
+			'conditions' => array(
+			'id' => $id)));
+			foreach($findCustomer_username as $findCustomer_usernames){
+				$user_name = $findCustomer_usernames['Costomer']['user_name'];
+			}
+			
+			$this->set('user_name', $user_name);
 			$this->set('id', $id);
 			$this->request->data =$data;
 

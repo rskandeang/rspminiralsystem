@@ -32,7 +32,7 @@
             <!-- <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">
-                       <label>កូដគណនីយ</label>      
+                       <label>កូដគណនី</label>      
               </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
@@ -95,6 +95,19 @@
                 </div>
               </div>
             </div>
+             <!-- <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="form-group text-right">
+                            <label>អាសយដ្ឋាន</label>
+              </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="form-group">
+                  <?php //echo $this->Form->input('address', array(
+                    //'class' => 'form-control','placeholder'=>'អាសយដ្ឋាន','label' => false ));?>
+                </div>
+              </div>
+            </div> -->
 			     <div class="row">
                       <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="form-group text-right">

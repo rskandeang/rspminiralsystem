@@ -10,7 +10,7 @@ class CostomersController extends AppController {
 				  'RequestHandler');
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login_cus'); 
+        $this->Auth->allow('add'); 
     }
 
  /**
@@ -71,16 +71,19 @@ class CostomersController extends AppController {
 	*/
 
 	function add(){
-
+	
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
 		$this->loadModel('Four');
+		$this->loadModel('User');
+		$user_role = $this->Session->read('Auth.User.role');
+		
+	
 		if($this->request->is('post')){
 			$this->Costomer->create();
-			//pr($this->request->data);exit;
 			if($this->Costomer->save($this->request->data)){
-				$findId=$this->Costomer->find('first',array(
+				$findId = $this->Costomer->find('first',array(
                             'order'=>'Costomer.id DESC')); 
                 $id = $findId['Costomer']['id'];
 				$code = $this->request->data['Costomer']['code'];
@@ -93,13 +96,62 @@ class CostomersController extends AppController {
 						'code' =>  $own_id,
 						'costomer_id' => $id
 						));
-						$this->One->save($refer = $this->request->data);
-						$this->Costomer->saveField('user_name', $own_id);
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+						$this->One->save($this->request->data);
+			
+						if($this->Costomer->saveField('user_name', $own_id)){
+							$create_user = $this->Costomer->find('first',array(
+                            'order'=>'Costomer.id DESC'));
+							$this->User->create();
+							foreach($create_user as $create_users){
+								$firstname = $create_users['first_name'];
+								$lastname = $create_users['last_name'];
+								$username = $create_users['user_name'];
+								$gender = $create_users['gender'];
+								$pass_word = $create_users['password'];
+								$phone = $create_users['phone'];
+								$email = $create_users['email'];
+							}
+							$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
+							$password = $this->request->data['Costomer']['password'];
+							$test = $this->User->set(array(
+							'firstname' =>  $firstname,
+							'lastname' =>  $lastname,
+							'username' =>  $username,
+							'role' =>  'user',
+							'gender' =>  $gender,
+							'password' =>  $password,
+							'phone' =>  $phone,
+							'email' => $email
+							));
+							
+							$this->User->save($this->request->data);
+							//$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 
-						$this->redirect(array(
-						'controller'=>'Costomers',
-						'action'=>'index'));	
+							//$this->redirect(array(
+							//'controller'=>'Costomers',
+							//'action'=>'index'));
+							
+							if($user_role == 'admin'){
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+
+							$this->redirect(array(
+							'controller'=>'Costomers',
+							'action'=>'index'));	
+							}
+							else{
+								
+								$this->Session->setFlash(__('welcome Username: '.$username.' Password: '.$pass_word));
+								$this->redirect(array(
+							'controller'=>'Users',
+							'action'=>'login'));
+								
+							}
+							
+								
+							
+						}
+						
+						
 					}	
 
 					else if(strpos($code, 'ST') !== false){
@@ -110,12 +162,12 @@ class CostomersController extends AppController {
 							
 							if(strpos($refer_code, 'ST') !== false || strpos($refer_code, 'ND') !== false || strpos($refer_code, 'RD') !== false){
 								$code_refer = substr($refer_code, 2);
-								//pr($code_refer);exit;
+								//pr($refer_code);exit;
 							}
 							$find_refer_id = $this->One->find('all', array(
 							'conditions' => array(
 							'code' => $code_refer)));
-							//pr($refer_id);exit;
+							//pr($find_refer_id);exit;
 							foreach($find_refer_id as $find_refer_ids){
 								$refer_id = $find_refer_ids['One']['costomer_id'];
 							}
@@ -135,9 +187,38 @@ class CostomersController extends AppController {
 						'refer' => $re_code));
 						$this->Three->save($refer = $this->request->data);
 						
-						$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+						//$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 
-						$this->Costomer->saveField('user_name', 'ND'.$own_id);
+						if($this->Costomer->saveField('user_name', 'ND'.$own_id)){
+							$create_user = $this->Costomer->find('first',array(
+                            'order'=>'Costomer.id DESC'));
+							$this->User->create();
+							foreach($create_user as $create_users){
+								$firstname = $create_users['first_name'];
+								$lastname = $create_users['last_name'];
+								$username = $create_users['user_name'];
+								$gender = $create_users['gender'];
+								$pass_word = $create_users['password'];
+								$phone = $create_users['phone'];
+								$email = $create_users['email'];
+							}
+							$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
+							$password = $this->request->data['Costomer']['password'];
+							$test = $this->User->set(array(
+							'firstname' =>  $firstname,
+							'lastname' =>  $lastname,
+							'username' =>  $username,
+							'role' =>  'user',
+							'gender' =>  $gender,
+							'password' =>  $password,
+							'phone' =>  $phone,
+							'email' => $email
+							));
+							
+							$this->User->save($this->request->data);
+							
+							
+						}
 
 						$three = $this->Three->find('first', array(
 													'order' => array('Three.code' => 'asc')));
@@ -173,10 +254,24 @@ class CostomersController extends AppController {
 								'code' =>  $own_id,
 								'costomer_id' => $id));
 						//pr($testsent);exit;
-								$this->One->save($this->request->data);
+						
+							$this->One->save($this->request->data);
+								
+							if($user_role == 'admin'){
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+
+							$this->redirect(array(
+							'controller'=>'Costomers',
+							'action'=>'index'));	
+							}
+							else{
+								
+								$this->Session->setFlash(__('welcome Username: '.$username.' Password: '.$pass_word));
 								$this->redirect(array(
-						'controller'=>'Costomers',
-						'action'=>'index'));
+							'controller'=>'Users',
+							'action'=>'login'));
+								
+							}
 					}	
 					else if(strpos($code, 'ND') !== false){
 						$find_referid = $this->request->data;
@@ -212,9 +307,41 @@ class CostomersController extends AppController {
 							'costomer_id' => $id,
 							'refer' => $re_code));
 							$this->Four->save($this->request->data);
-							$this->Costomer->saveField('user_name', 'RD'.$own_id);
+							//$this->Costomer->saveField('user_name', 'RD'.$own_id);
 							//pr($this->Four->find('all'));
 							//pr($re_code);exit;
+							if($this->Costomer->saveField('user_name', 'RD'.$own_id)){
+								$create_user = $this->Costomer->find('first',array(
+								'order'=>'Costomer.id DESC'));
+								$this->User->create();
+								foreach($create_user as $create_users){
+									$firstname = $create_users['first_name'];
+									$lastname = $create_users['last_name'];
+									$username = $create_users['user_name'];
+									$gender = $create_users['gender'];
+									$pass_word = $create_users['password'];
+									$phone = $create_users['phone'];
+									$email = $create_users['email'];
+								}
+								$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
+								$password = $this->request->data['Costomer']['password'];
+								$test = $this->User->set(array(
+								'firstname' =>  $firstname,
+								'lastname' =>  $lastname,
+								'username' =>  $username,
+								'role' =>  'user',
+								'gender' =>  $gender,
+								'password' =>  $password,
+								'phone' =>  $phone,
+								'email' => $email
+								));
+								
+								$this->User->save($this->request->data);
+								
+								
+								
+							
+							}
 							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));				
 							$str2 = substr($code, 2);
 							$addstr = 'ST'.$str2;
@@ -266,12 +393,23 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 						//pr($testsent);exit;
 								$this->One->save($this->request->data);
+								
+								if($user_role == 'admin'){
+									$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+
+									$this->redirect(array(
+									'controller'=>'Costomers',
+									'action'=>'index'));	
+								}
+								else{
+										
+										$this->Session->setFlash(__('welcome Username: '.$username.' Password: '.$pass_word));
 										$this->redirect(array(
-										'controller'=>'Costomers',
-										'action'=>'index'));
-					
-				}
-					else if(strpos($code, 'RD') !== false){
+									'controller'=>'Users',
+									'action'=>'login'));	
+								}
+										
+				}else if(strpos($code, 'RD') !== false){
 						$find_referid = $this->request->data;
 							foreach($find_referid as $find_referids){
 								$refer_code = $find_referids['code'];
@@ -319,7 +457,36 @@ class CostomersController extends AppController {
 
 								$this->Four->save($this->request->data);
 						// ​		$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនទីបូន'));
-								$this->Costomer->saveField('user_name', 'RD'.$own_id);
+								//$this->Costomer->saveField('user_name', 'RD'.$own_id);
+								if($this->Costomer->saveField('user_name', 'RD'.$own_id)){
+									$create_user = $this->Costomer->find('first',array(
+									'order'=>'Costomer.id DESC'));
+									$this->User->create();
+									foreach($create_user as $create_users){
+										$firstname = $create_users['first_name'];
+										$lastname = $create_users['last_name'];
+										$username = $create_users['user_name'];
+										$gender = $create_users['gender'];
+										$pass_word = $create_users['password'];
+										$phone = $create_users['phone'];
+										$email = $create_users['email'];
+									}
+									$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
+									$password = $this->request->data['Costomer']['password'];
+									$test = $this->User->set(array(
+									'firstname' =>  $firstname,
+									'lastname' =>  $lastname,
+									'username' =>  $username,
+									'role' =>  'user',
+									'gender' =>  $gender,
+									'password' =>  $password,
+									'phone' =>  $phone,
+									'email' => $email
+									));
+									
+									$this->User->save($this->request->data);
+								
+								}
 								
 								$str2 = substr($code, 2);
 								$is_exist = $this->One->find('count',array(
@@ -367,13 +534,23 @@ class CostomersController extends AppController {
 								'costomer_id' => $id));
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
-								$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
-								$this->redirect(array(
+								if($user_role == 'admin'){
+									$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+
+									$this->redirect(array(
 									'controller'=>'Costomers',
-									'action'=>'index'));
+									'action'=>'index'));	
+								}
+								else{
+										
+										$this->Session->setFlash(__('welcome Username: '.$username.' Password: '.$pass_word));
+										$this->redirect(array(
+									'controller'=>'Users',
+									'action'=>'login'));	
+								}
+								
 							}
 					}
-				
 					else{
 							
 							$this->Two->create();
@@ -397,21 +574,84 @@ class CostomersController extends AppController {
 								//pr($testsent);exit;
 								$this->One->save($this->request->data);
 
-								$this->Costomer->saveField('user_name', 'ST'.$own_id);
-								$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+								if($this->Costomer->saveField('user_name', 'ST'.$own_id)){
+									$create_user = $this->Costomer->find('first',array(
+									'order'=>'Costomer.id DESC'));
+									$this->User->create();
+									foreach($create_user as $create_users){
+										$firstname = $create_users['first_name'];
+										$lastname = $create_users['last_name'];
+										$username = $create_users['user_name'];
+										$gender = $create_users['gender'];
+										$pass_word = $create_users['password'];
+										$phone = $create_users['phone'];
+										$email = $create_users['email'];
+									}
+									$this->request->data['Costomer']['password'] = AuthComponent::password($this->request->data['Costomer']['password']);
+									$password = $this->request->data['Costomer']['password'];
+									$test = $this->User->set(array(
+									'firstname' =>  $firstname,
+									'lastname' =>  $lastname,
+									'username' =>  $username,
+									'role' =>  'user',
+									'gender' =>  $gender,
+									'password' =>  $password,
+									'phone' =>  $phone,
+									'email' => $email
+									));
+									
+									$this->User->save($this->request->data);
+									
+									
+								
+									if($user_role == 'admin'){
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
 
+							$this->redirect(array(
+							'controller'=>'Costomers',
+							'action'=>'index'));	
+							}
+							else{
+								
+								$this->Session->setFlash(__('welcome Username: '.$username.' Password: '.$pass_word));
 								$this->redirect(array(
-						'controller'=>'Costomers',
-						'action'=>'index'));
+							'controller'=>'Users',
+							'action'=>'login'));
+								
+							}
+								}
+								
+								
+								
+								if($user_role == 'admin'){
+							$this->Session->setFlash(__('អ្នកបានបង្កើតអតិថិជនថ្មីម្នាក់ទៀត'));
+
+							$this->redirect(array(
+							'controller'=>'Costomers',
+							'action'=>'index'));	
+							}
+							else{
+								
+								$this->Session->setFlash(__('welcome Username: '.$username.' Password: '.$pass_word));
+								$this->redirect(array(
+							'controller'=>'Users',
+							'action'=>'login'));
+								
+							}
 								
 								
 						}
 
 				
 			}
+			
 			// $this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'));
 			$this->Session->setFlash(__('អ្នកបង្កើតអតិថិជនមិនទាន់បានទេ, សូមព្យាយាមម្ដងទៀត​​ !'), 'default', array('class' => 'notification'), 'notification');
 		}
+		/*$test = $this->Costomer->find('first',array(
+                            'order'=>'Costomer.id DESC'));
+		pr($test);exit;*/
+		
 		//test ------------------------------
 		$this->loadModel('Logs');	
 		$Logs =$this->Logs->find('count', array('conditions'=>array('status'=>'1')));
@@ -637,7 +877,7 @@ class CostomersController extends AppController {
 					foreach($input as $inputs){
 						$input_money = $inputs['money'];
 					}
-					if($input_money == null || $input_money<1){
+					if($input_money == null || $input_money<=0){
 						$this->Session->setFlash(__('សូមដកប្រាក់ជាមួយតម្លៃដែលត្រឹមត្រូវ'), 'default', array('class' => 'notification'), 'notification');
 
 						$this->redirect(array(
@@ -734,7 +974,7 @@ class CostomersController extends AppController {
 				}
 			}
 		}
-
+	
 		$this->set('customers', $findCustomer);	
 		$this->set('sum_beni', $sum_beni);	
 		$this->set('cus_code', $cus_code);	
@@ -976,6 +1216,10 @@ class CostomersController extends AppController {
 	
 	function view_refer($id){
 		
+		$cus = $this->Costomer->find('first', array(
+		'conditions' => array(
+		'id' => $id)));
+		
 		$this->loadModel('One');
 		$this->loadModel('Two');
 		$this->loadModel('Three');
@@ -1148,7 +1392,6 @@ class CostomersController extends AppController {
 		$count_one = 0;
 		$count_two = 0;
 		$count_three = 0;
-		
 		$one = $this->One->find('all',array(
 			'conditions' => array(
 			'One.costomer_id' => $id)));

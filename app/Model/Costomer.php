@@ -56,6 +56,11 @@ public $validate = array(
         	'allowEmpty'=>false,
         	'message'=>'សូមបញ្ចូលលេខកូដរបស់អ្នកនាំមកជាមុនសិន'
         	),
+        'dob'=>array(
+        	'rule'=>array('notEmpty'),
+        	'allowEmpty'=>false,
+        	'message'=>'សូមបញ្ចូលលថ្ងៃខែឆ្នាំកំណើតរបស់អ្នក'
+        	),
 
     );
 
